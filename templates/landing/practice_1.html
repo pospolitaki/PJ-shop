@@ -1,0 +1,130 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'animate.css' %}">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<style>
+  .black-text {
+    color: lightsalmon;
+  }
+
+  h2 {
+    font-family: Lobster, Monospace;
+}
+.main-pic-con{
+    height: 72vh;
+}
+.main-pic{
+    height: 72vh;
+    display: none;
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+        {% include "navbar_prod.html" %}
+    <div class="container-fluid">
+        <div class="text-center main-pic-con">
+            <img src="{% static 'img/home_main.jpg' %}" class="img-responsive main-pic mt-5" alt="home picture">
+        </div>    
+        
+        <h2 class="black-text text-center"> Jewelry & Accessories</h2>
+
+    </div>
+    <div class="text-center button-join-us">
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-success btn-block join-us"> Join us</button>
+                </div>
+            </div>
+    </div>
+
+
+
+
+<script>
+        /*
+        $(document).ready(function() {
+            $("buttom.join-us").addClass("animated headShake");
+        });
+        */
+        function followUs(){
+                $("i.fa-crow").addClass("animated bounce");
+                $("a.follow-us").addClass("animated jello");
+          };
+        //function joinUs(){
+        //    $("h2").addClass("animated headShake");
+        //};  
+        function joinUs(){
+            $("h2").addClass("animated fadeInLeft");
+            };
+        function joinUsHide(){
+            $("h2").css('opacity','0');
+            };
+        function joinUsShow(){
+            $("h2").css('opacity','1');
+            };
+       
+        function buttonAnimation(){
+            $("img.main-pic").fadeIn(5000);
+        };
+        
+        $(joinUsHide());
+        setTimeout(followUs, 5000);
+        setTimeout(joinUsShow, 3000);
+        setTimeout(joinUs, 3000);
+        setTimeout(buttonAnimation, 500)
+
+        setInterval(highlightBlock, 15000); // Every two seconds
+
+        function highlightBlock() {
+            $('i.fa-crow').css('color', 'skyblue'); // Change colour
+            setTimeout(function() {
+                    $('i.fa-crow').css('color', 'lightsalmon'); // Change back
+                    setTimeout(function() {
+                        $('i.fa-crow').css('color', 'white'); // Change back
+                }, 5000);}, 5000);
+            
+        }
+
+</script>
+<!-- 
+            $("h2").addClass("text-light"); we can add or remove classes
+            $("h2").removeClass("text-light");
+            $( "p:first" ).click(function() {
+                $( this ).fadeTo( "slow", 0.33 );
+              })  - fade down the opacity
+            $("img.main-pic").appendTo("div.button-join-us") - move object to another container  
+            $("img.main").parent().css("background-color", "blue")
+           left-well").parent().css("background-color", "blue")
+        $("div.container-fluid").children().css("color","orange") - access properties of all children elements
+        $(".target:nth-child(3)").addClass("animated bounce") - access nth children element
+        $(".target:odd").addClass("animated shake");
+        $(".target:even").addClass("animated shake"); - select the even element of the sequence
+        $("body").addClass("animated hinge");
+            
+ -->
+</body>
+</html>

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% load extra_tags %}
+
+{% block content %}
+
+    <div class="container-fluid img-h2 mb-0">
+        <div class="text-center main-pic-con-home mb-5">
+            <img src="{% static 'img/home_main_1.jpg' %}" class="img-fluid   main-pic" alt="home picture">
+        </div>    
+        
+        <h2 class="black-text text-center home"> Jewelry & Accessories</h2>
+
+    </div>
+    
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                    
+                {% for category in categories %}
+
+                <div class="col-lg-6 mb-4 align-self-center">
+                    <div class="product-item">
+
+                        <a class="product-link" target="_self" href={% url 'landing:categories' category=category.id %} >
+
+                        <div class="carousel slide" id="{{category.name|nospace}}" data-ride='false' data-pause="false" data-interval='1750'>
+
+                                    
+
+                                <div class="carousel-inner">
+                                    
+                                    {% for product in category.products.all|is_active|slice:"::-1"|slice:":3" %}
+                                    {% for img in product.product_imgs.all|slice:":2" %}
+                                    
+                                    {% if forloop.parentloop.first and forloop.first%}
+                                        <div class="carousel-item active">
+                                    {% else %}
+                                        <div class="carousel-item">
+                                    {% endif %}
+                                    
+
+                                        <img src="{{ img.image.url }}" alt="product img" class="img-fluid d-block rounded">
+                                        
+                                    </div>
+                                    
+                                    {% endfor %}
+                                    {% endfor %}
+
+                                    {% comment %} 
+                                     display carousel caption and button on carousel's pics 
+                                    
+                                    <div class="carousel-caption">
+                                        <h4>{{category|truncatechars_html:40}}</h4>
+
+                                        <form action={% url 'landing:categories' category=category.id %}>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                            <button type="submit" class="btn btn-success btn-block join-us">Show</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                    </div>
+                                    
+                                    {% endcomment %}
+                                </div>
+                            </div> 
+                            <div class="text-center">
+                                <h3 class="category-name">{{category|truncatechars_html:40}}</h4> 
+                            </div>    
+                            </a>
+                           
+                            
+                            <a class="carousel-control-prev" href="#{{category.name|nospace}}" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#{{category.name|nospace}}" data-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                </a>
+                                
+                                {% comment %} <form action={% url 'landing:categories' category=category.id %}>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <button type="submit" class="btn btn-success btn-block join-us">Show</button>
+                                        </div>
+                                    </div>
+                                </form> {% endcomment %}
+                        
+                        </div>
+                    </div>
+                    {% endfor %}
+              
+            </div>
+        </div>
+        
+    </div>
+
+
+<script src="{% static 'js/home_page.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+   
+    
+<div class="container-fluid img-h2-detail">
+        <!-- <div class="text-center main-pic-con-home mb-5">
+            <img src="{% static 'img/home_main_1.jpg' %}" class="img-fluid   main-pic" alt="home picture">
+        </div>     -->
+        
+        <h2 class="black-text text-center home"> Jewelry & Accessories</h2>
+
+    </div>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="category-header"> {{category.name}} </h1>
+                </div>
+                {% for product_image in products_images %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="product-item">
+                            <a class="product-detail-link" href={% url 'product:product_detail' product_id=product_image.product.id%}>
+
+                                <div>
+                                    <img src="{{ product_image.image.url }}" alt="product img" class="img-fluid rounded">
+                                </div>
+                                
+                                {% if product_image.product.discount %}
+                                <div class="discount-container text-center d-flex flex-row justify-content-center">
+                                    <h6 class="mb-0"><i>{{product_image.product.discount}}%</i></h6>
+                                </div>
+                            {% endif %}
+                            
+                        <div class="text-center product-description">
+                            <div class="text-center product-name">
+                                <h4 class="product-name">{{product_image.product.name|truncatechars_html:57}}</h4>
+                                </div>    
+                                <p>
+                                    {{ product_image.product.description|truncatechars_html:40 }}
+                            </p>
+                        </a>
+                            <div>
+                                {{ product_image.product.price }} USD
+                            </div>
+                        </div>
+                        <div class="add-to-cart-btn">
+                            <button class="btn btn-success"><i class="fa fa-cart-arrow-down"></i> Добавить в корзину</button>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+                        <div class="section-delivery d-flex justify-content-center">
+                            <div class="align-self-center">
+                                <h3>Free shipping</h3>
+                            </div>
+                        </div>
+        
+
+{% block script %}
+<script src="{% static 'js/home_page.js' %}"></script>
+{% endblock script %}
+{% endblock content %}

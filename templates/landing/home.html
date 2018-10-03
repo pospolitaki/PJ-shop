@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+   
+    
+<div class="container-fluid img-h2">
+        <!-- <div class="text-center main-pic-con-home mb-5">
+            <img src="{% static 'img/home_main_1.jpg' %}" class="img-fluid   main-pic" alt="home picture">
+        </div>     -->
+        
+        <h2 class="black-text text-center home"> Jewelry & Accessories</h2>
+
+    </div>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="category-header"> {{category.name}} </h1>
+                </div>
+                {% for product_image in products_images %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="product-item">
+                            <div >
+                                <img src="{{ product_image.image.url }}" alt="product img" class="img-fluid rounded">
+                            </div>
+                            <h4>{{product_image.product|truncatechars_html:20}}</h4>
+                            <p>
+                                {{ product_image.product.description|truncatechars_html:40 }}
+                            </p>
+                            <div>
+                                {{ product_image.product.price }} USD
+                            </div>
+                            <div class="add-to-cart-btn">
+                                <button class="btn btn-success"><i class="fa fa-cart-arrow-down"></i> Добавить в корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+        
+    </div>  
+
+    <!-- <div class="section section2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                        <h1 class="category-header"> Новые поступления</h1>
+                </div>
+                {% for product_image in products_images %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="product-item">
+                            <div >
+                                <img src="{{ product_image.image.url }}" alt="product img" class="img-fluid rounded">
+                            </div>
+                            <h4>{{product_image.product|truncatechars_html:20}}</h4>
+                            <p>
+                                {{ product_image.product.description|truncatechars_html:40 }}
+                            </p>
+                            <div>
+                                {{ product_image.product.price }} USD
+                            </div>
+                            <div class="add-to-cart-btn">
+                                <button class="btn btn-success"><i class="fa fa-cart-arrow-down"></i> Добавить в корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="section section3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="category-header"> Новые поступления</h1>
+                </div>
+                {% for product_image in products_images %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="product-item">
+                            <div >
+                                <img src="{{ product_image.image.url }}" alt="product img" class="img-fluid rounded">
+                            </div>
+                            <h4>{{product_image.product|truncatechars_html:20}}</h4>
+                            <p>
+                                {{ product_image.product.description|truncatechars_html:40 }}
+                            </p>
+                            <div>
+                                {{ product_image.product.price }} USD
+                            </div>
+                            <div class="add-to-cart-btn">
+                                <button class="btn btn-success"><i class="fa fa-cart-arrow-down"></i> Добавить в корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+        
+    </div> -->
+
+    <script src="{% static 'js/home_page.js' %}"></script>
+{% endblock content %}

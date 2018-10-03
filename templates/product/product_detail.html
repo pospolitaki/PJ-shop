@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% load extra_tags %}
+
+{% block content %}
+<div class="container-fluid img-h2-detail mb-3">
+    <h2 class="black-text text-center home"> handmade with love</h2>
+</div>
+
+<div class="product-detail-container">
+    <div class="row mx-0">
+        <div class="col-lg-6">
+            {% for image in product.product_imgs.all %}
+                <img class="img-fluid rounded" src="{{ image.image.url }}" alt="">
+            {% endfor %}
+        </div>
+        <div class="col-lg-6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Оформление заказа</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="d-flex flex-column align-items-center">
+                        <h1 class="descriprion-text">{{product.name}}</h1>
+                        <h4 class="descriprion-text">{{ product.description }}</h4>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+            </div>
+            <div>
+                <form action={% url 'landing:home' %} id="purchase-form">
+                        <div class="text-center button-join-us">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {% with 'product_forms/'|add:product.category.name|nospace|add:'.html' as special_order_form %}
+                                        {% include special_order_form %}
+                                        {% endwith %}
+                                        <button type="submit" class="btn btn-success btn-block join-us" id="purchase-submit-btn" data-product_id="{{product.id}}"
+                                        data-name="{{product.name}}"
+                                        data-price="{{product.price}}"
+
+
+                                        >Добавить в корзину</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="section-delivery d-flex justify-content-center">
+    <div class="align-self-center">
+        <h3>Free shipping</h3>
+    </div>
+</div>
+
+{% block script %}
+<script src="{% static 'js/product_detail.js' %}"></script>
+{% endblock script %}
+
+{% endblock content %}

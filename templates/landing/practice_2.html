@@ -1,0 +1,90 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'animate.css' %}">
+    <style>
+    </style>
+   
+</head>
+<body>
+  <input type="button" onclick="alert('Клик!')" value="Кнопка"/>
+
+  <input type="button" id="button" value="Кнопка" />
+<script>
+  button.onclick = function() {
+    alert( 'Клик!' );
+  };
+</script>
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'landing:practice2' %}"> Pr2</a>
+    </li>
+    <div class="btn-group follow-us-btn"> <!--#TODO: if dropdown still work back for mobile -fix it!-->
+      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span>Follow us</span> <span class="text-light "><i class="fas fa-crow"></i></span>
+      </button>
+      <div class="dropdown-menu">
+              <a class="dropdown-item" href="https://www.facebook.com/Petrosyan-Jewelry-815650388514952/"> <i class="fab fa-facebook-f  mr-1"></i>facebook</a>
+              <a class="dropdown-item" href="https://www.instagram.com/petrosyan_jewelry/"><i class="fab fa-instagram"></i> instagram</a>
+
+              
+      </div>
+</div>
+    </ul>
+    
+        
+        <div class="container-fluid">
+            <a href="{% url 'landing:practice' %}">Home</a>
+                <h3 class="text-primary text-center">jQuery Playground</h3>
+                <div class="row">
+                  <div class="col-6">
+                    <h4>#left-well</h4>
+                    <div class="well" id="left-well">
+                      <button class="btn btn-default target" id="target1">#target1</button>
+                      <button class="btn btn-default target" id="target2">#target2</button>
+                      <button class="btn btn-default target" id="target3">#target3</button>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <h4>#right-well</h4>
+                    <div class="well" id="right-well">
+                      <button class="btn btn-default target" id="target4">#target4</button>
+                      <button class="btn btn-default target" id="target5">#target5</button>
+                      <button class="btn btn-default target" id="target6">#target6</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+    $(document).ready(function() {
+        $("button").addClass("animated bounce");
+    });
+    $("#target4").appendTo("#left-well");
+</script>
+</body>
+</html>
