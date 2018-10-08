@@ -60,7 +60,7 @@ h4.product-name{
 }
 
 a.product-link:link {
-color: black;
+color: black !important ;
 }
 
 a.product-link:hover {
@@ -79,6 +79,10 @@ a.product-detail-link:hover {
 h3.category-name{
     font-family: 'PT Sans', sans-serif;
     }
+
+.descriprion-text {
+    font-family: 'PT Sans', sans-serif;
+}
 
 div.discount-container{
     position: absolute;

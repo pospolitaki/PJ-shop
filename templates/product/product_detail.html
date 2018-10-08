@@ -10,9 +10,35 @@
 <div class="product-detail-container">
     <div class="row mx-0">
         <div class="col-lg-6">
-            {% for image in product.product_imgs.all %}
-                <img class="img-fluid rounded" src="{{ image.image.url }}" alt="">
-            {% endfor %}
+            <div class="carousel slide" id="{{product.id}}" data-ride='carousel' data-pause="false" data-interval='5000'>
+
+                <div class="carousel-inner">
+                    
+                    {% for img in product.product_imgs.all %}
+                    
+                    {% if forloop.first%}
+                        <div class="carousel-item active">
+                    {% else %}
+                        <div class="carousel-item">
+                    {% endif %}
+                    
+
+                        <img src="{{ img.image.url }}" alt="product img" class="img-fluid d-block rounded">
+                        
+                    </div>
+                    {% endfor %}
+
+                   
+                </div> <!-- carousel-inner -->
+            
+            <a class="carousel-control-prev" href="#{{product.id}}" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#{{product.id}}" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+            </div>
         </div>
         <div class="col-lg-6">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
