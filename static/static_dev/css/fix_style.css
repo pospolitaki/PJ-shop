@@ -89,10 +89,13 @@ div.discount-container{
     top: 5%;
     left:0%;
     width: 20%;
+    height: 5%;
+    align-items: center;
     background-color: skyblue;
     color: white;
     font-weight: 700;
     border-radius: 3px;
+    z-index: 1;
     
 }
 
@@ -204,4 +207,7 @@ body {
 
 .fa-cart-plus{
     font-size: 21px;
+}
+
+.fixdiv{
 }
