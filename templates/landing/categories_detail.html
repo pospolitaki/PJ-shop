@@ -34,15 +34,17 @@
                             {% endif %}
                             
                         <div class="text-center product-description">
-                            <div class="text-center product-name">
+                            <div class="text-center product-name mb-2">
                                 <h4 class="product-name">{{product_image.product.name|truncatechars_html:57}}</h4>
-                                </div>    
-                                <p>
-                                    {{ product_image.product.description|truncatechars_html:40 }}
-                            </p>
+                            </div>    
                         </a>
                             <div>
-                                {{ product_image.product.price }} USD
+                                 <p class="my-0 product-description"> 
+                                    {% if product_image.product.discount %}
+                                        <strike class="text-danger">{{ product_image.product.price }}</strike> {{ product_image.product.new_price }}
+                                    {% else %}
+                                        {{ product_image.product.price }}
+                                 {% endif %}$ </p>
                             </div>
                         </div>
                         <div class="add-to-cart-btn">

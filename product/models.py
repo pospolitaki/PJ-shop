@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from decimal import Decimal, getcontext
+
+getcontext().prec = 2
 
 # Create your models here.
 
@@ -31,6 +34,10 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
+    
+    @property
+    def new_price(self):
+        return float(self.price - self.price * Decimal(self.discount / 100))
         
     
 class ProductImage(models.Model):
