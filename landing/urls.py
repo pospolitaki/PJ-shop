@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from landing import views
+from order.views import UserFormView
 
 app_name = 'landing'
 
@@ -24,6 +25,7 @@ urlpatterns = [
     url(r'^welcome$', views.welcome, name='welcome'),
     url(r'^categories/(?P<category>[\d]+)$', views.categories_detail, name='categories'),
     #url(r'^categories/(?P<category>[\w]+)$', views.categories, name='categories'),
+    url(r'^register$', UserFormView.as_view(), name='register'),
     url(r'^landing/$', views.landing, name='index'),
     url(r'^practice_1/$', views.practice, name='practice'),
     url(r'^practice_2/$', views.practice2, name='practice2'),

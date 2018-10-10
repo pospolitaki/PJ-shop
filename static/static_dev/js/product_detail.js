@@ -9,6 +9,46 @@ $(function() {
         var productName = submitBtn.data('name');
 
         console.log(quantity, productId, productPrice, productName);
+    
+    //ajax
+    var csrf_token = $('#purchase-form [name="csrfmiddlewaretoken"]').val();
+    var data = {
+        product_id : productId,
+        quantity : quantity,
+        csrfmiddlewaretoken : csrf_token
+    };
+    var url = form.attr("action");
+
+    console.log(data);
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: data,
+        cache: true,
+        success: function (data) {
+            console.log("OK");
+            console.log(data);
+            // console.log(data.products_total_nmb);
+            // if (data.products_total_nmb || data.products_total_nmb == 0){
+            //    $('#basket_total_nmb').text("("+data.products_total_nmb+")");
+            //     console.log(data.products);
+            //     $('.basket-items ul').html("");
+            //     $.each(data.products, function(k, v){
+            //        $('.basket-items ul').append('<li>'+ v.name+', ' + v.nmb + 'шт. ' + 'по ' + v.price_per_item + 'грн  ' +
+            //            '<a class="delete-item" href="" data-product_id="'+v.id+'">x</a>'+
+            //            '</li>');
+            //     });
+            // }
+
+        },
+        error: function(){
+            console.log("error");
+        }
+});
+
+    // ajax
+
+
     });
 
     var submitBtn = $('#purchase-submit-btn');
@@ -23,6 +63,8 @@ $(function() {
         discount = productDiscount;
         }
 
+    
+    
 
         
 function cost( num ) {

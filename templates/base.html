@@ -9,9 +9,8 @@
 
         <link rel="shortcut icon" href="{% static '/img/favicon.ico' %}" type="image/x-icon" />        
 
-        {% block title %}
-        <title class="title">P J</title>
-        {% endblock title %}
+        <title class="title">{% block title %}P J{% endblock title %}</title>
+        
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
         

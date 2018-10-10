@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Registration
+{% endblock title %}
+{% block content %}
+   
+    <div class="container-fluid img-h2-welcome">
+        <div class="text-center main-pic-con-welcome">
+            <img src="{% static 'img/home_main_1.jpg' %}" class="img-fluid main-pic-welcome" alt="home picture">
+        </div>    
+        
+        <h2 class="black-text text-center welcome"> Jewelry & Accessories</h2>
+
+    </div>
+    <div>
+        <form action={% url 'landing:home' %}>
+            
+            <div class="row justify-content-center">
+                <div class="col-4">   
+
+                    <div class="form-group">
+                        <label for="registerUsername">Username</label>
+                        <input type="text" class="form-control" id="registerUsername" aria-describedby="emailHelp" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email address</label>
+                        <input type="email" class="form-control" id="registerEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>    
+                
+                </div>
+                </div>
+
+            
+            <div class="text-center button-join-us">
+                <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-success btn-block join-us">Register</button>
+                        </div>
+                    </div>
+            </div>
+        </form>
+    </div>
+    
+    {% endblock content %}
+    
+    {% block script %}
+        <script src="{% static 'js/welcome_page.js' %}"></script>
+    {% endblock script %}

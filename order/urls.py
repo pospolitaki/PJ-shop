@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from landing import views
+from order import views
 
-app_name = 'landing'
+app_name = 'order'
 
 urlpatterns = [
+    url(r'^basket_adding/$', views.basket_adding, name='basket_adding'),
 ]

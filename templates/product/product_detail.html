@@ -82,7 +82,7 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
             </div>
             <div>
-                <form action={% url 'landing:home' %} id="purchase-form"> {% csrf_token %}
+                <form action={% url 'order:basket_adding' %} id="purchase-form"> {% csrf_token %}
                     <div class="text-center button-join-us">
                         <div class="row">
                             <div class="col-md-12">
