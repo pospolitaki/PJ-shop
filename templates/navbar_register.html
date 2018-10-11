@@ -1,0 +1,36 @@
+<div class="navbar-font">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand pj" href="{% url 'landing:home' %}">PJ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'landing:home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'landing:practice2' %}"> Pr2</a>
+                    </li>
+               <div class="btn-group follow-us-btn"> 
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span>Follow us</span> <span class="text-light "><i class="fas fa-crow"></i></span>
+                        </button>
+                        <div class="dropdown-menu">
+                                <a class="dropdown-item" href="https://www.facebook.com/Petrosyan-Jewelry-815650388514952/"> <i class="fab fa-facebook-f  mr-1"></i>facebook</a>
+                                <a class="dropdown-item" href="https://www.instagram.com/petrosyan_jewelry/"><i class="fab fa-instagram"></i> instagram</a>
+                        </div>
+                </div>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle follow-us-a" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Follow us <span class="text-light "><i class="fas fa-crow"></i></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="https://www.facebook.com/Petrosyan-Jewelry-815650388514952/"> <i class="fab fa-facebook-f  mr-1"></i>facebook</a>
+                                <a class="dropdown-item" href="https://www.instagram.com/petrosyan_jewelry/"><i class="fab fa-instagram"></i> instagram</a>
+                        </div>
+                </li>
+                </ul>
+            </div>
+        </nav>
+</div>

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Registration
+{% endblock title %}
+{% block navbar %}
+{% include "navbar_register.html" %}
+{% endblock navbar %}
+{% block content %}
+   
+    <div class="container-fluid img-h2-welcome">
+        <div class="text-center main-pic-con-welcome">
+            <img src="{% static 'img/home_main_1.jpg' %}" class="img-fluid main-pic-welcome" alt="home picture">
+        </div>    
+        <hr>
+        <h2 class="black-text text-center welcome"> {{ title }} </h2>
+
+    </div>
+    <div>
+        <form  action="{% url btn_url %}" method="POST"> {% csrf_token %}
+                <div class="row justify-content-center mb-1">
+                    <div class="col-md-4">   
+                        <div class="card">
+                            <h5 class="card-header">Register</h5>
+                            <div class="card-body">
+                            {{form|crispy}}
+                            {% block register %}
+                            <p><a href="{% url 'landing:register' %}" class="btn btn-dark">Зарегистрируйстесь здесь</a> ,чтобы следить за покупками</p>
+                            {% endblock register %}
+                            </div> <!-- card -->
+                        </div> <!-- card -->
+                    </div>
+                </div>
+            
+            <div class="text-center button-join-us">
+                <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-success btn-block join-us">Let's go</button>
+                        </div>
+                    </div>
+            </div>
+        </form>
+    </div>
+    
+    {% endblock content %}
+    
+    {% block script %}
+        <script src="{% static 'js/welcome_page.js' %}"></script>
+    {% endblock script %}

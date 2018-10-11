@@ -11,12 +11,17 @@ class UserRegisterFormView(View):
     title = 'Здесь Вы можете зарегестрироваться'
     btn_url = 'landing:register'
 
-    def get(self, request):
+    def get(self, request, next_page=''):
         form = self.form_class(None)
-        return render(request, self.template_name, {'form':form, 'title':self.title, 'btn_url':self.btn_url})
+        context = {
+            'form':form,
+            'title':self.title,
+            'btn_url':self.btn_url
+        }
+        return render(request, self.template_name, context)
 
     # process form data into db    
-    def post(self, request):
+    def post(self, request, next_page=''):
         form = self.form_class(request.POST or None)
         if form.is_valid():
 
@@ -33,20 +38,31 @@ class UserRegisterFormView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    #return redirect('landing:home')
-        return render(request, self.template_name, {'form':form, 'title':self.title, 'btn_url':self.btn_url})
+                    return redirect(self.__class__.next_page)
+        context = {
+            'form':form,
+            'title':self.title,
+            'btn_url':self.btn_url
+        }
+        return render(request, self.template_name, context)
 
 class UserLoginFormView(View):
     form_class = UserLoginForm
-    template_name = 'accounts/registration_form.html'
+    template_name = 'accounts/login_form.html'
     title = 'Вход'
     btn_url = 'landing:login'
-    next_page = None
 
     def get(self, request, next_page):
         form = self.form_class(None)
         self.__class__.next_page = next_page
-        return render(request, self.template_name, {'form':form, 'title':self.title, 'btn_url':self.btn_url})
+        UserRegisterFormView.next_page = next_page
+        print(UserRegisterFormView.next_page)
+        context = {
+            'form':form,
+            'title':self.title,
+            'btn_url':self.btn_url
+        }
+        return render(request, self.template_name, context)
 
     # process form data into db    
     def post(self, request, next_page=''):
@@ -63,7 +79,12 @@ class UserLoginFormView(View):
                     login(request, user)
                     #return redirect('landing:home')
                     return redirect(self.__class__.next_page)
-        return render(request, self.template_name, {'form':form, 'title':self.title, 'btn_url':self.btn_url})
+        context = {
+            'form':form,
+            'title':self.title,
+            'btn_url':self.btn_url
+        }
+        return render(request, self.template_name, context)
 
 def logout_view(request, next_page):
     logout(request)
