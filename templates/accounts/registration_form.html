@@ -12,22 +12,19 @@ Registration
             <img src="{% static 'img/home_main_1.jpg' %}" class="img-fluid main-pic-welcome" alt="home picture">
         </div>    
         <hr>
-        <h2 class="black-text text-center welcome"> Здесь Вы можете зарегистрироваться </h2>
+        <h2 class="black-text text-center welcome"> {{ title }} </h2>
 
     </div>
     <div>
-        <form  action="{% url 'landing:register' %}" method="POST"> {% csrf_token %}
-
+        <form  action="{% url btn_url %}" method="POST"> {% csrf_token %}
                 <div class="row justify-content-center mb-1">
-                    <div class="col-4">   
-                               
+                    <div class="col-md-4">   
                         <div class="card">
                             <h5 class="card-header">Register</h5>
                             <div class="card-body">
                             {{form|crispy}}
                             </div> <!-- card -->
                         </div> <!-- card -->
-
                     </div>
                 </div>
             
