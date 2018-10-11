@@ -30,7 +30,7 @@ class UserFormView(View):
 
     # process form data into db    
     def post(self, request):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST or None)
         if form.is_valid():
 
             user = form.save(commit=False)
