@@ -38,7 +38,10 @@ class UserRegisterFormView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect(self.__class__.next_page)
+                    if self.__class__.next:
+                        return redirect(self.__class__.next)
+                    return redirect('landing:home')
+                    
         context = {
             'form':form,
             'title':self.title,
@@ -52,11 +55,9 @@ class UserLoginFormView(View):
     title = 'Вход'
     btn_url = 'landing:login'
 
-    def get(self, request, next_page):
+    def get(self, request, next_page=''):
+        self.__class__.next = UserRegisterFormView.next = request.GET.get('next')
         form = self.form_class(None)
-        self.__class__.next_page = next_page
-        UserRegisterFormView.next_page = next_page
-        print(UserRegisterFormView.next_page)
         context = {
             'form':form,
             'title':self.title,
@@ -77,8 +78,9 @@ class UserLoginFormView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    #return redirect('landing:home')
-                    return redirect(self.__class__.next_page)
+                    if self.__class__.next:
+                        return redirect(self.__class__.next)
+                    return redirect('landing:home')
         context = {
             'form':form,
             'title':self.title,
@@ -86,8 +88,11 @@ class UserLoginFormView(View):
         }
         return render(request, self.template_name, context)
 
-def logout_view(request, next_page):
+def logout_view(request):
     logout(request)
-    return redirect(next_page)
+    next = request.GET.get('next')
+    if next:
+        return redirect(next)
+    return redirect('landing:home')
     
 
