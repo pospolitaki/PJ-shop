@@ -53,10 +53,10 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item ">
                     {% if request.user.is_authenticated %}
-                        <a class="nav-link" href="{% url 'landing:logout' %}?next={{ request.path }}" id="">
+                        <a class="nav-link" href="/accounts/logout/?next={{ request.path }}" id="">
                          {{request.user.username}} <i class="fas fa-sign-out-alt"></i></a>
                         {% else %}
-                        <a class="nav-link" href="{% url 'landing:login' %}?next={{ request.path }}" id="">
+                        <a class="nav-link" href="/accounts/login/?next={{ request.path }}" id="">
                         Вход <i class="fas fa-sign-in-alt"></i></a>
                         {% endif %}
                     </li>

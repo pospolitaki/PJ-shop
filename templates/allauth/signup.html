@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block title %}
+Sign up
+{% endblock title %}
+{% block navbar %}
+{% include "navbar_register.html" %}
+{% endblock navbar %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid img-h2-welcome">
+            
+        <hr>
+        <h2 class="black-text text-center welcome"> {% trans "Регистрация" %} </h2>
+
+    </div>
+<div class="">
+
+  <div class="row justify-content-center mb-1">
+                    <div class="col-md-6">
+{# <h1>{% trans "Sign Up" %}</h1> #}
+<p>{% blocktrans %}Already have an account? Then please <a class="text-light btn btn-dark" href="{{ login_url }}">sign in here</a>.{% endblocktrans %}</p>
+
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form|crispy }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success btn-block join-us">Let's go</button>
+                    </div>
+                </div>
+</form>
+
+{% endblock %}
+{% block script %}
+  <script src="{% static 'js/welcome_page.js' %}"></script>
+{% endblock script %}
+
+{% block footer %}
+{% endblock footer %}

@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^', include(landing_urls, namespace='landing')),
     url(r'^', include(product_urls, namespace='product')),
     url(r'^', include(order_urls, namespace='order')),
+    url(r'^accounts/', include('allauth.urls')),
 ] \
 + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
