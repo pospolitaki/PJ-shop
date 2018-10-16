@@ -217,3 +217,24 @@ body {
 
 .fixdiv{
 }
+
+div.messages{
+/*    background-color: salmon;
+    color: #f7fff7;
+*/
+    position: absolute;
+    top: 7%;
+    right:0%;
+    width: 20%;
+    height: 5%;
+    font-weight: 700;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+ul.messages{
+    list-style-type: none;
+}
+
+ul.messages li { display: inline; }
+

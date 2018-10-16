@@ -24,11 +24,6 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^welcome$', views.welcome, name='welcome'),
     url(r'^categories/(?P<category>[\d]+)$', views.categories_detail, name='categories'),
-    #auth v
-    url(r'^register$', UserRegisterFormView.as_view(), name='register'),
-    url(r'^login/$', UserLoginFormView.as_view(), name='login'),
-    url(r'^logout/$', logout_view, name='logout'),
-    #auth ^
     url(r'^landing/$', views.landing, name='index'),
     url(r'^practice_1/$', views.practice, name='practice'),
     url(r'^practice_2/$', views.practice2, name='practice2'),

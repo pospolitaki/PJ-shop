@@ -26,7 +26,7 @@ class Order(models.Model):
     customer_adress =models.CharField(max_length=128, blank=True, null=True, default=None)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) # total price for all products
     comment = models.TextField(blank=True, null=True, default=None)
-    status = models.ForeignKey(Status,on_delete=models.CASCADE)
+    status = models.ForeignKey(Status,on_delete=models.SET_NULL, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 
@@ -43,7 +43,7 @@ class Order(models.Model):
 
 class ProductInOrder(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True,null=True, default=None)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, default=None)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True, default=None)
     nmb = models.IntegerField(default=1)
     price_per_item = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) #price * nmb
