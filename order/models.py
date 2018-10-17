@@ -19,7 +19,7 @@ class Status(models.Model):
         verbose_name_plural = 'Статусы'
     
 
-class Order(models.Model):
+class Order1(models.Model):
     customer_email = models.EmailField(blank=True, null=True, default=None)
     customer_name = models.CharField(max_length=128)
     customer_phone = models.CharField(max_length=128, blank=True, null=True, default=None)
@@ -42,7 +42,7 @@ class Order(models.Model):
         
 
 class ProductInOrder(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True,null=True, default=None)
+    order = models.ForeignKey(Order1, on_delete=models.CASCADE, blank=True,null=True, default=None)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True, default=None)
     nmb = models.IntegerField(default=1)
     price_per_item = models.DecimalField(max_digits=10, decimal_places=2, default=0)
@@ -82,7 +82,7 @@ post_save.connect(product_in_order_post_save, sender=ProductInOrder)
 
 class ProductInCart(models.Model):
     session_key = models.CharField(max_length=128, blank=True, null=True, default=None)
-    order = models.ForeignKey(Order,on_delete=models.SET_NULL, blank=True, null=True, default=None)
+    order = models.ForeignKey(Order1,on_delete=models.SET_NULL, blank=True, null=True, default=None)
     product = models.ForeignKey(Product,on_delete=models.SET_NULL, blank=True, null=True, default=None)
     nmb = models.IntegerField(default=1)
     price_per_item = models.DecimalField(max_digits=10, decimal_places=2, default=0)

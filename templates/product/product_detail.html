@@ -82,7 +82,7 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
             </div>
             <div>
-                <form action={% url 'order:basket_adding' %} id="purchase-form"> {% csrf_token %}
+                <form action={% url 'shopping_cart:add_to_cart' item_id=product.id%} id="purchase-form"> {% csrf_token %}
                     <div class="text-center button-join-us">
                         <div class="row">
                             <div class="col-md-12">
@@ -96,6 +96,18 @@
                                 data-price="{{product.price}}"
                                 data-discount="{{product.discount}}"
                                 
+                                >Добавить в корзину</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form action={% url 'shopping_cart:add_to_cart' product.id%} id="cart-form"> 
+                    <div class="text-center button-join-us">
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                                <button type="submit" class="btn btn-success btn-block" id="add-to-cart-btn" 
                                 >Добавить в корзину</button>
                                 
                             </div>

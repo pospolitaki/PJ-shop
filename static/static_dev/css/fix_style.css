@@ -223,9 +223,9 @@ div.messages{
     color: #f7fff7;
 */
     position: absolute;
-    top: 7%;
+    top: 8%;
     right:0%;
-    width: 20%;
+    width: 50%;
     height: 5%;
     font-weight: 700;
     border-radius: 3px;
@@ -238,3 +238,6 @@ ul.messages{
 
 ul.messages li { display: inline; }
 
+#cart-product-img{
+    max-width: 10%;
+}

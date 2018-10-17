@@ -27,6 +27,10 @@ urlpatterns = [
     url(r'^', include(product_urls, namespace='product')),
     url(r'^', include(order_urls, namespace='order')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^/', include('allauth.urls')),
+    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    url(r'^cart/', include('shopping_cart.urls', namespace='shopping_cart')),
+
 ] \
 + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

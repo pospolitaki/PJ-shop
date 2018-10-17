@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from landing import views
-from accounts.views import UserRegisterFormView, UserLoginFormView, logout_view
 
 app_name = 'landing'
 
