@@ -64,12 +64,12 @@
                          {{request.user.username}}</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/accounts/logout/?next={{ request.path_info }}" id=""><i class="fas fa-sign-out-alt"></i></a>
+                        <a class="nav-link" href="{% url 'allauth:account_logout' %}?next={{ request.path_info }}" id=""><i class="fas fa-sign-out-alt"></i></a>
                     </li>
                          
                         {% else %}
                     <li class="nav-item ">
-                        <a class="nav-link" href="/accounts/login/?next={{ request.path_info }}" id="">
+                        <a class="nav-link" href="{% url 'allauth:account_login' %}?next={{ request.path_info }}" id="">
                         Вход <i class="fas fa-sign-in-alt"></i></a>
                     </li>
                         {% endif %}

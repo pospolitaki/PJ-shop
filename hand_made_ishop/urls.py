@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^', include(landing_urls, namespace='landing')),
     url(r'^', include(product_urls, namespace='product')),
     url(r'^', include(order_urls, namespace='order')),
-    url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/', include('allauth.urls', namespace='allauth')),
     url(r'^/', include('allauth.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^cart/', include('shopping_cart.urls', namespace='shopping_cart')),
