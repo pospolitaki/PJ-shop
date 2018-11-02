@@ -46,10 +46,17 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{% url 'shopping_cart:order_summary' %}" id="cart"><i class="fas fa-cart-plus"></i></a>
+                    <li class="nav-item fa-stack">
+                        <a class="nav-link" href="{% url 'shopping_cart:order_summary' %}" id="cart-with-nmb">
+                                <span id='cart_items_amount' class="p1" data-count='0'>
+                                <i class="fa fa-cart-plus fa-stack-2x"></i>
+                                </span>
+                        </a>
                     </li>
                 </ul>
+
+                {% comment %}ERROR HERE! {{ request.user.profile.get_pending_order.items.count }} {% endcomment %}
+
                 <ul class="nav navbar-nav navbar-right">
                     {% if request.user.is_authenticated %}
                     <li class="nav-item">
@@ -57,12 +64,12 @@
                          {{request.user.username}}</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="/accounts/logout/?next={{ request.path }}" id=""><i class="fas fa-sign-out-alt"></i></a>
+                        <a class="nav-link" href="/accounts/logout/?next={{ request.path_info }}" id=""><i class="fas fa-sign-out-alt"></i></a>
                     </li>
                          
                         {% else %}
                     <li class="nav-item ">
-                        <a class="nav-link" href="/accounts/login/?next={{ request.path }}" id="">
+                        <a class="nav-link" href="/accounts/login/?next={{ request.path_info }}" id="">
                         Вход <i class="fas fa-sign-in-alt"></i></a>
                     </li>
                         {% endif %}

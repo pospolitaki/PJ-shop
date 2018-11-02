@@ -3,7 +3,7 @@ from product.models import *
 from django.contrib.auth.decorators import login_required
 
 
-@login_required
+# @login_required
 def product_detail(request,product_id):
     product = Product.objects.get(id=product_id)
     categories = Category.objects.all()

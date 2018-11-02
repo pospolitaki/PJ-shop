@@ -10,7 +10,10 @@ from product.models import Product
 from shopping_cart.extras import generate_order_id
 from shopping_cart.models import OrderItem, Order, Transaction
 
+from django.http import JsonResponse
+
 import datetime
+import json
 
 
 def get_user_pending_order(request):
@@ -23,41 +26,56 @@ def get_user_pending_order(request):
     return 0
 
 
-@login_required()
+# @login_required() #fixing ajax + login_requiered cooperating
 def add_to_cart(request, **kwargs):
-    
+    return_data = dict()
+
+    if request.user.is_authenticated():
     # get the user profile
-    user_profile = get_object_or_404(Profile, user=request.user)
-    # filter products by id
+        user_profile = get_object_or_404(Profile, user=request.user)
+        # filter products by id
 
-    product = Product.objects.filter(id=kwargs.get('item_id', "")).first()
-    # check if the user already owns this product
-    print(user_profile)
-    print(request)
-    print(kwargs.get('item_id', ""))
-    print(product)
-    if product in request.user.profile.purchases.all():
-        messages.info(request, 'You already own this jewelery')
-        return redirect(reverse('landing:home')) 
-    # create orderItem of the selected product
-    order_item, status = OrderItem.objects.get_or_create(product=product)
-    # create order associated with the user
-    user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
-    user_order.items.add(order_item)
-    print(order_item)
-    print(user_order.owner)
-    print(user_order.is_ordered)
+        product = Product.objects.filter(id=kwargs.get('item_id', "")).first()
+        # check if the user already owns this product
+        if product in request.user.profile.purchases.all():
+            messages.info(request, 'You already own this jewelery')
+            return redirect(reverse('landing:home')) 
+        # create orderItem of the selected product
+        order_item, status = OrderItem.objects.get_or_create(product=product)
+        # create order associated with the user
+        user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
+        user_order.items.add(order_item)
+        print(order_item)
+        print(user_order.owner)
+        print(request.POST)
 
-    if status:
-        # generate a reference code
-        user_order.ref_code = generate_order_id()
-        user_order.save()
+        if status:
+            # generate a reference code
+            user_order.ref_code = generate_order_id()
+            user_order.save()
 
-    # show confirmation message and redirect back to the same page
-    messages.info(request, "item added to cart")
-    product_id = kwargs.get('item_id')
-    return redirect(reverse('product:product_detail', kwargs={'product_id': product_id}))
+        # show confirmation message and redirect back to the same page
+        messages.info(request, "item added to cart")
+        product_id = kwargs.get('item_id')
+        # playing with ajax VVV
+        return redirect(reverse('product:product_detail', kwargs={'product_id': product_id}))
 
+        django_messages = list()
+
+        for message in messages.get_messages(request):
+            django_messages.append({
+            "level": message.level,
+            "message": message.message,
+            "extra_tags": message.tags,
+            })
+
+        # if request.is_ajax():
+        #     print("AJAX!!!")
+
+        return_data.update({'amount':request.user.profile.orders.filter(is_ordered=False)[0].items.count() or 0, 'messages':django_messages, 'authenticated': True})
+    else:
+        return_data.update({ 'authenticated': False })
+    return JsonResponse(return_data)
 
 @login_required()
 def delete_from_cart(request, item_id):

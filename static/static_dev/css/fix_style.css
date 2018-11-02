@@ -211,9 +211,12 @@ body {
     color: skyblue;
 }
 
+
 .fa-cart-plus{
     font-size: 21px;
 }
+
+
 
 .fixdiv{
 }
@@ -223,8 +226,8 @@ div.messages{
     color: #f7fff7;
 */
     position: absolute;
-    top: 8%;
-    right:0%;
+    top: 10%;
+    right:2%;
     width: 50%;
     height: 5%;
     font-weight: 700;
@@ -238,6 +241,31 @@ ul.messages{
 
 ul.messages li { display: inline; }
 
-#cart-product-img{
-    max-width: 10%;
+/* #cart-product-img{
+    max-width: 30%;
+} */
+
+#cart-with-nmb{
+    color: skyblue;
 }
+
+#cart-with-nmb .p1[data-count]:after{
+    position:absolute;
+    right:6%;
+    top:5%;
+    content: attr(data-count);
+    font-size:70%;
+    border-radius:50%;
+    line-height:1em;
+    color: white;
+    background:rgba(250, 128, 114, 0.7);
+    text-align:center;
+    min-width: 1em;
+    font-weight:bold;
+  }
+  
+  
+.fa-stack{
+    font-size: 21px;
+}
+

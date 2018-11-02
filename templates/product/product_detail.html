@@ -82,7 +82,7 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
             </div>
             <div>
-                <form action={% url 'shopping_cart:add_to_cart' item_id=product.id%} id="purchase-form"> {% csrf_token %}
+                <form action={% url 'shopping_cart:add_to_cart' item_id=product.id %} id="purchase-form" method="POST"> {% csrf_token %}
                     <div class="text-center button-join-us">
                         <div class="row">
                             <div class="col-md-12">
@@ -90,30 +90,63 @@
                                 {% include special_order_form with product=product %}
                                 {% endwith %}
                                 
-                                <button type="submit" class="btn btn-success btn-block add-to-cart" id="purchase-submit-btn" 
-                                data-product_id="{{product.id}}"
-                                data-name="{{product.name}}"
-                                data-price="{{product.price}}"
-                                data-discount="{{product.discount}}"
+                               {% if request.user.is_authenticated %}
+                               
+                               <button type="submit" class="btn btn-success btn-block add-to-cart" id="purchase-submit-btn" 
+                               data-product_id="{{product.id}}"
+                               data-name="{{product.name}}"
+                               data-price="{{product.price}}"
+                               data-discount="{{product.discount}}"
+                               
+                               >Добавить в корзину</button>
+
+                               {% else %}
+                               
+                               <button type="button" class="btn btn-success btn-block add-to-cart"
+                               id="purchase-submit-btn" 
+                               data-product_id="{{product.id}}"
+                               data-name="{{product.name}}"
+                               data-price="{{product.price}}"
+                               data-discount="{{product.discount}}"
+                               data-toggle="modal" data-target="#exampleModalCenter">
+                                Добавить в корзину
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      ...
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <a href="/accounts/login/?next={{ request.path_info}}" class="btn btn-primary"  role="button">Register</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                               {% endif %}
+
                                 
-                                >Добавить в корзину</button>
                                 
                             </div>
                         </div>
                     </div>
                 </form>
-                <form action={% url 'shopping_cart:add_to_cart' product.id%} id="cart-form"> 
-                    <div class="text-center button-join-us">
-                        <div class="row">
-                            <div class="col-md-12">
-                                
-                                <button type="submit" class="btn btn-success btn-block" id="add-to-cart-btn" 
-                                >Добавить в корзину</button>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </form>
+            
+                {% if object in current_order_products %}
+            <a href="{% url 'shopping_cart:order_summary' %}" class="btn btn-warning">Go to Cart</a>
+            {% else %}
+            <a href="{% url 'shopping_cart:add_to_cart' product.id%}" class="btn btn-warning">Add to Cart</a>
+            {% endif %}
             </div>
             
         </div><!-- flex -->
