@@ -16,11 +16,6 @@
         });
 
         console.log(quantity, productId, productPrice, productName, orderDetails);
-
-        
-
-        
-    
 //vvv ajax request to server on submit btn click, instead of sending standart POST request
     var csrf_token = $('#purchase-form [name="csrfmiddlewaretoken"]').val();
     var data = {
@@ -32,7 +27,6 @@
     var url = form.attr("action");
 
     console.log(data);
-    
 
     $.ajax({
         url: url,
@@ -40,22 +34,18 @@
         data: data,
         cache: true,
         success: function (data) {
-            
             $('#cart_items_amount').attr('data-count', data.amount);
-            $('#span-purchase-submit-btn').html('<a href="{% url &#39 shopping_cart:order_summary &#39 %}" class="btn btn-block btn-secondary" id="purchase-submit-btn" type="button"        data-product_id="{{product.id}}" data-name="{{product.name}}" data-price="{{product.price}}" data-discount="{ {product.discount}}">Go to Cart</a>');
+            $('#span-purchase-submit-btn').html('<a href="{% url &#39shopping_cart:order_summary&#39 %}" class="btn btn-block btn-secondary" id="purchase-submit-btn" type="button"        data-product_id="{{product.id}}" data-name="{{product.name}}" data-price="{{product.price}}" data-discount="{ {product.discount}}">Go to Cart</a>');
 
-            // function update_messages(messages){
-            //     $("#messages-list").html("");
-            //     $.each(messages, function (i, m) {
-            //                     $("#messages-list").append('<li>' + m.message + '</li>');
-            //                 }); 
-            //             } 
-            // update_messages(data.messages);
+            function update_messages(messages){
+                $("#messages-list").html("");
+                $("#messages-list").append('<li>' + '<h5 class="font-italic font-weight-bold">' + messages.message + '</h5>' + '</li>');
+                } 
+            update_messages(data.messages);
             console.log("OK");
             console.log(data);
-            // console.log(data.messages.message);
-
-
+            console.log(data.messages);
+            console.log(data.messages.message);
             // console.log(data.products_total_nmb);
             // if (data.products_total_nmb || data.products_total_nmb == 0){
             //    $('#basket_total_nmb').text("("+data.products_total_nmb+")");
@@ -76,8 +66,6 @@
 });
     // ajax ^^^
     });
-
-    
 // calculates total price, depends on inputed amount
     var submitBtn = $('#purchase-submit-btn');
     var productPrice = parseFloat(submitBtn.data('price'));
@@ -90,7 +78,6 @@
     if (!isNaN(productDiscount) && productDiscount) {
         discount = productDiscount;
         }
-
 
 function cost( num ) {
         var cost = new Number( parseFloat( num ) * productPrice);
