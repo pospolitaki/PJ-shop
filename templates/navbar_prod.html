@@ -45,16 +45,19 @@
 
 
                 </ul>
+                
+                {% if request.user.is_authenticatedcart_items_amount %}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item fa-stack">
                         <a class="nav-link" href="{% url 'shopping_cart:order_summary' %}" id="cart-with-nmb">
-                                <span id='cart_items_amount' class="p1" data-count='0'>
+                            <span id='cart_items_amount' class="p1" data-count={{cart_items_amount}}>
                                 <i class="fa fa-cart-plus fa-stack-2x"></i>
-                                </span>
+                            </span>
                         </a>
                     </li>
                 </ul>
-
+                {% endif %}
+                
                 {% comment %}ERROR HERE! {{ request.user.profile.get_pending_order.items.count }} {% endcomment %}
 
                 <ul class="nav navbar-nav navbar-right">

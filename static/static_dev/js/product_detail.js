@@ -1,4 +1,4 @@
-$(function() {
+    $(function() {
     var form = $('#purchase-form');
     form.on('submit', function(e){
         e.preventDefault();
@@ -8,27 +8,53 @@ $(function() {
         var productPrice = submitBtn.data('price');
         var productName = submitBtn.data('name');
 
-        console.log(quantity, productId, productPrice, productName);
+        // var orderDetails = $("#purchase-form input[type='radio']:checked").val();
+
+        var orderDetails = '';
+        $("#purchase-form input[type=radio]:checked").each(function() {
+            orderDetails = orderDetails + ' ' + this.name +' : ' + this.value + ',';
+        });
+
+        console.log(quantity, productId, productPrice, productName, orderDetails);
+
+        
+
+        
     
-    //ajax
+//vvv ajax request to server on submit btn click, instead of sending standart POST request
     var csrf_token = $('#purchase-form [name="csrfmiddlewaretoken"]').val();
     var data = {
         product_id : productId,
         quantity : quantity,
+        order_details : orderDetails,
         csrfmiddlewaretoken : csrf_token
     };
     var url = form.attr("action");
 
     console.log(data);
+    
+
     $.ajax({
         url: url,
         type: 'POST',
         data: data,
         cache: true,
         success: function (data) {
+            
+            $('#cart_items_amount').attr('data-count', data.amount);
+            $('#span-purchase-submit-btn').html('<a href="{% url &#39 shopping_cart:order_summary &#39 %}" class="btn btn-block btn-secondary" id="purchase-submit-btn" type="button"        data-product_id="{{product.id}}" data-name="{{product.name}}" data-price="{{product.price}}" data-discount="{ {product.discount}}">Go to Cart</a>');
+
+            // function update_messages(messages){
+            //     $("#messages-list").html("");
+            //     $.each(messages, function (i, m) {
+            //                     $("#messages-list").append('<li>' + m.message + '</li>');
+            //                 }); 
+            //             } 
+            // update_messages(data.messages);
             console.log("OK");
             console.log(data);
-            console.log(url);
+            // console.log(data.messages.message);
+
 
             // console.log(data.products_total_nmb);
             // if (data.products_total_nmb || data.products_total_nmb == 0){
@@ -43,16 +69,16 @@ $(function() {
             // }
 
         },
-        error: function(){
+        error: function(xhr, status, error) {
             console.log("error");
-        }
+            console.log(xhr.responseText);
+          }
 });
-
-    // ajax
-
-
+    // ajax ^^^
     });
 
+    
+// calculates total price, depends on inputed amount
     var submitBtn = $('#purchase-submit-btn');
     var productPrice = parseFloat(submitBtn.data('price'));
     var quantityInput = $("#quantity-input");
@@ -65,10 +91,7 @@ $(function() {
         discount = productDiscount;
         }
 
-    
-    
 
-        
 function cost( num ) {
         var cost = new Number( parseFloat( num ) * productPrice);
         
@@ -113,3 +136,14 @@ function JewelryAccessoriesFadeIn(){
 }*/
 
 setTimeout(JewelryAccessoriesFadeIn, 500);
+
+        
+//if own size input - sets value of #other radio input to entered size
+var ownSizeInput = $('#product-own-size-input');
+
+ownSizeInput[0].addEventListener('input', function( event ) {
+    var value = event.target.value;
+    $('#own').val(parseFloat(value)+ 'cм');
+});
+
+

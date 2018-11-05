@@ -48,6 +48,7 @@ def add_to_cart(request, **kwargs):
         print(order_item)
         print(user_order.owner)
         print(request.POST)
+        print(request.user.is_authenticated)
 
         if status:
             # generate a reference code
@@ -58,21 +59,19 @@ def add_to_cart(request, **kwargs):
         messages.info(request, "item added to cart")
         product_id = kwargs.get('item_id')
         # playing with ajax VVV
-        return redirect(reverse('product:product_detail', kwargs={'product_id': product_id}))
+        # return redirect(reverse('product:product_detail', kwargs={'product_id': product_id}))
 
-        django_messages = list()
+        django_messages = dict()
 
         for message in messages.get_messages(request):
-            django_messages.append({
+            django_messages.update({
             "level": message.level,
             "message": message.message,
             "extra_tags": message.tags,
             })
 
-        # if request.is_ajax():
-        #     print("AJAX!!!")
-
         return_data.update({'amount':request.user.profile.orders.filter(is_ordered=False)[0].items.count() or 0, 'messages':django_messages, 'authenticated': True})
+        print('We done it! Thanks God!')
     else:
         return_data.update({ 'authenticated': False })
     return JsonResponse(return_data)
