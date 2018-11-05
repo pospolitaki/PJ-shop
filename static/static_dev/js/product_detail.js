@@ -25,6 +25,7 @@
         csrfmiddlewaretoken : csrf_token
     };
     var url = form.attr("action");
+    var cart_url = $('#cart-with-nmb').attr("href");
 
     console.log(data);
 
@@ -35,7 +36,7 @@
         cache: true,
         success: function (data) {
             $('#cart_items_amount').attr('data-count', data.amount);
-            $('#span-purchase-submit-btn').html('<a href="{% url &#39shopping_cart:order_summary&#39 %}" class="btn btn-block btn-secondary" id="purchase-submit-btn" type="button"        data-product_id="{{product.id}}" data-name="{{product.name}}" data-price="{{product.price}}" data-discount="{ {product.discount}}">Go to Cart</a>');
+            $('#span-purchase-submit-btn').html('<a href="'+cart_url+'" class="btn btn-block btn-secondary" id="purchase-submit-btn" type="button"        data-product_id="{{product.id}}" data-name="{{product.name}}" data-price="{{product.price}}" data-discount="{ {product.discount}}">Go to Cart</a>');
 
             function update_messages(messages){
                 $("#messages-list").html("");

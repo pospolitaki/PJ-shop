@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-
  <section>
   <div class="row mx-0">
   <div class="col-sm-8 offset-sm-2">
@@ -12,7 +11,8 @@
         <th>no.</th>
         <th></th>
         <th>Item</th>
-        <th>Price</th>
+        <th>Quantity</th>
+        <th>Price per item</th>
         <th></th>
       </tr>
       {% for item in order.get_cart_items %}
@@ -22,7 +22,8 @@
           <td class="text-center align-middle font-weight-bold">
                 
             {{ item.product.name }}</td>
-          <td class="align-middle">{{ item.product.price }}$</td>
+          <td class="align-middle">{{ item.nmb }}</td>
+          <td class="align-middle">{{ item.price_per_item }}$</td>
           <td class="align-middle">{% comment %} <a href="{% url 'shopping_cart:delete_item' item.id %}" data-balloon="remove this item from cart" class="text-danger" id="trash-link" onclick="return confirm_delete();"> {% endcomment %}
               <a href="{% url 'shopping_cart:delete_item' item.id %}" data-balloon="remove this item from cart" class="text-danger" id="trash-link">
                 <i class="fas fa-trash"></i></a>

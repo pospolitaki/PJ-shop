@@ -36,12 +36,14 @@ def add_to_cart(request, **kwargs):
         # filter products by id
 
         product = Product.objects.filter(id=kwargs.get('item_id', "")).first()
+
+        product_quantity = int(request.POST.get('quantity')) or 1 
         # check if the user already owns this product
-        if product in request.user.profile.purchases.all():
-            messages.info(request, 'You already own this jewelery')
-            return redirect(reverse('landing:home')) 
+        # if product in request.user.profile.purchases.all():
+        #     messages.info(request, 'You already own this jewelery')
+        #     return redirect(reverse('landing:home')) 
         # create orderItem of the selected product
-        order_item, status = OrderItem.objects.get_or_create(product=product)
+        order_item, status = OrderItem.objects.get_or_create(product=product, nmb=product_quantity)
         # create order associated with the user
         user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
         user_order.items.add(order_item)
