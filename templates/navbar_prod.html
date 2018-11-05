@@ -46,7 +46,7 @@
 
                 </ul>
                 
-                {% if request.user.is_authenticatedcart_items_amount %}
+                {% if request.user.is_authenticated %}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item fa-stack">
                         <a class="nav-link" href="{% url 'shopping_cart:order_summary' %}" id="cart-with-nmb">
