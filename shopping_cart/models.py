@@ -49,7 +49,7 @@ class Order(models.Model):
     items = models.ManyToManyField(OrderItem)
     date_ordered = models.DateTimeField(auto_now=True)
 
-    #adding custom fields
+    #added custom fields
     customer_email = models.EmailField(blank=True, null=True, default=None)
     customer_phone = models.CharField(max_length=128, blank=True, null=True, default=None)
     status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True, blank=True)

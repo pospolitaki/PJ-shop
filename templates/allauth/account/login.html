@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+<!-- {% block head_title %}{% trans "Sign In" %}{% endblock %} -->
+{% block title %}
+Sign in
+{% endblock title %}
+{% block navbar %}
+{% include "navbar_register.html" %}
+{% endblock navbar %}
+
+
+{% block facebook %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=313161422818925&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+{% endblock facebook %}
+
+
+{% block content %}
+<div class="container-fluid img-h2-welcome">
+            
+        <h2 class="black-text text-center welcome mt-3"> {% trans "Вход" %} </h2>
+
+    </div>
+<div class="">
+
+  <div class="row justify-content-center mb-1">
+                    <div class="col-md-6">
+  
+
+<!-- <h1>{% trans "Sign In" %}</h1> -->
+
+
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+
+<!-- <p>{% blocktrans with site.name as site_name %}Please sign in with one
+of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+for a {{ site_name }} account and sign in below:{% endblocktrans %}</p> -->
+
+<!--TODO internationalization -->
+
+<div id="fb-button">
+  <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+</div>
+
+
+
+<div class="socialaccount_ballot">
+  
+
+  <!-- <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul> -->
+
+<!--   <div class="login-or">{% trans 'or' %}</div> -->
+
+</div>
+
+</div>
+</div>
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<p>{% blocktrans %}If you have not created an account yet, then please
+<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+{% endif %}
+
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  <div class="row justify-content-center mb-1">
+                    <div class="col-md-6"> 
+  {% csrf_token %}
+  {{ form|crispy }}
+  
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> <br>
+
+  <h5>{% blocktrans with site.name as site_name %} Don't have an account? <a class="text-light btn btn-dark" href="{{ signup_url }}">Sign up here</a>
+for a {{ site_name }} {% endblocktrans %}</h5>
+
+  <!-- <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+  <div class="text-center button-join-us"> -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success btn-block join-us">Let's go</button>
+                    </div>
+                </div>
+            </div>
+      </div>
+                </div>
+</form>
+
+{% endblock %}
+{% block script %}
+  <script src="{% static 'js/welcome_page.js' %}"></script>
+{% endblock script %}
