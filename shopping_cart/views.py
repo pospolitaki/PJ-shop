@@ -11,6 +11,7 @@ from shopping_cart.extras import generate_order_id
 from shopping_cart.models import OrderItem, Order, Transaction
 
 from django.http import JsonResponse
+from django.db import IntegrityError, transaction
 
 import datetime
 import json
@@ -38,28 +39,27 @@ def add_to_cart(request, **kwargs):
         product = Product.objects.filter(id=kwargs.get('item_id', "")).first()
 
         product_quantity = int(request.POST.get('quantity')) or 1 
-        # check if the user already owns this product
-        # if product in request.user.profile.purchases.all():
-        #     messages.info(request, 'You already own this jewelery')
-        #     return redirect(reverse('landing:home')) 
-        # create orderItem of the selected product
-        order_item, status = OrderItem.objects.get_or_create(product=product, nmb=product_quantity)
-        # create order associated with the user
-        user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
-        user_order.items.add(order_item)
+        try:
+            with transaction.atomic():
+                # create orderItem of the selected product
+                order_item, status = OrderItem.objects.get_or_create(product=product, nmb=product_quantity)
+                # create order associated with the user
+                user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
+                user_order.items.add(order_item)
+                if status:
+                    # generate a reference code
+                    user_order.ref_code = generate_order_id()
+                    user_order.save()
+                    messages.info(request, "item added to cart")
+        except IntegrityError:
+            print('Please, say to your developer that he is loser')
+            raise
         print(order_item)
         print(user_order.owner)
         print(request.POST)
         print(request.user.is_authenticated)
-
-        if status:
-            # generate a reference code
-            user_order.ref_code = generate_order_id()
-            user_order.save()
-
         # show confirmation message and redirect back to the same page
-        messages.info(request, "item added to cart")
-        product_id = kwargs.get('item_id')
+        # product_id = kwargs.get('item_id')
         # playing with ajax VVV
         # return redirect(reverse('product:product_detail', kwargs={'product_id': product_id}))
 
