@@ -19,7 +19,7 @@ class Status(models.Model):
         verbose_name_plural = 'Статусы'
 
 class OrderItem(models.Model):
-    product = models.OneToOneField(Product, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     is_ordered = models.BooleanField(default=False)
     date_added = models.DateTimeField(auto_now=False, auto_now_add=True)
     date_ordered = models.DateTimeField(null=True)

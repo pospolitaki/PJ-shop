@@ -42,7 +42,10 @@ def add_to_cart(request, **kwargs):
         try:
             with transaction.atomic():
                 # create orderItem of the selected product
-                order_item, status = OrderItem.objects.get_or_create(product=product, nmb=product_quantity)
+                print('works2')
+
+                order_item = OrderItem.objects.create(product=product, nmb=product_quantity)
+                print('works3')
                 # create order associated with the user
                 user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
                 user_order.items.add(order_item)
