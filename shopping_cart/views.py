@@ -10,6 +10,8 @@ from product.models import Product
 from shopping_cart.extras import generate_order_id
 from shopping_cart.models import OrderItem, Order, Transaction
 
+from shopping_cart.forms import OrderContactPhoneForm
+
 from django.http import JsonResponse
 from django.db import IntegrityError, transaction
 
@@ -42,10 +44,9 @@ def add_to_cart(request, **kwargs):
         try:
             with transaction.atomic():
                 # create orderItem of the selected product
-                print('works2')
-
+                
+                # TODO: have changed to create from get_or_create to fix bug with order items deleting if both users have the same order_item in cart... but this spoil the server db, so optimizations recomended
                 order_item = OrderItem.objects.create(product=product, nmb=product_quantity)
-                print('works3')
                 # create order associated with the user
                 user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
                 user_order.items.add(order_item)
@@ -76,7 +77,6 @@ def add_to_cart(request, **kwargs):
             })
 
         return_data.update({'amount':request.user.profile.orders.filter(is_ordered=False)[0].items.count() or 0, 'messages':django_messages, 'authenticated': True})
-        print('We done it! Thanks God!')
     else:
         return_data.update({ 'authenticated': False })
     return JsonResponse(return_data)
@@ -102,13 +102,21 @@ def order_details(request, **kwargs):
 @login_required()
 def checkout(request):
     existing_order = get_user_pending_order(request)
-    if request.method == 'POST':     
-        return redirect(reverse('shopping_cart:update_records'))  
-
+    if request.method == 'POST':
+        print('THIS IS AN EXISTING ORDER >>>', existing_order)
+        form = OrderContactPhoneForm(request.POST, instance=existing_order)
+        if form.is_valid():
+            with transaction.atomic():
+                form.save()
+            print('CHECK OUT! THANKS GOD!')
+            print(request.POST)
+            return redirect(reverse('shopping_cart:update_records'))  
+    else:
+        form = OrderContactPhoneForm()
     context = {
-        'order': existing_order,
+        'order':existing_order,
+        'form':form
     }
-
     return render(request, 'shopping_cart/checkout.html', context)
 
 

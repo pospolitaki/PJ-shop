@@ -1,63 +1,82 @@
+{% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Checkout</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}">
+    {% block title %}
+      Checkout
+    {% endblock title %}
 </head>
 
-<body>
-    {% include 'messages.html' %}
-    <div class="container">
-    <section>
-      <div class="row" id="tablerow">
-      <div class="col-md-4 col-xs-12">
-        <div class="panel panel-primary">
-          
-          <div class="panel-body">
-            <h5>Enter Voucher Code Below<br><small>If multiple, separate each with comma</small></h5>
+{% block content %}
 
-            <div>
-              <form action="." method="post">
-                {% csrf_token %}
-                <input type="text"  name="voucher_codes" class="form-control" id="voucher_code" required>
-                <input type="hidden"  name="order_id" value="{{ order.id }}">
-                <br>
-                <span>
-                  <input type="submit" class="btn btn-warning pull-right" value="Apply Voucher"> 
-                </span>
-              </form>
-            </div>
-          </div>
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-8 offset-md-2 col-xs-12">
+        <div>
+          <h2>Your order</h2>
+        </div>
+        <table class="table table-hover  text-center">
+          <tr class="text-center">
+              <th>no.</th>
+              <th></th>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price per item</th>
+              <th></th>
+            </tr>
+            {% for item in order.get_cart_items %}
+            <tr>
+              <td class="align-middle">{{ forloop.counter }}</td>
+                <td class="align-middle col-3"><img src="{{ item.product.product_imgs.first.image.url }}" alt="product img" id="cart-product-img" class="img-fluid rounded"></td>
+                <td class="text-center align-middle font-weight-bold">
+                  
+                  {{ item.product.name }}</td>
+                <td class="align-middle">{{ item.nmb }}</td>
+                <td class="align-middle">{{ item.price_per_item }}$</td>
+                <td class="align-middle">{% comment %} <a href="{% url 'shopping_cart:delete_item' item.id %}" data-balloon="remove this item from cart" class="text-danger" id="trash-link" onclick="return confirm_delete();"> {% endcomment %}
+                  <a href="{% url 'shopping_cart:delete_item' item.id %}" data-balloon="remove this item from cart" class="text-danger" id="trash-link">
+                      <i class="fas fa-trash"></i></a>
+                    </td>
+                  </tr>
+                  {% empty %}
+                  <tr>
+                    <td colspan= 3> You have not added any items yet.</td>
+                    <td></td>
+                    <td></td>
+              </tr>
+              {% endfor %}
+              <tr>
+                {% if order.get_cart_total != None %}
+                <td colspan=2>
+                  <strong class="pull-left">Order Total:</strong>
+                </td>
+                <td></td>
+              <td></td>
+              <td colspan= 1>
+                $<strong>{{ order.get_cart_total }}</strong>
+              </td>
+              {% endif %}
+              <td></td>
+            </tr>
+          </table>
+          <form action="." method="POST"> {% csrf_token %}
+              <div>
+                {{ form|crispy }}
+              </div>
+
+              <button type="submit" class="btn btn-success btn-block add-to-cart"> Ready! </button>
+          </form>
         </div>
       </div>
-      <div class="col-md-8 col-xs-12">
-        <table class="table">
-          <tr>
-            <td><h4>Order Summary</h4></td>
-          </tr>
-          <tr>
-            <td>
-              {% for item in order.get_cart_items %}
-                <tr>
-                  <td>{{ item }}</td>
-                  <td>${{ item.product.price }}</td>
-                </tr>
-              {% endfor %}
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Order Total</strong> </td>
-            <td> <strong>${{ order.get_cart_total }}</strong></td>
-          </tr>
-        </table>
-        <button onclick="toggleDisplay();" class="btn btn-warning" style="width: 100%;">Checkout with a credit card</button>
-      </div>
-     </div>
-    </section>
-
-</div>
+    </div> <!--row-->
+  </div>
 </body>
 </html>
+
+{% endblock content %}

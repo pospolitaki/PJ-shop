@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.core.validators import RegexValidator
 
 from django.db import models
 
@@ -51,7 +52,11 @@ class Order(models.Model):
 
     #added custom fields
     customer_email = models.EmailField(blank=True, null=True, default=None)
-    customer_phone = models.CharField(max_length=128, blank=True, null=True, default=None)
+    #phone number validation
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number should be entered in the format: '+38099.......'.")
+    customer_phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
+    # customer_phone = models.CharField(max_length=128, blank=True, null=True, default=None)
+
     status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True, blank=True)
 
 

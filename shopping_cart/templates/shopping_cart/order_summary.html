@@ -33,19 +33,20 @@
           <td colspan= 3> You have not added any items yet.</td>
           <td></td>
           <td></td>
+          <td></td>
         </tr>
       {% endfor %}
       <tr>
         {% if order.get_cart_total != None %}
         <td colspan=2>
-          <strong class="pull-right">Order Total:</strong>
+          <strong class="pull-left">Order Total:</strong>
         </td>
-        
+        <td></td>
+        <td></td>
         <td colspan= 1>
           $<strong>{{ order.get_cart_total }}</strong>
         </td>
         {% endif %}
-        <td></td>
         <td></td>
       </tr>
       <!--<tr>
@@ -63,14 +64,17 @@
    
     </table>
     <div class="row mx-0">
-        <div class="col-sm-4 offset-sm-2">
+        <div class="col">
             <a href="{% url 'landing:home' %}" class="btn btn-block btn-secondary pull-left">
-            {% if order %}Continue Shopping{% else %}Add Items to Cart {% endif %}
+              
+            {% if order.get_cart_total %}Continue Shopping{% else %}Add Items to Cart {% endif %}
             </a>
         </div>
-        <div class="col-sm-4 ">
+        {% if order.get_cart_total %}
+        <div class="col">
             <a href="{% url 'shopping_cart:checkout' %}" class="btn btn-block btn-success">Proceed To Checkout</a>
         </div>
+        {% endif %}
       </div>
    </div>  
    </div>
