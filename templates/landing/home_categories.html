@@ -46,23 +46,6 @@
                                     
                                     {% endfor %}
                                     {% endfor %}
-
-                                    {% comment %} 
-                                     display carousel caption and button on carousel's pics 
-                                    
-                                    <div class="carousel-caption">
-                                        <h4>{{category|truncatechars_html:40}}</h4>
-
-                                        <form action={% url 'landing:categories' category=category.id %}>
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-12">
-                                                            <button type="submit" class="btn btn-success btn-block join-us">Show</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                    </div>
-                                    
-                                    {% endcomment %}
                                 </div>
                             </div> 
                             <div class="text-center">

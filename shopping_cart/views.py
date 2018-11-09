@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 
 from accounts.models import Profile
 from product.models import Product
@@ -14,7 +15,7 @@ from shopping_cart.forms import OrderContactPhoneForm
 
 from django.http import JsonResponse
 from django.db import IntegrityError, transaction
-from django.core.mail import send_mail, send_mass_mail
+from django.core.mail import send_mail, send_mass_mail, BadHeaderError
 
 import datetime
 import json
@@ -162,33 +163,36 @@ def update_transaction_records(request):
     user_profile.purchases.add(*order_products)
     user_profile.save()
     email_content = generate_success_order_email_content(order_items)
-    # send an email to the customer
-    delivered_messages = send_mail(
-    f'PJ | Order accepted!',
+
+    datatuple = (
+    ('PJ | Order accepted!', 
     f'''
+    Hi, there!
     Thank you for ordering:
     {email_content}
-    We will contact you soon again.
+    We'll contact you again soon.
 
-    Now you can check out your order #{order_to_purchase.ref_code} details and follow status of your order fulfillment in your awesome PJ-shop profile :)   
-    ''',
-    settings.EMAIL_HOST_USER,
-    [settings.EMAIL_HOST_USER, order_to_purchase.owner.user.email],
-    fail_silently=False, #in prod change to True
-    )  
-    #then try this >> send_mass_mail((message1, message2), fail_silently=False)
+    Now you can check out your order #{order_to_purchase.ref_code} details and follow status of your order fulfillment in your awesome PJ-shop profile :)
 
-#     datatuple = (
-#     ('Subject', 'Message.', 'from@example.com', ['john@example.com']),
-#     ('Subject', 'Message.', 'from@example.com', ['jane@example.com']),
-# )
-#     
+    P.S. Have a questions? Contact us, you are always welcome!   
+    ''', 
+    settings.EMAIL_HOST_USER, [order_to_purchase.owner.user.email, settings.DEV_SUPPORT_EMAIL]),
 
-    # try:
-    #     send_mail(subject, message, from_email, ['admin@example.com'])
-        # send_mass_mail(datatuple, fail_silently=False)
-    # except BadHeaderError:
-    #     return HttpResponse('Invalid header found.')
+    (f'New order #{order_to_purchase.ref_code}', 
+    f'''
+    Order #{order_to_purchase.ref_code}:
+    {email_content}
+    Customer contacts: email: {order_to_purchase.owner.user.email}, phone: {order_to_purchase.customer_phone_number}
+
+    Have a nice day!
+    Και αυτό θα περάσει..
+    ''', 
+    settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER,settings.DEV_SUPPORT_EMAIL]),
+)
+    try:
+        send_mass_mail(datatuple, fail_silently=False)
+    except BadHeaderError:
+        return HttpResponse('Invalid header found.')
 
     messages.info(request, "Thank you! Your order accepted!")
     return redirect(reverse('accounts:my_profile'))

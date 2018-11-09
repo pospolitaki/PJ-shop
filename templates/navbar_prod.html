@@ -8,24 +8,12 @@
             
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'landing:home' %}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'landing:home' %}"><span class="descriprion-text">Home </span><span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'landing:practice2' %}"> Pr2</a>
-                    </li>
-                <!--
-                    
-                    <li class="nav-item fix-follow">
-                        <a class="nav-link disabled follow-us" href="#">Follow us</a>
-                        <span class="text-light mr-2"><i class="fas fa-crow"></i></span>
-                        <a class="nav-link mr-2" href="https://www.facebook.com/Petrosyan-Jewelry-815650388514952/"><i class="fab fa-facebook-f"></i></a>
-                        <a class="nav-link" href="https://www.instagram.com/petrosyan_jewelry/"><i class="fab fa-instagram"></i></a>
-                    </li>
-                -->
                     
                <div class="btn-group follow-us-btn"> 
                         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span>Follow us</span> <span class="text-light "><i class="fas fa-crow"></i></span>
+                          <span class="descriprion-text">Follow us</span> <span class="text-light "><i class="fas fa-crow"></i></span>
                         </button>
                         <div class="dropdown-menu">
                                 <a class="dropdown-item" href="https://www.facebook.com/Petrosyan-Jewelry-815650388514952/"> <i class="fab fa-facebook-f  mr-1"></i>facebook</a>
@@ -33,7 +21,7 @@
                         </div>
                 </div>
 
-                <li class="nav-item dropdown">
+                {% comment %} <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle follow-us-a" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Follow us <span class="text-light "><i class="fas fa-crow"></i></span>
                         </a>
@@ -41,11 +29,13 @@
                                 <a class="dropdown-item" href="https://www.facebook.com/Petrosyan-Jewelry-815650388514952/"> <i class="fab fa-facebook-f  mr-1"></i>facebook</a>
                                 <a class="dropdown-item" href="https://www.instagram.com/petrosyan_jewelry/"><i class="fab fa-instagram"></i> instagram</a>
                         </div>
-                </li>
+                </li> {% endcomment %}
 
 
                 </ul>
-                
+                <span id="phone_number" class="navbar-text mr-5">
+                        <i class="fab fa-whatsapp"></i> <i class="fab fa-viber"></i> <span class="descriprion-text">+380123456789</span>
+                </span>
                 {% if request.user.is_authenticated %}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item fa-stack">
@@ -57,13 +47,11 @@
                     </li>
                 </ul>
                 {% endif %}
-                
-                {% comment %}ERROR HERE! {{ request.user.profile.get_pending_order.items.count }} {% endcomment %}
 
                 <ul class="nav navbar-nav navbar-right">
                     {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'accounts:my_profile' %}" id="">
+                        <a class="nav-link descriprion-text" href="{% url 'accounts:my_profile' %}" id="">
                          {{request.user.username}}</a>
                     </li>
                     <li class="nav-item ">
@@ -72,15 +60,11 @@
                          
                         {% else %}
                     <li class="nav-item ">
-                        <a class="nav-link" href="{% url 'allauth:account_login' %}?next={{ request.path_info }}" id="">
+                        <a class="nav-link descriprion-text" href="{% url 'allauth:account_login' %}?next={{ request.path_info }}" id="">
                         Вход <i class="fas fa-sign-in-alt"></i></a>
                     </li>
                         {% endif %}
                 </ul>                 
-                {% comment %} <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form> {% endcomment %}
             </div>
         </nav>
 </div>

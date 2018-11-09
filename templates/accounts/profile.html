@@ -7,36 +7,27 @@
   
 <table class="table table-hover table-bordered text-center">
       <tr class="text-center">
-        <th>Date Ordered</th>
-        <th>Reference Code</th>
-        <th>Items</th>
-        <th>Price</th>
+        <th class="align-middle">Date Ordered</th>
+        <th class="align-middle">Reference Code</th>
+        <th class="align-middle">Items</th>
+        <th class="align-middle">Price</th>
       </tr>
-      {% for order in my_orders %}
+      {% for order in my_orders|slice:"::-1" %}
         <tr>
           <td class="align-middle">{{ order.date_ordered }}</td>
           <td class="align-middle">{{ order.ref_code }}</td>
           <td class="align-middle text-left">
-        	{% for item in order.items.all %}
-        		{{ item.product.name }}
-      		{% endfor %}
-      	  </td>
+            {% for item in order.items.all %}
+            {{ item.product.name }} ({{ item.details }}) <span class="font-weight-bold">&times</span> {{ item.nmb }}
+            {% endfor %}
+          </td>
           <td class="align-middle">${{ order.get_cart_total }}</td>
-
         </tr>
       {% empty %}
         <tr>
           <td colspan= 4> You have no orders.</td>
         </tr>
       {% endfor %}
-
-<!--      <tr>
-        <td colspan=4>
-          <a href="{% url 'landing:home' %}" class="btn btn-warning pull-left">
-            {% if not order %}Continue Shopping{% else %}Add Items to Cart {% endif %}
-          </a> 
-        </td>
-      </tr>-->
     </table> 
     <div class="row mx-0">
       <div class="col-6 offset-3">

@@ -35,11 +35,11 @@
                             
                         <div class="text-center product-description">
                             <div class="text-center product-name mb-2">
-                                <h4 class="product-name">{{product_image.product.name|truncatechars_html:57}}</h4>
+                                <h4 class="descriprion-text product-name">{{product_image.product.name|truncatechars_html:57}}</h4>
                             </div>    
                         </a>
                             <div>
-                                 <p class="my-0 product-description"> 
+                                 <p class="my-0 descriprion-text"> 
                                     {% if product_image.product.discount %}
                                         <strike class="text-danger">{{ product_image.product.price }}</strike> {{ product_image.product.new_price }}
                                     {% else %}
@@ -47,9 +47,9 @@
                                  {% endif %}$ </p>
                             </div>
                         </div>
-                        <div class="add-to-cart-btn">
+                        {% comment %} <div class="add-to-cart-btn">
                             <button class="btn btn-success"><i class="fa fa-cart-arrow-down"></i> Добавить в корзину</button>
-                        </div>
+                        </div> {% endcomment %}
                         </div>
                     </div>
                 {% endfor %}
