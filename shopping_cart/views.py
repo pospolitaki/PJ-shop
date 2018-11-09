@@ -29,6 +29,13 @@ def get_user_pending_order(request):
         return order[0]
     return 0
 
+def generate_success_order_email_content(items_queryset):
+    content = ''
+    for item in items_queryset:
+        content += f'{item.product.name} ({item.details}) - {item.nmb}\n'
+    return content
+
+
 
 # @login_required() #fixing ajax + login_requiered cooperating
 def add_to_cart(request, **kwargs):
@@ -154,15 +161,16 @@ def update_transaction_records(request):
     order_products = [item.product for item in order_items]
     user_profile.purchases.add(*order_products)
     user_profile.save()
-
-
+    email_content = generate_success_order_email_content(order_items)
     # send an email to the customer
     delivered_messages = send_mail(
-    f'PJ Order {order_to_purchase.ref_code}',
+    f'PJ | Order accepted!',
     f'''
     Thank you for ordering:
-    {order_items}
-    check your order details and follow status of your order in your awesome PJ-shop profile :)   
+    {email_content}
+    We will contact you soon again.
+
+    Now you can check out your order #{order_to_purchase.ref_code} details and follow status of your order fulfillment in your awesome PJ-shop profile :)   
     ''',
     settings.EMAIL_HOST_USER,
     [settings.EMAIL_HOST_USER, order_to_purchase.owner.user.email],
@@ -181,9 +189,6 @@ def update_transaction_records(request):
         # send_mass_mail(datatuple, fail_silently=False)
     # except BadHeaderError:
     #     return HttpResponse('Invalid header found.')
-
-    print(delivered_messages)
-
 
     messages.info(request, "Thank you! Your order accepted!")
     return redirect(reverse('accounts:my_profile'))
