@@ -8,12 +8,13 @@ from accounts.models import Profile
 from product.models import Product
 
 from shopping_cart.extras import generate_order_id
-from shopping_cart.models import OrderItem, Order, Transaction
+from shopping_cart.models import OrderItem, Order
 
 from shopping_cart.forms import OrderContactPhoneForm
 
 from django.http import JsonResponse
 from django.db import IntegrityError, transaction
+from django.core.mail import send_mail, send_mass_mail
 
 import datetime
 import json
@@ -40,13 +41,23 @@ def add_to_cart(request, **kwargs):
 
         product = Product.objects.filter(id=kwargs.get('item_id', "")).first()
 
-        product_quantity = int(request.POST.get('quantity')) or 1 
+        product_quantity = int(request.POST.get('quantity',1)) 
+        order_item_details_raw = request.POST.get('order_item_details', '')
+
+        #spliting data from ajax request, checkout here
+        if order_item_details_raw:
+            try:
+                order_item_details = order_item_details_raw.split(',')
+                order_item_details = ', '.join([item.split(':')[1].strip() for item in order_item_details if item])
+                print (order_item_details)
+            except:
+                order_item_details = order_item_details_raw
         try:
             with transaction.atomic():
                 # create orderItem of the selected product
                 
                 # TODO: have changed to create from get_or_create to fix bug with order items deleting if both users have the same order_item in cart... but this spoil the server db, so optimizations recomended
-                order_item = OrderItem.objects.create(product=product, nmb=product_quantity)
+                order_item = OrderItem.objects.create(product=product, nmb=product_quantity, details=order_item_details)
                 # create order associated with the user
                 user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
                 user_order.items.add(order_item)
@@ -126,8 +137,9 @@ def update_transaction_records(request):
     order_to_purchase = get_user_pending_order(request)
 
     # update the placed order
-    order_to_purchase.is_ordered=True
-    order_to_purchase.date_ordered=datetime.datetime.now()
+    order_to_purchase.customer_email = request.user.email or None
+    order_to_purchase.date_ordered = datetime.datetime.now()
+    order_to_purchase.is_ordered = True
     order_to_purchase.save()
     
     # get all items in the order - generates a queryset
@@ -143,22 +155,35 @@ def update_transaction_records(request):
     user_profile.purchases.add(*order_products)
     user_profile.save()
 
-    
-    # create a transaction
-    transaction = Transaction(profile=request.user.profile,
-                            order_id=order_to_purchase.id,
-                            amount=order_to_purchase.get_cart_total(),
-                            success=True)
-    # save the transcation (otherwise doesn't exist)
-    transaction.save()
-
 
     # send an email to the customer
-    # look at tutorial on how to send emails with sendgrid
-    messages.info(request, "Thank you! Your purchase was successful!")
+    delivered_messages = send_mail(
+    f'PJ Order {order_to_purchase.ref_code}',
+    f'''
+    Thank you for ordering:
+    {order_items}
+    check your order details and follow status of your order in your awesome PJ-shop profile :)   
+    ''',
+    settings.EMAIL_HOST_USER,
+    [settings.EMAIL_HOST_USER, order_to_purchase.owner.user.email],
+    fail_silently=False, #in prod change to True
+    )  
+    #then try this >> send_mass_mail((message1, message2), fail_silently=False)
+
+#     datatuple = (
+#     ('Subject', 'Message.', 'from@example.com', ['john@example.com']),
+#     ('Subject', 'Message.', 'from@example.com', ['jane@example.com']),
+# )
+#     
+
+    # try:
+    #     send_mail(subject, message, from_email, ['admin@example.com'])
+        # send_mass_mail(datatuple, fail_silently=False)
+    # except BadHeaderError:
+    #     return HttpResponse('Invalid header found.')
+
+    print(delivered_messages)
+
+
+    messages.info(request, "Thank you! Your order accepted!")
     return redirect(reverse('accounts:my_profile'))
-
-
-def success(request, **kwargs):
-    # a view signifying the transcation was successful
-    return render(request, 'shopping_cart/purchase_success.html', {})

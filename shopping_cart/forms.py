@@ -1,11 +1,14 @@
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput
 from shopping_cart.models import Order
 
 class OrderContactPhoneForm(ModelForm):
     class Meta:
         model = Order
-        fields = ['customer_phone_number']
+        fields = ['customer_phone_number'] 
+        widgets = {
+            'customer_phone_number': TextInput(attrs={'placeholder': '+380123456789'}),
+        }
 
     def clean_customer_phone_number(self):
         data = self.cleaned_data["customer_phone_number"]

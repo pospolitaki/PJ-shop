@@ -3,8 +3,7 @@
 {% block content %}
 
 <div class="row mx-0">
-  <div class="col-sm-8 offset-sm-2">
-    
+  <div class="col-sm-8 offset-sm-2 mt-3">
   
 <table class="table table-hover table-bordered text-center">
       <tr class="text-center">
@@ -15,14 +14,14 @@
       </tr>
       {% for order in my_orders %}
         <tr>
-          <td>{{ order.date_ordered }}</td>
-          <td>{{ order.ref_code }}</td>
-          <td>
+          <td class="align-middle">{{ order.date_ordered }}</td>
+          <td class="align-middle">{{ order.ref_code }}</td>
+          <td class="align-middle text-left">
         	{% for item in order.items.all %}
         		{{ item.product.name }}
       		{% endfor %}
       	  </td>
-          <td>R{{ order.get_cart_total }}</td>
+          <td class="align-middle">${{ order.get_cart_total }}</td>
 
         </tr>
       {% empty %}
@@ -42,7 +41,7 @@
     <div class="row mx-0">
       <div class="col-6 offset-3">
         
-    <a href="{% url 'landing:home' %}" class="btn btn-block btn-warning pull-left">
+    <a href="{% url 'landing:home' %}" class="btn btn-block btn-info pull-left">
             {% if not order %}Continue Shopping{% else %}Add Items to Cart {% endif %}
           </a>
       </div>

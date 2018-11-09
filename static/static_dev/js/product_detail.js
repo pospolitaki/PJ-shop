@@ -21,7 +21,7 @@
     var data = {
         product_id : productId,
         quantity : quantity,
-        order_details : orderDetails,
+        order_item_details : orderDetails,
         csrfmiddlewaretoken : csrf_token
     };
     var url = form.attr("action");

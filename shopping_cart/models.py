@@ -13,7 +13,7 @@ class Status(models.Model):
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return 'Статус:{}'.format(self.name)
+        return '{}'.format(self.name)
 
     class Meta:
         verbose_name = 'Статус'
@@ -26,6 +26,7 @@ class OrderItem(models.Model):
     date_ordered = models.DateTimeField(null=True)
     #added fields
     nmb = models.IntegerField(default=1)
+    details = models.CharField(max_length=140, blank=True)
     price_per_item = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) #price * nmb
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -57,7 +58,7 @@ class Order(models.Model):
     customer_phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
     # customer_phone = models.CharField(max_length=128, blank=True, null=True, default=None)
 
-    status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True, blank=True)
+    status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True, blank=True, default=1)
 
 
     def get_cart_items(self):
@@ -70,25 +71,6 @@ class Order(models.Model):
 
     def __str__(self):
         return '{0} - {1}'.format(self.owner, self.ref_code)
-
-
-class Transaction(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    order_id = models.CharField(max_length=120)
-    amount = models.DecimalField(max_digits=100, decimal_places=2)
-    success = models.BooleanField(default=True)
-    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
-
-    def __str__(self):
-        return self.order_id
-
-    class Meta:
-        ordering = ['-timestamp']
-
-
-
-
-
 
 
         

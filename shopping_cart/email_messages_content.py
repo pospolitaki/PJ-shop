@@ -1,0 +1,1 @@
+order_accepted = 'You ordered '
