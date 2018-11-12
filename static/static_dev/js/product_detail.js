@@ -10,10 +10,14 @@
 
         // var orderDetails = $("#purchase-form input[type='radio']:checked").val();
 
+        var ringSizeInput = $('#ring-size input');
         var orderDetails = '';
         $("#purchase-form input[type=radio]:checked").each(function() {
             orderDetails = orderDetails + ' ' + this.name +' : ' + this.value + ',';
         });
+        if (typeof variable !== 'undefined'){
+            orderDetails = orderDetails + ' ' + ringSizeInput.attr('name') +' : ' + ringSizeInput.val();
+        }
 
         console.log(quantity, productId, productPrice, productName, orderDetails);
 //vvv ajax request to server on submit btn click, instead of sending standart POST request

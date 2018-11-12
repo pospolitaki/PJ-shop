@@ -18,6 +18,7 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'is_active',
         'discount',
+        'for_children'
     )
     
     class Meta:

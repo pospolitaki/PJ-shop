@@ -41,12 +41,6 @@ def home(request):
     products_images = ProductImage.objects.filter(is_active=True, is_main=True, product__is_active=True)
     return render(request, 'landing/home_categories.html', locals())
 
-def practice(request):
-    return render(request, 'landing/practice_1.html')
-
-def practice2(request):
-    return render(request, 'landing/practice_2.html')
-
 def welcome(request):
     return render(request, 'landing/welcome.html')
 

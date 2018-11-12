@@ -24,6 +24,4 @@ urlpatterns = [
     url(r'^welcome$', views.welcome, name='welcome'),
     url(r'^categories/(?P<category>[\d]+)$', views.categories_detail, name='categories'),
     url(r'^landing/$', views.landing, name='index'),
-    url(r'^practice_1/$', views.practice, name='practice'),
-    url(r'^practice_2/$', views.practice2, name='practice2'),
 ]
