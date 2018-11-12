@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 # @login_required
 def product_detail(request,product_id):
     product = Product.objects.get(id=product_id)
-    categories = Category.objects.all()
     current_order_products = []
     if request.user.is_authenticated:
         filtered_orders = Order.objects.filter(owner=request.user.profile, is_ordered=False)
@@ -23,7 +22,6 @@ def product_detail(request,product_id):
 
     context = {
     'product': product,
-    'categories': categories,
     'session_key': session_key
     }
     if current_order_products:

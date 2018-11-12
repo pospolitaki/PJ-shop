@@ -14,3 +14,21 @@ def is_active(value):
         if obj.is_active != True:
             value.pop(value.index(obj))
     return value
+
+# @register.filter()
+# def for_children(value):        
+#     for prod in value:
+#             if prod.for_children != True:
+#                     value.pop(value.index(prod))
+#     return value
+
+@register.filter()
+def not_for_children(value):        
+    for prod in value:
+        if prod.for_children == True:
+                    value.pop(value.index(prod))
+    return value
+
+        
+
+

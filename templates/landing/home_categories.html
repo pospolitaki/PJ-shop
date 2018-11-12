@@ -18,7 +18,7 @@
             <div class="row">
                     
                 {% for category in categories %}
-
+                <!--displaying carousels for existing categories-->
                 <div class="col-lg-6 mb-4 align-self-center">
                     <div class="product-item">
 
@@ -30,7 +30,7 @@
 
                                 <div class="carousel-inner">
                                     
-                                    {% for product in category.products.all|is_active|slice:"::-1"|slice:":3" %}
+                                    {% for product in category.products.all|is_active|not_for_children|slice:"::-1"|slice:":3" %}
                                     {% for img in product.product_imgs.all|slice:":2" %}
                                     
                                     {% if forloop.parentloop.first and forloop.first%}
@@ -72,14 +72,53 @@
                         </div>
                     </div>
                     {% endfor %}
-              
+                    <!--displaying carousel for children products-->
+                    <div class="col-lg-6 mb-4 align-self-center">
+                        <div class="product-item">
+    
+                            <a class="product-link" target="_self" href={% url 'landing:categories' category=0 %} >
+    
+                            <div class="carousel slide" id="for_children" data-ride='false' data-pause="false" data-interval='1750'>
+                                    <div class="carousel-inner">
+                                        
+                                        {% for product in products_for_children|is_active|slice:"::-1"|slice:":3" %}
+                                        {% for img in product.product_imgs.all|slice:":2" %}
+                                        
+                                        {% if forloop.parentloop.first and forloop.first%}
+                                            <div class="carousel-item active">
+                                        {% else %}
+                                            <div class="carousel-item">
+                                        {% endif %}
+                                        
+    
+                                            <img src="{{ img.image.url }}" alt="product img" class="img-fluid d-block rounded">
+                                            
+                                        </div>
+                                        
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div> 
+                                <div class="text-center">
+                                    <h3 class="category-name">Для детей</h4> 
+                                </div>    
+                                </a>
+                               
+                                
+                                <a class="carousel-control-prev" href="#for_children" data-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#for_children" data-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </a>
+                            </div>
+                        </div>
             </div>
         </div>
         
     </div>
-
-{% block script %}
-<script src="{% static 'js/home_page.js' %}"></script>
-{% endblock script %}
-
-{% endblock content %}
+    
+    {% endblock content %}
+    {% block script %}
+    <script src="{% static 'js/home_page.js' %}"></script>
+    {% endblock script %}

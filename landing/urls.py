@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^welcome$', views.welcome, name='welcome'),
     url(r'^categories/(?P<category>[\d]+)$', views.categories_detail, name='categories'),
+    # url(r'^for_children/$', views.categories_detail, name='for_children'),
     url(r'^landing/$', views.landing, name='index'),
 ]

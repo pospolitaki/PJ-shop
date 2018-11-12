@@ -33,7 +33,7 @@ def get_user_pending_order(request):
 def generate_success_order_email_content(items_queryset):
     content = ''
     for item in items_queryset:
-        content += f'{item.product.name} ({item.details}) - {item.nmb}\n'
+        content += f'{item.product.name} ({item.details}) × {item.nmb}\n'
     return content
 
 
@@ -169,7 +169,7 @@ def update_transaction_records(request):
     f'''
     Hi, there!
     Thank you for ordering:
-    {email_content}
+    {email_content}.
     We'll contact you again soon.
 
     Now you can check out your order #{order_to_purchase.ref_code} details and follow status of your order fulfillment in your awesome PJ-shop profile :)
