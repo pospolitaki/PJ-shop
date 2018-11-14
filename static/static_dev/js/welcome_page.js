@@ -61,6 +61,4 @@ function changeCrowColor() {
                 $('i.fa-crow').css('color', 'white'); // Change back
             }, 5000);}, 5000);
         };
-
-$('.detail-product-wrapper').css('padding-bottom','0');
   
