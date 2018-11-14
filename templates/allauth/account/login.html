@@ -8,7 +8,7 @@
 
 <!-- {% block head_title %}{% trans "Sign In" %}{% endblock %} -->
 {% block title %}
-Sign in
+{% trans "Sign In" %}
 {% endblock title %}
 {% block navbar %}
 {% include "navbar_register.html" %}
@@ -30,7 +30,7 @@ Sign in
 {% block content %}
 <div class="container-fluid img-h2-welcome">
             
-        <h2 class="black-text text-center welcome mt-3"> {% trans "Вход" %} </h2>
+        <h2 class="black-text text-center register mt-3"> {% trans "Sign In" %} </h2>
 
     </div>
 <div class="">
@@ -99,7 +99,7 @@ for a {{ site_name }} {% endblocktrans %}</h5>
   <div class="text-center button-join-us"> -->
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-success btn-block join-us">Let's go</button>
+                        <button type="submit" class="btn btn-success btn-block join-us">{% trans "Let's go" %}</button>
                     </div>
                 </div>
             </div>

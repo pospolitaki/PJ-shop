@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-27 05:00-0500\n"
+"POT-Creation-Date: 2018-11-14 10:44+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,172 +17,173 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: account/adapter.py:45
+#: allauth/account/adapter.py:45
 msgid "Username can not be used. Please use other username."
 msgstr "Такое имя пользователя не может быть использовано, выберите другое."
 
-#: account/adapter.py:49
+#: allauth/account/adapter.py:49
 msgid "Too many failed login attempts. Try again later."
 msgstr "Слишком много попыток входа в систему, попробуйте позже."
 
-#: account/adapter.py:51
+#: allauth/account/adapter.py:51
 msgid "A user is already registered with this e-mail address."
 msgstr "Пользователь с таким e-mail адресом уже зарегистрирован."
 
-#: account/adapter.py:294
+#: allauth/account/adapter.py:294
 #, python-brace-format
 msgid "Password must be a minimum of {0} characters."
 msgstr "Минимальное количество символов в пароле: {0}."
 
-#: account/apps.py:7
+#: allauth/account/apps.py:7
 msgid "Accounts"
 msgstr "Аккаунты"
 
-#: account/forms.py:61 account/forms.py:398
+#: allauth/account/forms.py:61 allauth/account/forms.py:398
 msgid "You must type the same password each time."
 msgstr "Вы должны ввести одинаковый пароль дважды."
 
-#: account/forms.py:91 account/forms.py:365 account/forms.py:476
+#: allauth/account/forms.py:91 allauth/account/forms.py:365
+#: allauth/account/forms.py:476
 msgid "Password"
 msgstr "Пароль"
 
-#: account/forms.py:92
+#: allauth/account/forms.py:92
 msgid "Remember Me"
 msgstr "Запомнить меня"
 
-#: account/forms.py:98
+#: allauth/account/forms.py:98
 msgid "This account is currently inactive."
 msgstr "Учетная запись неактивна."
 
-#: account/forms.py:101
+#: allauth/account/forms.py:101
 msgid "The e-mail address and/or password you specified are not correct."
 msgstr "E-mail адрес и/или пароль не верны."
 
-#: account/forms.py:104
+#: allauth/account/forms.py:104
 msgid "The username and/or password you specified are not correct."
 msgstr "Имя пользователя и/или пароль не верны."
 
-#: account/forms.py:113 account/forms.py:268 account/forms.py:426
-#: account/forms.py:495
+#: allauth/account/forms.py:113 allauth/account/forms.py:268
+#: allauth/account/forms.py:426 allauth/account/forms.py:495
 msgid "E-mail address"
 msgstr "E-mail адрес"
 
-#: account/forms.py:115 account/forms.py:301 account/forms.py:421
-#: account/forms.py:490
+#: allauth/account/forms.py:115 allauth/account/forms.py:301
+#: allauth/account/forms.py:421 allauth/account/forms.py:490
 msgid "E-mail"
 msgstr "E-mail"
 
-#: account/forms.py:120 account/forms.py:123 account/forms.py:260
-#: account/forms.py:264
+#: allauth/account/forms.py:120 allauth/account/forms.py:123
+#: allauth/account/forms.py:260 allauth/account/forms.py:264
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: account/forms.py:130
+#: allauth/account/forms.py:130
 msgid "Username or e-mail"
 msgstr "Имя пользователя или e-mail"
 
-#: account/forms.py:133
+#: allauth/account/forms.py:133
 msgctxt "field label"
 msgid "Login"
 msgstr "Войти"
 
-#: account/forms.py:292
+#: allauth/account/forms.py:292
 msgid "E-mail (again)"
 msgstr "E-mail (ещё раз)"
 
-#: account/forms.py:296
+#: allauth/account/forms.py:296
 msgid "E-mail address confirmation"
 msgstr "Подтверждение email адреса"
 
-#: account/forms.py:304
+#: allauth/account/forms.py:304
 msgid "E-mail (optional)"
 msgstr "E-mail (опционально)"
 
-#: account/forms.py:345
+#: allauth/account/forms.py:345
 msgid "You must type the same email each time."
 msgstr "Вы должны ввести одинаковый e-mail дважды."
 
-#: account/forms.py:368 account/forms.py:477
+#: allauth/account/forms.py:368 allauth/account/forms.py:477
 msgid "Password (again)"
 msgstr "Пароль (ещё раз)"
 
-#: account/forms.py:432
+#: allauth/account/forms.py:432
 msgid "This e-mail address is already associated with this account."
 msgstr "Указанный e-mail уже прикреплен к этому аккаунту."
 
-#: account/forms.py:434
+#: allauth/account/forms.py:434
 msgid "This e-mail address is already associated with another account."
 msgstr "Указанный e-mail прикреплен к другому пользователю."
 
-#: account/forms.py:456
+#: allauth/account/forms.py:456
 msgid "Current Password"
 msgstr "Текущий пароль"
 
-#: account/forms.py:457 account/forms.py:546
+#: allauth/account/forms.py:457 allauth/account/forms.py:546
 msgid "New Password"
 msgstr "Новый пароль"
 
-#: account/forms.py:458 account/forms.py:547
+#: allauth/account/forms.py:458 allauth/account/forms.py:547
 msgid "New Password (again)"
 msgstr "Новый пароль (ещё раз)"
 
-#: account/forms.py:466
+#: allauth/account/forms.py:466
 msgid "Please type your current password."
 msgstr "Пожалуйста, введите свой текущий пароль."
 
-#: account/forms.py:504
+#: allauth/account/forms.py:504
 msgid "The e-mail address is not assigned to any user account"
 msgstr "Нет пользователя с таким e-mail"
 
-#: account/forms.py:568
+#: allauth/account/forms.py:568
 msgid "The password reset token was invalid."
 msgstr "Неправильный код для сброса пароля."
 
-#: account/models.py:23
+#: allauth/account/models.py:23
 msgid "user"
 msgstr "пользователь"
 
-#: account/models.py:27 account/models.py:81
+#: allauth/account/models.py:27 allauth/account/models.py:81
 msgid "e-mail address"
 msgstr "e-mail адрес"
 
-#: account/models.py:28
+#: allauth/account/models.py:28
 msgid "verified"
 msgstr "подтвержден"
 
-#: account/models.py:29
+#: allauth/account/models.py:29
 msgid "primary"
 msgstr "основной"
 
-#: account/models.py:34
+#: allauth/account/models.py:34
 msgid "email address"
 msgstr "email адрес"
 
-#: account/models.py:35
+#: allauth/account/models.py:35
 msgid "email addresses"
 msgstr "email адреса"
 
-#: account/models.py:83
+#: allauth/account/models.py:83
 msgid "created"
 msgstr "создано"
 
-#: account/models.py:85
+#: allauth/account/models.py:85
 msgid "sent"
 msgstr "отправлено"
 
-#: account/models.py:86 socialaccount/models.py:55
+#: allauth/account/models.py:86 allauth/socialaccount/models.py:55
 msgid "key"
 msgstr "ключ"
 
-#: account/models.py:91
+#: allauth/account/models.py:91
 msgid "email confirmation"
 msgstr "подтверждение email адреса"
 
-#: account/models.py:92
+#: allauth/account/models.py:92
 msgid "email confirmations"
 msgstr "подтверждения email адресов"
 
-#: socialaccount/adapter.py:26
+#: allauth/socialaccount/adapter.py:26
 #, python-format
 msgid ""
 "An account already exists with this e-mail address. Please sign in to that "
@@ -191,185 +192,198 @@ msgstr ""
 "Пользователь с таким e-mail уже зарегистрирован. Чтобы подключить свой %s "
 "аккаунт, пожалуйста, авторизуйтесь."
 
-#: socialaccount/adapter.py:131
+#: allauth/socialaccount/adapter.py:131
 msgid "Your account has no password set up."
 msgstr "Для вашего аккаунта не установлен пароль."
 
-#: socialaccount/adapter.py:138
+#: allauth/socialaccount/adapter.py:138
 msgid "Your account has no verified e-mail address."
 msgstr "Нет подтвержденных e-mail адресов для вашего аккаунта."
 
-#: socialaccount/apps.py:7
+#: allauth/socialaccount/apps.py:7
 msgid "Social Accounts"
 msgstr "Социальные аккаунты"
 
-#: socialaccount/models.py:43 socialaccount/models.py:77
+#: allauth/socialaccount/models.py:43 allauth/socialaccount/models.py:77
 msgid "provider"
 msgstr "провайдер"
 
-#: socialaccount/models.py:46
+#: allauth/socialaccount/models.py:46 landing/models.py:8
 msgid "name"
 msgstr "имя"
 
-#: socialaccount/models.py:48
+#: allauth/socialaccount/models.py:48
 msgid "client id"
 msgstr "id клиента"
 
-#: socialaccount/models.py:50
+#: allauth/socialaccount/models.py:50
 msgid "App ID, or consumer key"
 msgstr "ID приложения или ключ потребителя"
 
-#: socialaccount/models.py:51
+#: allauth/socialaccount/models.py:51
 msgid "secret key"
 msgstr "секретный ключ"
 
-#: socialaccount/models.py:53
+#: allauth/socialaccount/models.py:53
 msgid "API secret, client secret, or consumer secret"
 msgstr "Секретный ключ API, клиента или потребителя"
 
-#: socialaccount/models.py:58
+#: allauth/socialaccount/models.py:58
 msgid "Key"
 msgstr "Ключ"
 
-#: socialaccount/models.py:66
+#: allauth/socialaccount/models.py:66
 msgid "social application"
 msgstr "социальное приложение"
 
-#: socialaccount/models.py:67
+#: allauth/socialaccount/models.py:67
 msgid "social applications"
 msgstr "социальные приложения"
 
-#: socialaccount/models.py:96
+#: allauth/socialaccount/models.py:96
 msgid "uid"
 msgstr "UID пользователя"
 
-#: socialaccount/models.py:98
+#: allauth/socialaccount/models.py:98
 msgid "last login"
 msgstr "дата последнего входа в систему"
 
-#: socialaccount/models.py:100
+#: allauth/socialaccount/models.py:100
 msgid "date joined"
 msgstr "дата регистрации"
 
-#: socialaccount/models.py:102
+#: allauth/socialaccount/models.py:102
 msgid "extra data"
 msgstr "дополнительные данные"
 
-#: socialaccount/models.py:106
+#: allauth/socialaccount/models.py:106
 msgid "social account"
 msgstr "аккаунт социальной сети"
 
-#: socialaccount/models.py:107
+#: allauth/socialaccount/models.py:107
 msgid "social accounts"
 msgstr "аккаунты социальных сетей"
 
-#: socialaccount/models.py:133
+#: allauth/socialaccount/models.py:133
 msgid "token"
 msgstr "токен"
 
-#: socialaccount/models.py:135
+#: allauth/socialaccount/models.py:135
 msgid "\"oauth_token\" (OAuth1) or access token (OAuth2)"
 msgstr "\"oauth_token\" (OAuth1) или access token (OAuth2)"
 
-#: socialaccount/models.py:138
+#: allauth/socialaccount/models.py:138
 msgid "token secret"
 msgstr "секретный токен"
 
-#: socialaccount/models.py:140
+#: allauth/socialaccount/models.py:140
 msgid "\"oauth_token_secret\" (OAuth1) or refresh token (OAuth2)"
 msgstr "\"oauth_token_secret\" (OAuth1) или refresh token (OAuth2)"
 
-#: socialaccount/models.py:142
+#: allauth/socialaccount/models.py:142
 msgid "expires at"
 msgstr "истекает"
 
-#: socialaccount/models.py:146
+#: allauth/socialaccount/models.py:146
 msgid "social application token"
 msgstr "токен социального приложения"
 
-#: socialaccount/models.py:147
+#: allauth/socialaccount/models.py:147
 msgid "social application tokens"
 msgstr "токены социальных приложений"
 
-#: socialaccount/providers/douban/views.py:36
+#: allauth/socialaccount/providers/douban/views.py:36
 msgid "Invalid profile data"
 msgstr "Неверные данные профиля"
 
-#: socialaccount/providers/oauth/client.py:78
+#: allauth/socialaccount/providers/oauth/client.py:78
 #, python-format
 msgid "Invalid response while obtaining request token from \"%s\"."
 msgstr "Неверный ответ во время получения запроса от \"%s\"."
 
-#: socialaccount/providers/oauth/client.py:109
+#: allauth/socialaccount/providers/oauth/client.py:109
 #, python-format
 msgid "Invalid response while obtaining access token from \"%s\"."
 msgstr "Неверный ответ при получении токена доступа от \"%s\"."
 
-#: socialaccount/providers/oauth/client.py:128
+#: allauth/socialaccount/providers/oauth/client.py:128
 #, python-format
 msgid "No request token saved for \"%s\"."
 msgstr "Нет сохраненного ключа запроса для \"%s\"."
 
-#: socialaccount/providers/oauth/client.py:177
+#: allauth/socialaccount/providers/oauth/client.py:177
 #, python-format
 msgid "No access token saved for \"%s\"."
 msgstr "Нет сохраненного ключа доступа для \"%s\"."
 
-#: socialaccount/providers/oauth/client.py:197
+#: allauth/socialaccount/providers/oauth/client.py:197
 #, python-format
 msgid "No access to private resources at \"%s\"."
 msgstr "Доступ к ресурсам закрыт \"%s\"."
 
-#: templates/account/account_inactive.html:5
-#: templates/account/account_inactive.html:8
+#: landing/models.py:14
+msgid "Shop Subscriber"
+msgstr ""
+
+#: landing/models.py:15
+msgid "Shop Subscribers"
+msgstr ""
+
+#: product/models.py:33
+msgid "{}"
+msgstr ""
+
+#: templates/allauth/account/account_inactive.html:5
+#: templates/allauth/account/account_inactive.html:8
 msgid "Account Inactive"
 msgstr "Аккаунт неактивен"
 
-#: templates/account/account_inactive.html:10
+#: templates/allauth/account/account_inactive.html:10
 msgid "This account is inactive."
 msgstr "Этот аккаунт неактивен."
 
-#: templates/account/email.html:5
+#: templates/allauth/account/email.html:5
 msgid "Account"
 msgstr "Аккаунт"
 
-#: templates/account/email.html:8
+#: templates/allauth/account/email.html:8
 msgid "E-mail Addresses"
 msgstr "E-mail адреса"
 
-#: templates/account/email.html:10
+#: templates/allauth/account/email.html:10
 msgid "The following e-mail addresses are associated with your account:"
 msgstr "Следующие e-mail адреса прикреплены к вашему аккаунту:"
 
-#: templates/account/email.html:24
+#: templates/allauth/account/email.html:24
 msgid "Verified"
 msgstr "Подтвержден"
 
-#: templates/account/email.html:26
+#: templates/allauth/account/email.html:26
 msgid "Unverified"
 msgstr "Не подтвержден"
 
-#: templates/account/email.html:28
+#: templates/allauth/account/email.html:28
 msgid "Primary"
 msgstr "Основной"
 
-#: templates/account/email.html:34
+#: templates/allauth/account/email.html:34
 msgid "Make Primary"
 msgstr "Сделать основным"
 
-#: templates/account/email.html:35
+#: templates/allauth/account/email.html:35
 msgid "Re-send Verification"
 msgstr "Отправить подтверждение ещё раз"
 
-#: templates/account/email.html:36 templates/socialaccount/connections.html:35
+#: templates/allauth/account/email.html:36
+#: templates/allauth/socialaccount/connections.html:35
 msgid "Remove"
 msgstr "Удалить"
 
-#: templates/account/email.html:43
+#: templates/allauth/account/email.html:43
 msgid "Warning:"
 msgstr "Внимание:"
 
-#: templates/account/email.html:43
+#: templates/allauth/account/email.html:43
 msgid ""
 "You currently do not have any e-mail address set up. You should really add "
 "an e-mail address so you can receive notifications, reset your password, etc."
@@ -377,19 +391,19 @@ msgstr ""
 "Сейчас у вас нет прикрепленного e-mail адреса. Рекомендуем добавить, чтобы "
 "начать получать уведомления, сброс пароля и прочее."
 
-#: templates/account/email.html:48
+#: templates/allauth/account/email.html:48
 msgid "Add E-mail Address"
 msgstr "Добавить e-mail адрес"
 
-#: templates/account/email.html:53
+#: templates/allauth/account/email.html:53
 msgid "Add E-mail"
 msgstr "Добавить e-mail"
 
-#: templates/account/email.html:62
+#: templates/allauth/account/email.html:62
 msgid "Do you really want to remove the selected e-mail address?"
 msgstr "Вы действительно хотите удалить этот e-mail адрес?"
 
-#: templates/account/email/email_confirmation_message.txt:1
+#: templates/allauth/account/email/email_confirmation_message.txt:1
 #, python-format
 msgid ""
 "Hello from %(site_name)s!\n"
@@ -406,7 +420,7 @@ msgstr ""
 "\n"
 "Чтобы подтвердить, перейдите по ссылке %(activate_url)s\n"
 
-#: templates/account/email/email_confirmation_message.txt:7
+#: templates/allauth/account/email/email_confirmation_message.txt:7
 #, python-format
 msgid ""
 "Thank you from %(site_name)s!\n"
@@ -415,11 +429,11 @@ msgstr ""
 "Спасибо от сайта «%(site_name)s!»\n"
 "%(site_domain)s"
 
-#: templates/account/email/email_confirmation_subject.txt:3
+#: templates/allauth/account/email/email_confirmation_subject.txt:3
 msgid "Please Confirm Your E-mail Address"
 msgstr "Пожалуйста подтвердите ваш e-mail адрес"
 
-#: templates/account/email/password_reset_key_message.txt:1
+#: templates/allauth/account/email/password_reset_key_message.txt:1
 #, python-format
 msgid ""
 "Hello from %(site_name)s!\n"
@@ -436,12 +450,12 @@ msgstr ""
 "Если это были не вы, просто проигнорируйте это письмо. Иначе перейдите по "
 "ссылке для смены пароля."
 
-#: templates/account/email/password_reset_key_message.txt:8
+#: templates/allauth/account/email/password_reset_key_message.txt:8
 #, python-format
 msgid "In case you forgot, your username is %(username)s."
 msgstr "Если вы вдруг забыли, ваше имя пользователя: %(username)s."
 
-#: templates/account/email/password_reset_key_message.txt:10
+#: templates/allauth/account/email/password_reset_key_message.txt:10
 #, python-format
 msgid ""
 "Thank you for using %(site_name)s!\n"
@@ -450,16 +464,16 @@ msgstr ""
 "Благодарим вас за использование сайта «%(site_name)s!»\n"
 "%(site_domain)s"
 
-#: templates/account/email/password_reset_key_subject.txt:3
+#: templates/allauth/account/email/password_reset_key_subject.txt:3
 msgid "Password Reset E-mail"
 msgstr "Письмо для сброса пароля"
 
-#: templates/account/email_confirm.html:6
-#: templates/account/email_confirm.html:10
+#: templates/allauth/account/email_confirm.html:6
+#: templates/allauth/account/email_confirm.html:15
 msgid "Confirm E-mail Address"
 msgstr "Подтвердите e-mail адрес."
 
-#: templates/account/email_confirm.html:16
+#: templates/allauth/account/email_confirm.html:21
 #, python-format
 msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
@@ -468,11 +482,11 @@ msgstr ""
 "Пожалуйста, подтвердите <a href=\"mailto:%(email)s\">%(email)s</a> для "
 "пользователя %(user_display)s."
 
-#: templates/account/email_confirm.html:20
+#: templates/allauth/account/email_confirm.html:25
 msgid "Confirm"
 msgstr "Подтвердить"
 
-#: templates/account/email_confirm.html:27
+#: templates/allauth/account/email_confirm.html:32
 #, python-format
 msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
@@ -481,12 +495,18 @@ msgstr ""
 "Ссылка некорректна или срок её действия истек. Пожалуйста, <a href="
 "\"%(email_url)s\">запросите подтверждение e-mail заново</a>."
 
-#: templates/account/login.html:6 templates/account/login.html:10
-#: templates/account/login.html:43
+#: templates/allauth/account/login.html:9
+#: templates/allauth/account/login.html:11
+#: templates/allauth/account/login.html:33
+#: templates/allauth/account/login.html:42
+#: templates/allauth/account/login.html:98
+#: templates/allauth/login_backup.html:9 templates/allauth/login_backup.html:46
+#: templates/allauth/login_backup.html:102
 msgid "Sign In"
 msgstr "Войти"
 
-#: templates/account/login.html:15
+#: templates/allauth/account/login.html:50
+#: templates/allauth/login_backup.html:54
 #, python-format
 msgid ""
 "Please sign in with one\n"
@@ -499,11 +519,13 @@ msgstr ""
 "\">зарегистрируйтесь</a>\n"
 "и авторизуйтесь на сайте %(site_name)s:"
 
-#: templates/account/login.html:25
+#: templates/allauth/account/login.html:69
+#: templates/allauth/login_backup.html:73
 msgid "or"
 msgstr "или"
 
-#: templates/account/login.html:32
+#: templates/allauth/account/login.html:80
+#: templates/allauth/login_backup.html:84
 #, python-format
 msgid ""
 "If you have not created an account yet, then please\n"
@@ -512,82 +534,107 @@ msgstr ""
 "Если у вас ещё нет учётной записи, пожалуйста, сначала <a href="
 "\"%(signup_url)s\">зарегистрируйтесь</a>."
 
-#: templates/account/login.html:42
+#: templates/allauth/account/login.html:93
+#: templates/allauth/login_backup.html:97
 msgid "Forgot Password?"
 msgstr "Забыли пароль?"
 
-#: templates/account/logout.html:5 templates/account/logout.html:8
-#: templates/account/logout.html:17
+#: templates/allauth/account/login.html:95
+#: templates/allauth/login_backup.html:99
+#, python-format
+msgid ""
+" Don't have an account? <a class=\"text-light btn btn-dark\" href="
+"\"%(signup_url)s\">Sign up here</a>\n"
+"for a %(site_name)s "
+msgstr ""
+" Нет аккаунта? <a class=\"text-light btn btn-dark\" href=\"%(signup_url)s"
+"\">Зарегистрируйтесь здесь</a>\n"
+"в %(site_name)s "
+
+#: templates/allauth/account/login.html:102
+#: templates/allauth/account/signup.html:41
+msgid "Let's go"
+msgstr "Готово"
+
+#: templates/allauth/account/logout.html:5
+#: templates/allauth/account/logout.html:18
+#: templates/allauth/logout_backup.html:5
+#: templates/allauth/logout_backup.html:18
 msgid "Sign Out"
 msgstr "Выйти"
 
-#: templates/account/logout.html:10
+#: templates/allauth/account/logout.html:20
+#: templates/allauth/logout_backup.html:20
 msgid "Are you sure you want to sign out?"
 msgstr "Вы уверены, что хотите выйти?"
 
-#: templates/account/messages/cannot_delete_primary_email.txt:2
+#: templates/allauth/account/logout.html:30
+msgid "Yes"
+msgstr "Да"
+
+#: templates/allauth/account/messages/cannot_delete_primary_email.txt:2
 #, python-format
 msgid "You cannot remove your primary e-mail address (%(email)s)."
 msgstr "Вы не можете удалить ваш основной e-mail (%(email)s)."
 
-#: templates/account/messages/email_confirmation_sent.txt:2
+#: templates/allauth/account/messages/email_confirmation_sent.txt:2
 #, python-format
 msgid "Confirmation e-mail sent to %(email)s."
 msgstr "Подтверждение e-mail адреса отправлено на %(email)s."
 
-#: templates/account/messages/email_confirmed.txt:2
+#: templates/allauth/account/messages/email_confirmed.txt:2
 #, python-format
 msgid "You have confirmed %(email)s."
 msgstr "Адрес %(email)s подтверждён."
 
-#: templates/account/messages/email_deleted.txt:2
+#: templates/allauth/account/messages/email_deleted.txt:2
 #, python-format
 msgid "Removed e-mail address %(email)s."
 msgstr "E-mail адрес %(email)s удален."
 
-#: templates/account/messages/logged_in.txt:4
+#: templates/allauth/account/messages/logged_in.txt:4
 #, python-format
 msgid "Successfully signed in as %(name)s."
 msgstr "Вы вошли как %(name)s."
 
-#: templates/account/messages/logged_out.txt:2
+#: templates/allauth/account/messages/logged_out.txt:2
 msgid "You have signed out."
 msgstr "Вы вышли."
 
-#: templates/account/messages/password_changed.txt:2
+#: templates/allauth/account/messages/password_changed.txt:2
 msgid "Password successfully changed."
 msgstr "Пароль успешно изменён."
 
-#: templates/account/messages/password_set.txt:2
+#: templates/allauth/account/messages/password_set.txt:2
 msgid "Password successfully set."
 msgstr "Пароль успешно указан."
 
-#: templates/account/messages/primary_email_set.txt:2
+#: templates/allauth/account/messages/primary_email_set.txt:2
 msgid "Primary e-mail address set."
 msgstr "Выбран основной e-mail адрес."
 
-#: templates/account/messages/unverified_primary_email.txt:2
+#: templates/allauth/account/messages/unverified_primary_email.txt:2
 msgid "Your primary e-mail address must be verified."
 msgstr "Ваш основной e-mail должен быть подтвержден."
 
-#: templates/account/password_change.html:5
-#: templates/account/password_change.html:8
-#: templates/account/password_change.html:13
-#: templates/account/password_reset_from_key.html:4
-#: templates/account/password_reset_from_key.html:7
-#: templates/account/password_reset_from_key_done.html:4
-#: templates/account/password_reset_from_key_done.html:7
+#: templates/allauth/account/password_change.html:5
+#: templates/allauth/account/password_change.html:8
+#: templates/allauth/account/password_change.html:13
+#: templates/allauth/account/password_reset_from_key.html:4
+#: templates/allauth/account/password_reset_from_key.html:7
+#: templates/allauth/account/password_reset_from_key_done.html:4
+#: templates/allauth/account/password_reset_from_key_done.html:7
 msgid "Change Password"
 msgstr "Сменить пароль"
 
-#: templates/account/password_reset.html:6
-#: templates/account/password_reset.html:10
-#: templates/account/password_reset_done.html:6
-#: templates/account/password_reset_done.html:9
+#: templates/allauth/account/password_reset.html:6
+#: templates/allauth/account/password_reset.html:14
+#: templates/allauth/account/password_reset_done.html:6
+#: templates/allauth/account/password_reset_done.html:9
 msgid "Password Reset"
 msgstr "Сброс пароля"
 
-#: templates/account/password_reset.html:15
+#: templates/allauth/account/password_reset.html:19
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you "
 "an e-mail allowing you to reset it."
@@ -595,15 +642,15 @@ msgstr ""
 "Забыли пароль? Введите свой e-mail адрес ниже, и мы вышлем вам письмо для "
 "сброса пароля."
 
-#: templates/account/password_reset.html:20
+#: templates/allauth/account/password_reset.html:24
 msgid "Reset My Password"
 msgstr "Сбросить мой пароль"
 
-#: templates/account/password_reset.html:23
+#: templates/allauth/account/password_reset.html:27
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr "Свяжитесь с нами, если у вас возникли сложности со сменой пароля."
 
-#: templates/account/password_reset_done.html:15
+#: templates/allauth/account/password_reset_done.html:15
 msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
@@ -611,11 +658,11 @@ msgstr ""
 "Мы отправили вам письмо. Пожалуйста, свяжитесь с нами, если не получили его "
 "в течение нескольких минут."
 
-#: templates/account/password_reset_from_key.html:7
+#: templates/allauth/account/password_reset_from_key.html:7
 msgid "Bad Token"
 msgstr "Неправильный ключ"
 
-#: templates/account/password_reset_from_key.html:11
+#: templates/allauth/account/password_reset_from_key.html:11
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
@@ -626,61 +673,63 @@ msgstr ""
 "нового сброса пароля <a href=\"%(passwd_reset_url)s\">перейдите по ссылке</"
 "a>."
 
-#: templates/account/password_reset_from_key.html:17
+#: templates/allauth/account/password_reset_from_key.html:17
 msgid "change password"
 msgstr "изменить пароль"
 
-#: templates/account/password_reset_from_key.html:20
-#: templates/account/password_reset_from_key_done.html:8
+#: templates/allauth/account/password_reset_from_key.html:20
+#: templates/allauth/account/password_reset_from_key_done.html:8
 msgid "Your password is now changed."
 msgstr "Ваш пароль изменён."
 
-#: templates/account/password_set.html:5 templates/account/password_set.html:8
-#: templates/account/password_set.html:13
+#: templates/allauth/account/password_set.html:5
+#: templates/allauth/account/password_set.html:8
+#: templates/allauth/account/password_set.html:13
 msgid "Set Password"
 msgstr "Установить пароль"
 
-#: templates/account/signup.html:5 templates/socialaccount/signup.html:5
+#: templates/allauth/account/signup.html:10
+#: templates/allauth/account/signup.html:24
+#: templates/allauth/signup_backup.html:17
+#: templates/allauth/socialaccount/signup.html:5
 msgid "Signup"
 msgstr "Регистрация"
 
-#: templates/account/signup.html:8 templates/account/signup.html:18
-#: templates/socialaccount/signup.html:8 templates/socialaccount/signup.html:19
-msgid "Sign Up"
-msgstr "Регистрация"
-
-#: templates/account/signup.html:10
+#: templates/allauth/account/signup.html:31
+#: templates/allauth/signup_backup.html:31
 #, python-format
 msgid ""
-"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
-msgstr "Уже зарегистрированы? <a href=\"%(login_url)s\">Войдите</a>."
+"Already have an account? Then please <a class=\"text-light btn btn-dark\" "
+"href=\"%(login_url)s\">sign in here</a>."
+msgstr "Уже зарегистрированы? Пожалуйста, <a class=\"text-light btn btn-dark\" "
+"href=\"%(login_url)s\">войдите здесь</a>."
 
-#: templates/account/signup_closed.html:5
-#: templates/account/signup_closed.html:8
+#: templates/allauth/account/signup_closed.html:5
+#: templates/allauth/account/signup_closed.html:8
 msgid "Sign Up Closed"
 msgstr "Регистрация закрыта"
 
-#: templates/account/signup_closed.html:10
+#: templates/allauth/account/signup_closed.html:10
 msgid "We are sorry, but the sign up is currently closed."
 msgstr "Извините, но регистрация в настоящий момент закрыта."
 
-#: templates/account/snippets/already_logged_in.html:5
+#: templates/allauth/account/snippets/already_logged_in.html:5
 msgid "Note"
 msgstr "Заметка"
 
-#: templates/account/snippets/already_logged_in.html:5
+#: templates/allauth/account/snippets/already_logged_in.html:5
 #, python-format
 msgid "you are already logged in as %(user_display)s."
 msgstr "вы уже вошли как %(user_display)s."
 
-#: templates/account/verification_sent.html:5
-#: templates/account/verification_sent.html:8
-#: templates/account/verified_email_required.html:5
-#: templates/account/verified_email_required.html:8
+#: templates/allauth/account/verification_sent.html:5
+#: templates/allauth/account/verification_sent.html:11
+#: templates/allauth/account/verified_email_required.html:5
+#: templates/allauth/account/verified_email_required.html:8
 msgid "Verify Your E-mail Address"
 msgstr "Подтвердите ваш e-mail"
 
-#: templates/account/verification_sent.html:10
+#: templates/allauth/account/verification_sent.html:13
 msgid ""
 "We have sent an e-mail to you for verification. Follow the link provided to "
 "finalize the signup process. Please contact us if you do not receive it "
@@ -690,14 +739,14 @@ msgstr ""
 "регистрации перейдите по указанной ссылке. Если вы не получили наше "
 "сообщение в течение нескольких минут, пожалуйста, свяжитесь с нами."
 
-#: templates/account/verified_email_required.html:12
+#: templates/allauth/account/verified_email_required.html:12
 msgid ""
 "This part of the site requires us to verify that\n"
 "you are who you claim to be. For this purpose, we require that you\n"
 "verify ownership of your e-mail address. "
 msgstr "Эта часть сайта требует подтверждения e-mail адреса."
 
-#: templates/account/verified_email_required.html:16
+#: templates/allauth/account/verified_email_required.html:16
 msgid ""
 "We have sent an e-mail to you for\n"
 "verification. Please click on the link inside this e-mail. Please\n"
@@ -707,7 +756,7 @@ msgstr ""
 "с подтверждением. Пожалуйста, перейдите по ссылке.\n"
 "Свяжитесь с нами, если вы не получили письмо в течение нескольких минут."
 
-#: templates/account/verified_email_required.html:20
+#: templates/allauth/account/verified_email_required.html:20
 #, python-format
 msgid ""
 "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
@@ -716,46 +765,54 @@ msgstr ""
 "<strong>Заметка:</strong> вы можете <a href=\"%(email_url)s\">сменить свой e-"
 "mail адрес</a>."
 
-#: templates/openid/login.html:9
+#: templates/allauth/login_backup.html:37
+msgid "Вход"
+msgstr ""
+
+#: templates/allauth/openid/login.html:9
 msgid "OpenID Sign In"
 msgstr "Войти с OpenID"
 
-#: templates/socialaccount/authentication_error.html:5
-#: templates/socialaccount/authentication_error.html:8
+#: templates/allauth/signup_backup.html:23
+msgid "Регистрация"
+msgstr ""
+
+#: templates/allauth/socialaccount/authentication_error.html:5
+#: templates/allauth/socialaccount/authentication_error.html:8
 msgid "Social Network Login Failure"
 msgstr "Ошибка авторизации через социальную сеть"
 
-#: templates/socialaccount/authentication_error.html:10
+#: templates/allauth/socialaccount/authentication_error.html:10
 msgid ""
 "An error occurred while attempting to login via your social network account."
 msgstr "Произошла ошибка во время авторизации через социальную сеть."
 
-#: templates/socialaccount/connections.html:5
-#: templates/socialaccount/connections.html:8
+#: templates/allauth/socialaccount/connections.html:5
+#: templates/allauth/socialaccount/connections.html:8
 msgid "Account Connections"
 msgstr "Прикрепленные аккаунты"
 
-#: templates/socialaccount/connections.html:11
+#: templates/allauth/socialaccount/connections.html:11
 msgid ""
 "You can sign in to your account using any of the following third party "
 "accounts:"
 msgstr "Вы можете авторизоваться, используя следующие сервисы:"
 
-#: templates/socialaccount/connections.html:43
+#: templates/allauth/socialaccount/connections.html:43
 msgid ""
 "You currently have no social network accounts connected to this account."
 msgstr "Нет прикрепленных аккаунтов социальных сетей."
 
-#: templates/socialaccount/connections.html:46
+#: templates/allauth/socialaccount/connections.html:46
 msgid "Add a 3rd Party Account"
 msgstr "Добавить внешний аккаунт"
 
-#: templates/socialaccount/login_cancelled.html:5
-#: templates/socialaccount/login_cancelled.html:9
+#: templates/allauth/socialaccount/login_cancelled.html:5
+#: templates/allauth/socialaccount/login_cancelled.html:9
 msgid "Login Cancelled"
 msgstr "Авторизация отменена"
 
-#: templates/socialaccount/login_cancelled.html:13
+#: templates/allauth/socialaccount/login_cancelled.html:13
 #, python-format
 msgid ""
 "You decided to cancel logging in to our site using one of your existing "
@@ -765,19 +822,24 @@ msgstr ""
 "Вы прервали авторизацию, используя один из ваших аккаутов. Если это было "
 "ошибкой, перейдите к <a href=\"%(login_url)s\">авторизации</a>. "
 
-#: templates/socialaccount/messages/account_connected.txt:2
+#: templates/allauth/socialaccount/messages/account_connected.txt:2
 msgid "The social account has been connected."
 msgstr "Аккаунт социальной сети был прикреплён."
 
-#: templates/socialaccount/messages/account_connected_other.txt:2
+#: templates/allauth/socialaccount/messages/account_connected_other.txt:2
 msgid "The social account is already connected to a different account."
 msgstr "Аккаунт социальной сети уже прикреплен к другому пользователю."
 
-#: templates/socialaccount/messages/account_disconnected.txt:2
+#: templates/allauth/socialaccount/messages/account_disconnected.txt:2
 msgid "The social account has been disconnected."
 msgstr "Акакаунт социальной сети был откреплен."
 
-#: templates/socialaccount/signup.html:10
+#: templates/allauth/socialaccount/signup.html:8
+#: templates/allauth/socialaccount/signup.html:19
+msgid "Sign Up"
+msgstr "Регистрация"
+
+#: templates/allauth/socialaccount/signup.html:10
 #, python-format
 msgid ""
 "You are about to use your %(provider_name)s account to login to\n"
@@ -785,6 +847,13 @@ msgid ""
 msgstr ""
 "Вы используете %(provider_name)s для авторизации на \n"
 "%(site_name)s. Чтобы завершить, заполните следующую форму:"
+
+#: templates/landing/landing_.html:36
+#, fuzzy
+#| msgctxt "field label"
+#| msgid "Login"
+msgid "Login"
+msgstr "Войти"
 
 #~ msgid "The login and/or password you specified are not correct."
 #~ msgstr "Логин и/или пароль не верны."

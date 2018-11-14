@@ -7,27 +7,26 @@
 {% load account socialaccount %}
 
 {% block title %}
-Sign up
+{% trans "Signup" %}
 {% endblock title %}
 {% block navbar %}
 {% include "navbar_register.html" %}
 {% endblock navbar %}
 {% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% comment %} {% block head_title %}{% trans "Signup" %}{% endblock %} {% endcomment %}
 
 {% block content %}
 <div class="container-fluid img-h2-welcome">
             
         <hr>
-        <h2 class="black-text text-center welcome"> {% trans "Регистрация" %} </h2>
+        <h2 class="black-text text-center register"> {% trans "Signup" %} </h2>
 
     </div>
 <div class="">
 
   <div class="row justify-content-center mb-1">
                     <div class="col-md-6">
-{# <h1>{% trans "Sign Up" %}</h1> #}
 <p>{% blocktrans %}Already have an account? Then please <a class="text-light btn btn-dark" href="{{ login_url }}">sign in here</a>.{% endblocktrans %}</p>
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
@@ -38,7 +37,7 @@ Sign up
   {% endif %}
   <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-success btn-block join-us">Let's go</button>
+                        <button type="submit" class="btn btn-success btn-block join-us">{% trans "Let's go" %}</button>
                     </div>
                 </div>
 </form>

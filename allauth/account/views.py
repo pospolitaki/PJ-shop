@@ -275,6 +275,12 @@ class ConfirmEmailView(TemplateResponseMixin, View):
         except Http404:
             self.object = None
         ctx = self.get_context_data()
+        #custom logic hereVVV
+        redirect_field_value = self.request.GET.get('next')
+        redirect_field_name = "next"
+        if redirect_field_value:
+            ctx.update({'redirect_field_value':redirect_field_value, 'redirect_field_name':redirect_field_name})
+        #custom logic here^^^
         return self.render_to_response(ctx)
 
     def post(self, *args, **kwargs):
@@ -296,6 +302,7 @@ class ConfirmEmailView(TemplateResponseMixin, View):
         # user.is_active = True
         # user.save()
         redirect_url = self.get_redirect_url()
+        
         if not redirect_url:
             ctx = self.get_context_data()
             return self.render_to_response(ctx)
@@ -336,6 +343,7 @@ class ConfirmEmailView(TemplateResponseMixin, View):
                                  # passed as callable, as this method
                                  # depends on the authenticated state
                                  redirect_url=self.get_redirect_url)
+
 
         return None
 

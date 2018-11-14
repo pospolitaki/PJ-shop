@@ -41,7 +41,6 @@
         success: function (data) {
             $('#cart_items_amount').attr('data-count', data.amount);
             $('#span-purchase-submit-btn').html('<a href="'+cart_url+'" class="btn btn-block btn-secondary" id="purchase-submit-btn" type="button"        data-product_id="{{product.id}}" data-name="{{product.name}}" data-price="{{product.price}}" data-discount="{ {product.discount}}">Go to Cart</a>');
-
             function update_messages(messages){
                 $("#messages-list").html("");
                 $("#messages-list").append('<li>' + '<h5 class="font-italic font-weight-bold">' + messages.message + '</h5>' + '</li>');

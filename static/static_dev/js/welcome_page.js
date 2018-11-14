@@ -28,12 +28,27 @@ function imgAnimation(){
     $("img.main-pic-welcome").fadeIn(5000);
 };
 
+
+function registerTextFadeIn(){
+    $("h2.register").addClass("animated fadeInLeft");
+};
+function JregisterTextHide(){
+    $("h2.register").css('opacity','0');
+};
+
 $(JewelryAccessoriesHide());
 setTimeout(followUsBtn, 5000);
 setTimeout(JewelryAccessoriesShow, 3000);
 setTimeout(JewelryAccessories, 3000);
 setTimeout(imgAnimation, 500);
 setTimeout(JewelryAccessoriesFadeIn, 500);
+
+$(JregisterTextHide());
+setTimeout(registerTextFadeIn, 200);
+
+
+
+
 
 
 setInterval(changeCrowColor, 15000); // Every two seconds
