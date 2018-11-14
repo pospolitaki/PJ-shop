@@ -11,16 +11,16 @@ Welcome
    
     <div class="container-fluid img-h2-welcome">
         <div class="text-center main-pic-con-welcome">
-            <img src="{% static 'img/home_main_1.jpg' %}" class="img-fluid main-pic-welcome mt-5" alt="home picture">
+            <img src="{% static 'img/home_main_1.jpg' %}" class="img-fluid main-pic-welcome mt-0" alt="home picture">
         </div>    
         
         <h2 class="black-text text-center welcome mt-5"> Jewelry & Accessories</h2>
 
     </div>
-    <div>
+    <div class="mt-5">
         <form action={% url 'landing:home' %}>
             <div class="text-center button-join-us">
-                    <div class="row">
+                    <div class="row mx-0">
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-success btn-block join-us">Go shoping!</button>
                         </div>
@@ -30,7 +30,9 @@ Welcome
     </div>
     
     {% endblock content %}
-
+    {% block footer %}
+    
+    {% endblock footer %}
     {% block script %}
     <script src="{% static 'js/welcome_page.js' %}"></script>
     {% endblock script %}
