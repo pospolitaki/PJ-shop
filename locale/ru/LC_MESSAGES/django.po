@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-14 10:44+0200\n"
+"POT-Creation-Date: 2018-11-15 23:10+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,6 +16,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7.1\n"
+
+#: accounts/models.py:13 allauth/account/models.py:23
+msgid "user"
+msgstr "пользователь"
+
+#: accounts/models.py:14
+msgid "purchases"
+msgstr "покупки"
+
+#: accounts/models.py:23
+msgid "profile"
+msgstr "профиль"
+
+#: accounts/models.py:24
+msgid "profiles"
+msgstr "профиль"
 
 #: allauth/account/adapter.py:45
 msgid "Username can not be used. Please use other username."
@@ -139,10 +155,6 @@ msgstr "Нет пользователя с таким e-mail"
 msgid "The password reset token was invalid."
 msgstr "Неправильный код для сброса пароля."
 
-#: allauth/account/models.py:23
-msgid "user"
-msgstr "пользователь"
-
 #: allauth/account/models.py:27 allauth/account/models.py:81
 msgid "e-mail address"
 msgstr "e-mail адрес"
@@ -163,7 +175,8 @@ msgstr "email адрес"
 msgid "email addresses"
 msgstr "email адреса"
 
-#: allauth/account/models.py:83
+#: allauth/account/models.py:83 product/models.py:29 product/models.py:49
+#: shopping_cart/models.py:15
 msgid "created"
 msgstr "создано"
 
@@ -208,7 +221,8 @@ msgstr "Социальные аккаунты"
 msgid "provider"
 msgstr "провайдер"
 
-#: allauth/socialaccount/models.py:46 landing/models.py:8
+#: allauth/socialaccount/models.py:46 landing/models.py:8 product/models.py:10
+#: product/models.py:21 shopping_cart/models.py:12
 msgid "name"
 msgstr "имя"
 
@@ -323,15 +337,150 @@ msgstr "Доступ к ресурсам закрыт \"%s\"."
 
 #: landing/models.py:14
 msgid "Shop Subscriber"
-msgstr ""
+msgstr "Подписчик"
 
 #: landing/models.py:15
 msgid "Shop Subscribers"
-msgstr ""
+msgstr "Подписчики"
 
-#: product/models.py:33
-msgid "{}"
-msgstr ""
+#: product/models.py:11 product/models.py:22 product/models.py:48
+#: shopping_cart/models.py:13
+msgid "is active"
+msgstr "активен(а)"
+
+#: product/models.py:17 product/models.py:25
+msgid "category"
+msgstr "категория"
+
+#: product/models.py:18
+msgid "categories"
+msgstr "категории"
+
+#: product/models.py:23
+msgid "for children"
+msgstr "для деток"
+
+#: product/models.py:24
+msgid "discount"
+msgstr "скидка"
+
+#: product/models.py:26
+msgid "price"
+msgstr "цена"
+
+#: product/models.py:27
+msgid "short description"
+msgstr "краткое описание"
+
+#: product/models.py:28
+msgid "description"
+msgstr "описание"
+
+#: product/models.py:30 product/models.py:50 shopping_cart/models.py:14
+#: shopping_cart/models.py:34
+msgid "updated"
+msgstr "обновление"
+
+#: product/models.py:36 product/models.py:45 shopping_cart/admin.py:29
+#: shopping_cart/models.py:25
+msgid "product"
+msgstr "продукт"
+
+#: product/models.py:37
+msgid "products"
+msgstr "продукты"
+
+#: product/models.py:46
+msgid "image"
+msgstr "фотография"
+
+#: product/models.py:47
+msgid "is main"
+msgstr "основная"
+
+#: product/models.py:56
+msgid "product image"
+msgstr "фотография продукта"
+
+#: product/models.py:57
+msgid "product images"
+msgstr "фотографии продуктов"
+
+#: shopping_cart/admin.py:33 shopping_cart/models.py:30
+msgid "quantity"
+msgstr "колличество"
+
+#: shopping_cart/admin.py:37 shopping_cart/models.py:31
+msgid "details"
+msgstr "подробности"
+
+#: shopping_cart/admin.py:41 shopping_cart/models.py:32
+msgid "price per item"
+msgstr "цена за единицу"
+
+#: shopping_cart/admin.py:45 shopping_cart/models.py:33
+msgid "total price"
+msgstr "общая сумма"
+
+#: shopping_cart/admin.py:47 shopping_cart/models.py:49
+msgid "order item"
+msgstr "товар в заказе"
+
+#: shopping_cart/admin.py:48 shopping_cart/models.py:50
+msgid "order items"
+msgstr "товары в заказе"
+
+#: shopping_cart/models.py:21
+msgid "Status"
+msgstr "Статус"
+
+#: shopping_cart/models.py:22
+msgid "Statuses"
+msgstr "Статусы"
+
+#: shopping_cart/models.py:26 shopping_cart/models.py:56
+msgid "is ordered"
+msgstr "заказан"
+
+#: shopping_cart/models.py:27
+msgid "date added"
+msgstr "дата добавления"
+
+#: shopping_cart/models.py:28 shopping_cart/models.py:58
+msgid "date ordered"
+msgstr "дата создания"
+
+#: shopping_cart/models.py:54
+msgid "order code"
+msgstr "код заказа"
+
+#: shopping_cart/models.py:55
+msgid "owner"
+msgstr "заказчик"
+
+#: shopping_cart/models.py:57
+msgid "items"
+msgstr "товары"
+
+#: shopping_cart/models.py:61
+msgid "customer email"
+msgstr "e-mail заказчика"
+
+#: shopping_cart/models.py:64
+msgid "customer phone number"
+msgstr "контактный телефон заказчика"
+
+#: shopping_cart/models.py:66
+msgid "status"
+msgstr "Статус"
+
+#: shopping_cart/models.py:81
+msgid "order"
+msgstr "заказ"
+
+#: shopping_cart/models.py:82
+msgid "orders"
+msgstr "заказы"
 
 #: templates/allauth/account/account_inactive.html:5
 #: templates/allauth/account/account_inactive.html:8
@@ -482,11 +631,11 @@ msgstr ""
 "Пожалуйста, подтвердите <a href=\"mailto:%(email)s\">%(email)s</a> для "
 "пользователя %(user_display)s."
 
-#: templates/allauth/account/email_confirm.html:25
+#: templates/allauth/account/email_confirm.html:28
 msgid "Confirm"
 msgstr "Подтвердить"
 
-#: templates/allauth/account/email_confirm.html:32
+#: templates/allauth/account/email_confirm.html:35
 #, python-format
 msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
@@ -701,8 +850,9 @@ msgstr "Регистрация"
 msgid ""
 "Already have an account? Then please <a class=\"text-light btn btn-dark\" "
 "href=\"%(login_url)s\">sign in here</a>."
-msgstr "Уже зарегистрированы? Пожалуйста, <a class=\"text-light btn btn-dark\" "
-"href=\"%(login_url)s\">войдите здесь</a>."
+msgstr ""
+"Уже зарегистрированы? Пожалуйста, <a class=\"text-light btn btn-dark\" href="
+"\"%(login_url)s\">войдите здесь</a>."
 
 #: templates/allauth/account/signup_closed.html:5
 #: templates/allauth/account/signup_closed.html:8
@@ -848,12 +998,23 @@ msgstr ""
 "Вы используете %(provider_name)s для авторизации на \n"
 "%(site_name)s. Чтобы завершить, заполните следующую форму:"
 
-#: templates/landing/landing_.html:36
-#, fuzzy
-#| msgctxt "field label"
-#| msgid "Login"
+#: templates/navbar_prod.html:67
 msgid "Login"
 msgstr "Войти"
+
+#, fuzzy
+#~| msgid "total price"
+#~ msgid "total_price"
+#~ msgstr "общая сумма"
+
+#~ msgid "number"
+#~ msgstr "колличество"
+
+#, fuzzy
+#~| msgctxt "field label"
+#~| msgid "Login"
+#~ msgid "login"
+#~ msgstr "Войти"
 
 #~ msgid "The login and/or password you specified are not correct."
 #~ msgstr "Логин и/или пароль не верны."

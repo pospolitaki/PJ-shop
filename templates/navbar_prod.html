@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div class="navbar-font">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <a class="navbar-brand pj" href="{% url 'landing:welcome' %}">PJ</a>
@@ -61,7 +63,7 @@
                         {% else %}
                     <li class="nav-item ">
                         <a class="nav-link descriprion-text" href="{% url 'allauth:account_login' %}?next={{ request.path_info }}" id="">
-                        Вход <i class="fas fa-sign-in-alt"></i></a>
+                        {% trans "Login" %} <i class="fas fa-sign-in-alt"></i></a>
                     </li>
                         {% endif %}
                 </ul>                 

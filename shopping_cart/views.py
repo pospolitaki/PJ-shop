@@ -38,7 +38,7 @@ def generate_success_order_email_content(items_queryset):
 
 
 
-# @login_required() #fixing ajax + login_requiered cooperating
+# ajax + login_requiered cooperating
 def add_to_cart(request, **kwargs):
     return_data = dict()
 
@@ -122,12 +122,10 @@ def order_details(request, **kwargs):
 def checkout(request):
     existing_order = get_user_pending_order(request)
     if request.method == 'POST':
-        print('THIS IS AN EXISTING ORDER >>>', existing_order)
         form = OrderContactPhoneForm(request.POST, instance=existing_order)
         if form.is_valid():
             with transaction.atomic():
                 form.save()
-            print('CHECK OUT! THANKS GOD!')
             print(request.POST)
             return redirect(reverse('shopping_cart:update_records'))  
     else:
@@ -163,6 +161,16 @@ def update_transaction_records(request):
     user_profile.purchases.add(*order_products)
     user_profile.save()
     email_content = generate_success_order_email_content(order_items)
+
+    #!!! Python f-strings and JavaScript template strings are not yet supported by xgettext.
+
+    # def hello_world(request, count):
+    # page = ngettext(
+    #     'there is %(count)d object',
+    #     'there are %(count)d objects',
+    # count) % {
+    #     'count': count,
+    # }
 
     datatuple = (
     ('PJ | Order accepted!', 

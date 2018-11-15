@@ -20,8 +20,13 @@ from product import urls as product_urls
 from order import urls as order_urls
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 
-urlpatterns = [
+
+# urlpatterns = [
+#     url(r'^admin/', admin.site.urls),
+#     ]
+urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^', include(landing_urls, namespace='landing')),
     url(r'^', include(product_urls, namespace='product')),
@@ -30,7 +35,6 @@ urlpatterns = [
     url(r'^/', include('allauth.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^cart/', include('shopping_cart.urls', namespace='shopping_cart')),
-
-] \
+) \
 + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
