@@ -4,33 +4,33 @@
 <div class="d-flex flex-column align-items-start">
 
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name={% trans "material" %} checked="checked" value={% trans "silver 925" %} id="silver" /> <label class="custom-control-label" for="silver"> <h5 class="descriprion-text">{% trans "silver 925°" %}</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "material" %} checked="checked" value="{% trans "silver 925°" %}" id="silver" /> <label class="custom-control-label" for="silver"> <h5 class="descriprion-text">{% trans "silver 925°" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name="материал" value="позолота 925" id="gilding"/><label class="custom-control-label" for="gilding"> <h5 class="descriprion-text">позолота 925°</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "material" %} value={% trans "gilding 925°" %} id="gilding"/><label class="custom-control-label" for="gilding"> <h5 class="descriprion-text">{% trans "gilding 925°" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio">
-            <input type="radio"class="custom-control-input" name="материал" value="золото 585" id="gold"/><label class="custom-control-label" for="gold"> <h5 class="descriprion-text">золото 585°</h5> </label>
+            <input type="radio"class="custom-control-input" name={% trans "material" %} value={% trans "gold 925°" %} id="gold"/><label class="custom-control-label" for="gold"> <h5 class="descriprion-text">{% trans "gold 925°" %}</h5> </label>
         </div>
             
 </div>
 
-<h3 class="descriprion-text">Размер</h3>
+<h3 class="descriprion-text">{% trans "Size" %}</h3>
 
 <div class="d-flex flex-column align-items-start">
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name="размер" checked="checked" value="стандартный мужской" id="man"/> <label class="custom-control-label" for="man"> <h5 class="descriprion-text">стандартный мужской</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "size" %} checked="checked" value={% trans "standard male" %} id="man"/> <label class="custom-control-label" for="man"> <h5 class="descriprion-text">{% trans "standard male" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name="размер" value="стандартный женский" id="woman"/><label class="custom-control-label" for="woman"> <h5 class="descriprion-text">стандартный женский</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "size" %} value={% trans "standard female" %} id="woman"/><label class="custom-control-label" for="woman"> <h5 class="descriprion-text">{% trans "standard female" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio text-left mb-4" id="own-input">
-            <input type="radio"class="custom-control-input" name="размер" value="other" id="own"/> <label class="custom-control-label" for="own"> <h5 class="descriprion-text">свой размер</h5> </label>
+            <input type="radio"class="custom-control-input" name={% trans "size" %} value="other" id="own"/> <label class="custom-control-label" for="own"> <h5 class="descriprion-text">{% trans "own size" %}</h5> </label>
 
             <div class="input-group input-group-sm mb-3" id="own-size">
-                <input id="product-own-size-input" type="number" min="0" value="1" class="form-control" name="size" placeholder="размер" aria-label="size">
+                <input id="product-own-size-input" type="number" min="0" value="1" class="form-control" name="size" placeholder={% trans "size" %} aria-label="size">
                 <div class="input-group-append">
-                    <span class="input-group-text font-weight-bold descriprion-text"> см</span>
+                    <span class="input-group-text font-weight-bold descriprion-text"> {% trans "cm" %}</span>
                 </div>
             </div>
 
@@ -40,16 +40,16 @@
 
 <div class="row">
  <div class="col-sm-6">
-            <h3 class="descriprion-text">Количество</h3>
+            <h3 class="descriprion-text">{% trans "Quantity" %}</h3>
             
             
             <div class="row justify-content-center">
-                <div class="col-5">
+                <div class="col-4">
 
                     <div class="input-group input-group-sm mb-3" id="amount">
                         <input id="quantity-input" type="number" min="1" value="1" class="form-control font-weight-bold" placeholder="" name="amount" aria-label="size">
                         <div class="input-group-append">
-                            <span class="input-group-text font-weight-bold"> шт.</span>
+                            <span class="input-group-text font-weight-bold"> </span>
                         </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
             </div>    
  <div class="col-sm-6">
 
-        <h3 class="descriprion-text">Цена</h3>
+        <h3 class="descriprion-text">{% trans "Price" %}</h3>
         
         <div>
             <h5 class="descriprion-text font-weight-bold"><strike class="text-danger" id="product-discount"></strike> <span id="totalPrice"></span>$</h5>

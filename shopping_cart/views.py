@@ -53,19 +53,19 @@ def add_to_cart(request, **kwargs):
         order_item_details_raw = request.POST.get('order_item_details', '')
 
         #spliting data from ajax request, checkout here
-        if order_item_details_raw:
-            try:
-                order_item_details = order_item_details_raw.split(',')
-                order_item_details = ', '.join([item.split(':')[1].strip() for item in order_item_details if item])
-                print (order_item_details)
-            except:
-                order_item_details = order_item_details_raw
+        # if order_item_details_raw:
+        #     try:
+        #         order_item_details = order_item_details_raw.split(',')
+        #         order_item_details = ', '.join([item.split(':')[1].strip() for item in order_item_details if item])
+        #         print (order_item_details)
+        #     except:
+        #         order_item_details = order_item_details_raw
         try:
             with transaction.atomic():
                 # create orderItem of the selected product
                 
                 # TODO: have changed to create from get_or_create to fix bug with order items deleting if both users have the same order_item in cart... but this spoil the server db, so optimizations recomended
-                order_item = OrderItem.objects.create(product=product, nmb=product_quantity, details=order_item_details)
+                order_item = OrderItem.objects.create(product=product, nmb=product_quantity, details=order_item_details_raw)
                 # create order associated with the user
                 user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
                 user_order.items.add(order_item)

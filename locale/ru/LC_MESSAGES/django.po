@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-16 21:18+0200\n"
+"POT-Creation-Date: 2018-11-16 23:41+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1015,16 +1015,60 @@ msgid "Detail material"
 msgstr "Материал детали"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:7
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:10
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:13
 msgid "material"
 msgstr "материал"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:7
-msgid "silver 925"
-msgstr "серебро 925"
-
-#: templates/product_forms/Браслеты_из_натуральных_камней.html:7
 msgid "silver 925°"
 msgstr "серебро 925°"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:10
+msgid "gilding 925°"
+msgstr "позолота 925°"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:13
+msgid "gold 925°"
+msgstr "золото 925°"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:18
+msgid "Size"
+msgstr "Размер"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:22
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:25
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:28
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:31
+msgid "size"
+msgstr "размер"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:22
+msgid "standard male"
+msgstr "стандартный мужской"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:25
+msgid "standard female"
+msgstr "стандартный женский"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:28
+msgid "own size"
+msgstr "свой размер"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:33
+msgid "cm"
+msgstr "см"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:43
+msgid "Quantity"
+msgstr "Колличество"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:60
+msgid "Price"
+msgstr "Цена"
+
+#~ msgid "silver 925"
+#~ msgstr "серебро 925"
 
 #, fuzzy
 #~| msgid "total price"
