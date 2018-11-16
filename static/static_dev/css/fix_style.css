@@ -273,3 +273,15 @@ ul.messages li { display: inline; }
 .phone_number{
     color: skyblue !important;
 }
+
+#language-selector{
+    /* width: 70px; */
+    background-color:#343a40;
+    color: salmon;
+    border: #343a40;
+}
+
+/* .navbar-nav>li:last-child{
+    /* border: none; */
+    border-right: 1px solid gray;
+ } */

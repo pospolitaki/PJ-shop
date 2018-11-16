@@ -1,0 +1,32 @@
+{% load i18n %}
+
+{% get_language_info_list for LANGUAGES as languages %}
+{% if settings.USE_I18N and languages|length > 1 %}
+<form class="form-inline" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}" />
+    <select class="custom-select my-1 mr-sm-2 font-weight-bold" id="language-selector" name="language" onchange="this.form.submit()">
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {% comment %} {{ language.name_local }}  {% endcomment %}
+                {{ language.code }}
+            </option>
+        {% endfor %}
+    </select>
+    {% comment %} <input type="submit" value="Go" /> {% endcomment %}
+</form>
+
+{% comment %} {% get_language_info_list for LANGUAGES as languages %}
+{% if settings.USE_I18N and languages|length > 1 %}
+<form action="{% url "set_language" %}" method="post" class="navbar-form navbar-right">
+{% csrf_token %}
+    <select name="language" class="form-control" onchange="this.form.submit()">
+    {% for language in languages %}
+    <option value="{{ language.code }}"
+        {% if language.code == LANGUAGE_CODE %}selected="selected"{% endif %}>
+        {{ language.name_local }}  
+        {{ language.code }}
+    </option>
+    {% endfor %}
+    </select>
+</form> {% endcomment %}
+{% endif %}

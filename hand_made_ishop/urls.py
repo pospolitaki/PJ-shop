@@ -26,7 +26,11 @@ from django.conf.urls.i18n import i18n_patterns
 # urlpatterns = [
 #     url(r'^admin/', admin.site.urls),
 #     ]
-urlpatterns = i18n_patterns(
+
+urlpatterns = [
+url(r'^i18n/', include('django.conf.urls.i18n')),
+]
+urlpatterns += i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^', include(landing_urls, namespace='landing')),
     url(r'^', include(product_urls, namespace='product')),

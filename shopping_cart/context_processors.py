@@ -7,3 +7,8 @@ def cart_items_amount(request):
             cart_items_amount = 0
     return locals()
     
+
+from django.conf import settings # import the settings file
+
+def get_settings(request):
+    return {'settings': settings}
