@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-15 23:10+0200\n"
+"POT-Creation-Date: 2018-11-16 20:37+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -998,7 +998,15 @@ msgstr ""
 "Вы используете %(provider_name)s для авторизации на \n"
 "%(site_name)s. Чтобы завершить, заполните следующую форму:"
 
-#: templates/navbar_prod.html:67
+#: templates/navbar_prod.html:13 templates/navbar_register.html:12
+msgid "Home"
+msgstr "На главную"
+
+#: templates/navbar_prod.html:18 templates/navbar_register.html:16
+msgid "Follow us"
+msgstr "Подписаться"
+
+#: templates/navbar_prod.html:68
 msgid "Login"
 msgstr "Войти"
 

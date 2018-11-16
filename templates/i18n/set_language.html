@@ -4,11 +4,11 @@
 {% if settings.USE_I18N and languages|length > 1 %}
 <form class="form-inline" action="{% url 'set_language' %}" method="post">{% csrf_token %}
     <input name="next" type="hidden" value="{{ redirect_to }}" />
-    <select class="custom-select my-1 mr-sm-2 font-weight-bold" id="language-selector" name="language" onchange="this.form.submit()">
+    <select class="custom-select my-1 mr-sm-2 " id="language-selector" name="language" onchange="this.form.submit()">
         {% for language in languages %}
             <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                {% comment %} {{ language.name_local }}  {% endcomment %}
-                {{ language.code }}
+                {{ language.name_local }} 
+                {% comment %} {{ language.code }} {% endcomment %}
             </option>
         {% endfor %}
     </select>

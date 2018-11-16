@@ -32,7 +32,7 @@ function imgAnimation(){
 function registerTextFadeIn(){
     $("h2.register").addClass("animated fadeInLeft");
 };
-function JregisterTextHide(){
+function registerTextHide(){
     $("h2.register").css('opacity','0');
 };
 
@@ -43,7 +43,7 @@ setTimeout(JewelryAccessories, 3000);
 setTimeout(imgAnimation, 500);
 setTimeout(JewelryAccessoriesFadeIn, 500);
 
-$(JregisterTextHide());
+$(registerTextHide());
 setTimeout(registerTextFadeIn, 200);
 
 

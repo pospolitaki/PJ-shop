@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div class="navbar-font">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <a class="navbar-brand pj" href="{% url 'landing:home' %}">PJ</a>
@@ -7,11 +9,11 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'landing:home' %}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" id="home-link" href="{% url 'landing:home' %}"> {% trans "Home" %} <span class="sr-only">(current)</span></a>
                     </li>
                <div class="btn-group follow-us-btn"> 
                         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span>Follow us</span> <span class="text-light "><i class="fas fa-crow"></i></span>
+                          <span> {% trans "Follow us" %} </span> <span class="text-light "><i class="fas fa-crow"></i></span>
                         </button>
                         <div class="dropdown-menu">
                                 <a class="dropdown-item" href="https://www.facebook.com/Petrosyan-Jewelry-815650388514952/"> <i class="fab fa-facebook-f  mr-1"></i>facebook</a>

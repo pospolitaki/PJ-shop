@@ -53,6 +53,14 @@ a.pj{
     font-family: 'Shadows Into Light', cursive;
 }
 
+a.pj:hover {
+    color: aqua !important;
+}
+
+#home-link:hover{
+    color: skyblue !important;
+}
+
 .navbar-nav .dropdown-menu {
     position: absolute!important;
   }
@@ -277,8 +285,12 @@ ul.messages li { display: inline; }
 #language-selector{
     /* width: 70px; */
     background-color:#343a40;
-    color: salmon;
+    color: gray;
     border: #343a40;
+}
+
+#language-selector:hover {
+    color: salmon;
 }
 
 /* .navbar-nav>li:last-child{
