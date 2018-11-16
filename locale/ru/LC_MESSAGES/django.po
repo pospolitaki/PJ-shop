@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-16 20:37+0200\n"
+"POT-Creation-Date: 2018-11-16 21:18+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1009,6 +1009,22 @@ msgstr "Подписаться"
 #: templates/navbar_prod.html:68
 msgid "Login"
 msgstr "Войти"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:2
+msgid "Detail material"
+msgstr "Материал детали"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:7
+msgid "material"
+msgstr "материал"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:7
+msgid "silver 925"
+msgstr "серебро 925"
+
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:7
+msgid "silver 925°"
+msgstr "серебро 925°"
 
 #, fuzzy
 #~| msgid "total price"

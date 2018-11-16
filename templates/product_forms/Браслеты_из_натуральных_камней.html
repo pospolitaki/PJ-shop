@@ -1,10 +1,10 @@
-
-<h3 class="descriprion-text">Материал детали</h3>
+{% load i18n %}
+<h3 class="descriprion-text">{% trans "Detail material" %}</h3>
 
 <div class="d-flex flex-column align-items-start">
 
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name="материал" checked="checked" value="серебро 925" id="silver" /> <label class="custom-control-label" for="silver"> <h5 class="descriprion-text">серебро 925°</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "material" %} checked="checked" value={% trans "silver 925" %} id="silver" /> <label class="custom-control-label" for="silver"> <h5 class="descriprion-text">{% trans "silver 925°" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio">
         <input type="radio"class="custom-control-input" name="материал" value="позолота 925" id="gilding"/><label class="custom-control-label" for="gilding"> <h5 class="descriprion-text">позолота 925°</h5> </label>

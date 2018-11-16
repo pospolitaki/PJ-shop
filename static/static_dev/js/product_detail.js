@@ -13,7 +13,11 @@
         var ringSizeInput = $('#ring-size input');
         var orderDetails = '';
         $("#purchase-form input[type=radio]:checked").each(function() {
-            orderDetails = orderDetails + ' ' + this.name +' : ' + this.value + ',';
+            var idVal = $(this).attr("id");
+            var lableText = $("label[for='"+idVal+"']").text();
+            
+            // orderDetails = orderDetails + ' ' + this.name +' : ' + this.value + ',';
+            orderDetails = orderDetails + ' ' + this.name +' : ' + lableText + ',';
         });
         if (typeof variable !== 'undefined'){
             orderDetails = orderDetails + ' ' + ringSizeInput.attr('name') +' : ' + ringSizeInput.val();
