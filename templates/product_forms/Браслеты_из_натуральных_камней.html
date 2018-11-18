@@ -7,10 +7,10 @@
         <input type="radio"class="custom-control-input" name={% trans "material" %} checked="checked" value="{% trans "silver 925°" %}" id="silver" /> <label class="custom-control-label" for="silver"> <h5 class="descriprion-text">{% trans "silver 925°" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name={% trans "material" %} value={% trans "gilding 925°" %} id="gilding"/><label class="custom-control-label" for="gilding"> <h5 class="descriprion-text">{% trans "gilding 925°" %}</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "material" %} value='{% trans "gilding 925°" %}' id="gilding"/><label class="custom-control-label" for="gilding"> <h5 class="descriprion-text">{% trans "gilding 925°" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio">
-            <input type="radio"class="custom-control-input" name={% trans "material" %} value={% trans "gold 925°" %} id="gold"/><label class="custom-control-label" for="gold"> <h5 class="descriprion-text">{% trans "gold 925°" %}</h5> </label>
+            <input type="radio"class="custom-control-input" name={% trans "material" %} value='{% trans "gold 925°" %}' id="gold"/><label class="custom-control-label" for="gold"> <h5 class="descriprion-text">{% trans "gold 925°" %}</h5> </label>
         </div>
             
 </div>
@@ -19,10 +19,10 @@
 
 <div class="d-flex flex-column align-items-start">
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name={% trans "size" %} checked="checked" value={% trans "standard male" %} id="man"/> <label class="custom-control-label" for="man"> <h5 class="descriprion-text">{% trans "standard male" %}</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "size" %} checked="checked" value='{% trans "standard male" %}' id="man"/> <label class="custom-control-label" for="man"> <h5 class="descriprion-text">{% trans "standard male" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name={% trans "size" %} value={% trans "standard female" %} id="woman"/><label class="custom-control-label" for="woman"> <h5 class="descriprion-text">{% trans "standard female" %}</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "size" %} value='{% trans "standard female" %}' id="woman"/><label class="custom-control-label" for="woman"> <h5 class="descriprion-text">{% trans "standard female" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio text-left mb-4" id="own-input">
             <input type="radio"class="custom-control-input" name={% trans "size" %} value="other" id="own"/> <label class="custom-control-label" for="own"> <h5 class="descriprion-text">{% trans "own size" %}</h5> </label>
@@ -30,7 +30,7 @@
             <div class="input-group input-group-sm mb-3" id="own-size">
                 <input id="product-own-size-input" type="number" min="0" value="1" class="form-control" name="size" placeholder={% trans "size" %} aria-label="size">
                 <div class="input-group-append">
-                    <span class="input-group-text font-weight-bold descriprion-text"> {% trans "cm" %}</span>
+                    <span class="input-group-text font-weight-bold descriprion-text">{% trans "cm" %}</span>
                 </div>
             </div>
 

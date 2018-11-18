@@ -24,7 +24,6 @@ class Product(models.Model):
     discount = models.IntegerField(_('discount'), default=0)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='products', verbose_name=_('category'), related_query_name="product",blank=True, null=True, default=None)
     price = models.DecimalField(_('price'), max_digits=10, decimal_places=2, default=0)
-    short_description = models.TextField(_('short description'), blank=True, null=True, default=None)
     description = models.TextField(_('description'), blank=True, null=True, default=None)
     created = models.DateTimeField(_('created'), auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(_('updated'), auto_now=True, auto_now_add=False)

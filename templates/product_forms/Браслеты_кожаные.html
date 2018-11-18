@@ -1,42 +1,43 @@
 
-<h3 class="descriprion-text mb-3">Цвет кожи</h3>
+{% load i18n %}
+<h3 class="descriprion-text mb-3">{% trans "Leather color" %}</h3>
 
     <div class="color-choose mb-3">
         <div>
-            <input data-image="black" type="radio" id="black" name="color" value="black" checked>
+            <input data-image="black" type="radio" id="black" name='{% trans "leather color" %}' value={% trans "black" %} checked>
             <label for="black"><span></span></label>
         </div>
         <div>
-            <input data-image="white" type="radio" id="white" name="color" value="white">
+            <input data-image="white" type="radio" id="white" name='{% trans "leather color" %}' value={% trans "white" %}>
             <label for="white"><span></span></label>
         </div>
         <div>
-            <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+            <input data-image="blue" type="radio" id="blue" name='{% trans "leather color" %}' value={% trans "blue" %}>
             <label for="blue"><span></span></label>
         </div>
         <div>
-            <input data-image="brown" type="radio" id="brown" name="color" value="brown">
+            <input data-image="brown" type="radio" id="brown" name='{% trans "leather color" %}' value={% trans "brown" %} >
             <label for="brown"><span></span></label>
         </div>
 </div>
 
-<h3 class="descriprion-text">Размер</h3>
+<h3 class="descriprion-text">{% trans "Size" %}</h3>
 
 <div class="d-flex flex-column align-items-start">
 
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name="size" checked="checked" value="cтандартный мужской" id="man"/> <label class="custom-control-label" for="man"> <h5 class="descriprion-text">cтандартный мужской</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "size" %} checked="checked" value='{% trans "standard male" %}' id="man"/> <label class="custom-control-label" for="man"> <h5 class="descriprion-text">{% trans "standard male" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio">
-        <input type="radio"class="custom-control-input" name="size" value="cтандартный женский" id="woman"/><label class="custom-control-label" for="woman"> <h5 class="descriprion-text">cтандартный женский</h5> </label>
+        <input type="radio"class="custom-control-input" name={% trans "size" %} value='{% trans "standard female" %}' id="woman"/><label class="custom-control-label" for="woman"> <h5 class="descriprion-text">{% trans "standard female" %}</h5> </label>
     </div>
     <div class="custom-control custom-radio text-left mb-4" id="own-input">
-            <input type="radio"class="custom-control-input" name="size" value="свой размер" id="own"/> <label class="custom-control-label" for="own"> <h5 class="descriprion-text"> свой размер</h5> </label>
+            <input type="radio"class="custom-control-input" name={% trans "size" %} value="other" id="own"/> <label class="custom-control-label" for="own"> <h5 class="descriprion-text">{% trans "own size" %}</h5> </label>
 
             <div class="input-group input-group-sm mb-3" id="own-size">
-                <input id="product-own-size-input" type="number" min="0" class="form-control" name="size" placeholder="размер" aria-label="size">
+                <input id="product-own-size-input" type="number" min="0" class="form-control" name="size" placeholder={% trans "size" %} aria-label="size">
                 <div class="input-group-append">
-                    <span class="input-group-text font-weight-bold descriprion-text"> см</span>
+                    <span class="input-group-text font-weight-bold descriprion-text">{% trans "cm" %}</span>
                 </div>
             </div>
 
@@ -46,7 +47,7 @@
 
 <div class="row">
  <div class="col-sm-6">
-        <h3 class="descriprion-text">Количество</h3>
+        <h3 class="descriprion-text">{% trans "Quantity" %}</h3>
             
             
         <div class="row justify-content-center">
@@ -63,7 +64,7 @@
             </div>    
  <div class="col-sm-6">
 
-        <h3 class="descriprion-text">Цена</h3>
+        <h3 class="descriprion-text">{% trans "Price" %}</h3>
         
         <div>
             <h5 class="descriprion-text font-weight-bold"><strike class="text-danger" id="product-discount"></strike> <span id="totalPrice"></span>$</h5>

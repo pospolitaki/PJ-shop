@@ -297,3 +297,6 @@ ul.messages li { display: inline; }
     /* border: none; */
     border-right: 1px solid gray;
  } */
+#fix-height{
+    min-height: 80%;
+}

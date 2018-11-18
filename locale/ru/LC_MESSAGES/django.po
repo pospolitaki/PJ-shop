@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-16 23:41+0200\n"
+"POT-Creation-Date: 2018-11-19 00:10+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -175,7 +175,7 @@ msgstr "email адрес"
 msgid "email addresses"
 msgstr "email адреса"
 
-#: allauth/account/models.py:83 product/models.py:29 product/models.py:49
+#: allauth/account/models.py:83 product/models.py:28 product/models.py:48
 #: shopping_cart/models.py:15
 msgid "created"
 msgstr "создано"
@@ -343,7 +343,7 @@ msgstr "Подписчик"
 msgid "Shop Subscribers"
 msgstr "Подписчики"
 
-#: product/models.py:11 product/models.py:22 product/models.py:48
+#: product/models.py:11 product/models.py:22 product/models.py:47
 #: shopping_cart/models.py:13
 msgid "is active"
 msgstr "активен(а)"
@@ -369,40 +369,36 @@ msgid "price"
 msgstr "цена"
 
 #: product/models.py:27
-msgid "short description"
-msgstr "краткое описание"
-
-#: product/models.py:28
 msgid "description"
 msgstr "описание"
 
-#: product/models.py:30 product/models.py:50 shopping_cart/models.py:14
+#: product/models.py:29 product/models.py:49 shopping_cart/models.py:14
 #: shopping_cart/models.py:34
 msgid "updated"
 msgstr "обновление"
 
-#: product/models.py:36 product/models.py:45 shopping_cart/admin.py:29
+#: product/models.py:35 product/models.py:44 shopping_cart/admin.py:29
 #: shopping_cart/models.py:25
 msgid "product"
 msgstr "продукт"
 
-#: product/models.py:37
+#: product/models.py:36
 msgid "products"
 msgstr "продукты"
 
-#: product/models.py:46
+#: product/models.py:45
 msgid "image"
 msgstr "фотография"
 
-#: product/models.py:47
+#: product/models.py:46
 msgid "is main"
 msgstr "основная"
 
-#: product/models.py:56
+#: product/models.py:55
 msgid "product image"
 msgstr "фотография продукта"
 
-#: product/models.py:57
+#: product/models.py:56
 msgid "product images"
 msgstr "фотографии продуктов"
 
@@ -1010,6 +1006,35 @@ msgstr "Подписаться"
 msgid "Login"
 msgstr "Войти"
 
+#: templates/product/product_detail.html:62
+msgid "Description"
+msgstr "Описание"
+
+#: templates/product/product_detail.html:67
+msgid "Product characteristics"
+msgstr "Характеристики"
+
+#: templates/product/product_detail.html:96
+msgid "Go to Cart"
+msgstr "Перейти в корзину"
+
+#: templates/product/product_detail.html:104
+#: templates/product/product_detail.html:117
+msgid "Add to cart"
+msgstr "Добавить в корзину"
+
+#: templates/product/product_detail.html:125
+msgid "Hello"
+msgstr "Привет"
+
+#: templates/product/product_detail.html:135
+msgid "Close"
+msgstr "Закрыть"
+
+#: templates/product/product_detail.html:136
+msgid "Yes, no problems!"
+msgstr "Да, конечно!"
+
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:2
 msgid "Detail material"
 msgstr "Материал детали"
@@ -1017,22 +1042,36 @@ msgstr "Материал детали"
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:7
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:10
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:13
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:7
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:10
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:13
+#: templates/product_forms/Запонки.html:7
+#: templates/product_forms/Запонки.html:10
+#: templates/product_forms/Запонки.html:13
 msgid "material"
 msgstr "материал"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:7
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:7
+#: templates/product_forms/Запонки.html:7
 msgid "silver 925°"
 msgstr "серебро 925°"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:10
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:10
+#: templates/product_forms/Запонки.html:10
 msgid "gilding 925°"
 msgstr "позолота 925°"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:13
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:13
+#: templates/product_forms/Запонки.html:13
 msgid "gold 925°"
 msgstr "золото 925°"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:18
+#: templates/product_forms/Браслеты_кожаные.html:24
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:18
 msgid "Size"
 msgstr "Размер"
 
@@ -1040,32 +1079,98 @@ msgstr "Размер"
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:25
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:28
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:31
+#: templates/product_forms/Браслеты_кожаные.html:29
+#: templates/product_forms/Браслеты_кожаные.html:32
+#: templates/product_forms/Браслеты_кожаные.html:35
+#: templates/product_forms/Браслеты_кожаные.html:38
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:22
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:25
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:28
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:31
 msgid "size"
 msgstr "размер"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:22
+#: templates/product_forms/Браслеты_кожаные.html:29
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:22
 msgid "standard male"
 msgstr "стандартный мужской"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:25
+#: templates/product_forms/Браслеты_кожаные.html:32
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:25
 msgid "standard female"
 msgstr "стандартный женский"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:28
+#: templates/product_forms/Браслеты_кожаные.html:35
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:28
 msgid "own size"
 msgstr "свой размер"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:33
+#: templates/product_forms/Браслеты_кожаные.html:40
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:33
 msgid "cm"
 msgstr "см"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:43
+#: templates/product_forms/Браслеты_кожаные.html:50
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:43
 msgid "Quantity"
 msgstr "Колличество"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:60
+#: templates/product_forms/Браслеты_кожаные.html:67
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:60
 msgid "Price"
 msgstr "Цена"
+
+#: templates/product_forms/Браслеты_кожаные.html:3
+msgid "Leather color"
+msgstr "Цвет кожи"
+
+#: templates/product_forms/Браслеты_кожаные.html:7
+#: templates/product_forms/Браслеты_кожаные.html:11
+#: templates/product_forms/Браслеты_кожаные.html:15
+#: templates/product_forms/Браслеты_кожаные.html:19
+msgid "leather color"
+msgstr "цвет кожи"
+
+#: templates/product_forms/Браслеты_кожаные.html:7
+msgid "black"
+msgstr "черный"
+
+#: templates/product_forms/Браслеты_кожаные.html:11
+msgid "white"
+msgstr "белый"
+
+#: templates/product_forms/Браслеты_кожаные.html:15
+msgid "blue"
+msgstr "синий"
+
+#: templates/product_forms/Браслеты_кожаные.html:19
+msgid "brown"
+msgstr "коричневый"
+
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:2
+#: templates/product_forms/Запонки.html:2
+#, fuzzy
+#| msgid "product image"
+msgid "Product material"
+msgstr "фотография продукта"
+
+#: templates/product_forms/Запонки.html:20
+#, fuzzy
+#| msgid "Quantity"
+msgid "Quantity (pairs)"
+msgstr "Колличество пар"
+
+#~ msgid "color"
+#~ msgstr "цвет"
+
+#~ msgid "short description"
+#~ msgstr "краткое описание"
 
 #~ msgid "silver 925"
 #~ msgstr "серебро 925"

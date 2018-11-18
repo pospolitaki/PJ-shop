@@ -47,10 +47,10 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
 
-            </div>
+            </div><!--carousel-->
 
         </div> <!-- fix -->
-        </div>
+        </div> <!--col-->
 
         <div class="col-lg-6">
         <div class="fixdiv">
@@ -59,28 +59,25 @@
         <div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Описание</a>
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"> {% trans "Description"%}</a>
+
+
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Оформление заказа</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{% trans "Product characteristics"%}</a>
                 </li>
             </ul>
         </div>
         
+            <div>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="d-flex flex-column align-items-center">
                         <h1 class="descriprion-text">{{product.name}}</h1>
-                        <h4 class="descriprion-text">{{ product.description }}</h4>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-            </div>
-            <div>
+                
+                <!---->
+                <div>
                 <form action={% url 'shopping_cart:add_to_cart' item_id=product.id %} id="purchase-form" method="POST"> {% csrf_token %}
                     <div class="text-center button-join-us">
                         <div class="row">
@@ -96,7 +93,7 @@
                                data-name="{{product.name}}"
                                data-price="{{product.price}}"
                                data-discount="{{product.discount}}"
-                               >Go to Cart</a>
+                               >{% trans "Go to Cart" %}</a>
                                {% else %}
                                <span id="span-purchase-submit-btn">
                                    <button type="submit" class="btn btn-success btn-block add-to-cart" id="purchase-submit-btn" 
@@ -104,7 +101,7 @@
                                    data-name="{{product.name}}"
                                    data-price="{{product.price}}"
                                    data-discount="{{product.discount}}"
-                                   >Добавить в корзину</button>
+                                   >{% trans "Add to cart" %}</button>
                                 </span>
                                {% endif %}
 
@@ -117,7 +114,7 @@
                                data-price="{{product.price}}"
                                data-discount="{{product.discount}}"
                                data-toggle="modal" data-target="#exampleModalCenter">
-                                Добавить в корзину
+                                {% trans "Add to cart" %}
                               </button>
                               
                               <!-- Modal -->
@@ -125,17 +122,18 @@
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLongTitle">Hello :)</h5>
+                                      <h5 class="modal-title" id="exampleModalLongTitle"> {% trans "Hello" %} :)</h5>
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                       </button>
                                     </div>
-                                    <div class="modal-body">
-                                      You need to come through small registration to make an order. This is how you'll be able to see all of your orders in your own super profile
+                                    <div class="modal-body"> {% trans "You need to come through small registration to make an order. 
+                                      Only few seconds.
+                                      After this you'll have your own super cool profile with all your orders" %}
                                     </div>
                                     <div class="modal-footer">
-                                      <button  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                      <a href="{% url 'allauth:account_login' %}?next={{ request.path_info}}" class="btn btn-primary"  role="button">Yes, no problems!</a>
+                                      <button  type="button" class="btn btn-secondary" data-dismiss="modal"> {% trans "Close" %}</button>
+                                      <a href="{% url 'allauth:account_login' %}?next={{ request.path_info}}" class="btn btn-primary"  role="button"> {% trans "Yes, no problems!" %}</a>
                                     </div>
                                   </div>
                                 </div>
@@ -150,13 +148,19 @@
                     </div>
                 </form>
             </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <h4 class="descriprion-text">{{ product.description }}</h4>
+                </div>
+            </div>
             
+
         </div><!-- flex -->
-        </div>
+        </div><!--col-->
         
-    </div>
+    </div><!--row-->
     
-</div>
+</div> <!-- product-detail-container-->
 <div class="section-delivery d-flex justify-content-center">
     <div class="align-self-center">
         <h3>Free shipping</h3>
