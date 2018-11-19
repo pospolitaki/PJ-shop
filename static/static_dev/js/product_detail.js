@@ -23,13 +23,13 @@
             values.push(this.name +' - ' + this.value);
             // orderDetails = orderDetails + ' ' + this.name +' : ' + lableText + ',';
         });
-        orderDetails = values.join(', ');
-        
-        if (typeof variable !== 'undefined'){
-            orderDetails = orderDetails + ' ' + ringSizeInput.attr('name') +' : ' + ringSizeInput.val();
-        }
 
-        console.log(quantity, productId, productPrice, productName, orderDetails);
+        if (typeof ringSizeInput.val() !== 'undefined'){
+            values.push(ringSizeInput.attr('name') + ' - ' + ringSizeInput.val());
+        }
+        orderDetails = values.join(', ');
+
+        console.log(quantity, productId, productPrice, productName, orderDetails, ringSizeInput);
 //vvv ajax request to server on submit btn click, instead of sending standart POST request
     var csrf_token = $('#purchase-form [name="csrfmiddlewaretoken"]').val();
     var data = {

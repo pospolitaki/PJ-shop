@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-19 00:10+0200\n"
+"POT-Creation-Date: 2018-11-19 23:41+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1048,30 +1048,43 @@ msgstr "Материал детали"
 #: templates/product_forms/Запонки.html:7
 #: templates/product_forms/Запонки.html:10
 #: templates/product_forms/Запонки.html:13
+#: templates/product_forms/Кольца.html:7
+#: templates/product_forms/Кольца.html:10
+#: templates/product_forms/Кольца.html:13
+#: templates/product_forms/Подвески.html:8
+#: templates/product_forms/Подвески.html:11
+#: templates/product_forms/Подвески.html:14
 msgid "material"
 msgstr "материал"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:7
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:7
 #: templates/product_forms/Запонки.html:7
+#: templates/product_forms/Кольца.html:7
+#: templates/product_forms/Подвески.html:8
 msgid "silver 925°"
 msgstr "серебро 925°"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:10
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:10
 #: templates/product_forms/Запонки.html:10
+#: templates/product_forms/Кольца.html:10
+#: templates/product_forms/Подвески.html:11
 msgid "gilding 925°"
 msgstr "позолота 925°"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:13
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:13
 #: templates/product_forms/Запонки.html:13
+#: templates/product_forms/Кольца.html:13
+#: templates/product_forms/Подвески.html:14
 msgid "gold 925°"
 msgstr "золото 925°"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:18
 #: templates/product_forms/Браслеты_кожаные.html:24
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:18
+#: templates/product_forms/Кольца.html:17
 msgid "Size"
 msgstr "Размер"
 
@@ -1087,6 +1100,7 @@ msgstr "Размер"
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:25
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:28
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:31
+#: templates/product_forms/Кольца.html:21
 msgid "size"
 msgstr "размер"
 
@@ -1111,18 +1125,24 @@ msgstr "свой размер"
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:33
 #: templates/product_forms/Браслеты_кожаные.html:40
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:33
+#: templates/product_forms/Подвески.html:34
 msgid "cm"
 msgstr "см"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:43
 #: templates/product_forms/Браслеты_кожаные.html:50
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:43
+#: templates/product_forms/Кольца.html:30
+#: templates/product_forms/Подвески.html:44
 msgid "Quantity"
 msgstr "Колличество"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:60
 #: templates/product_forms/Браслеты_кожаные.html:67
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:60
+#: templates/product_forms/Запонки.html:37
+#: templates/product_forms/Кольца.html:47
+#: templates/product_forms/Подвески.html:61
 msgid "Price"
 msgstr "Цена"
 
@@ -1155,16 +1175,41 @@ msgstr "коричневый"
 
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:2
 #: templates/product_forms/Запонки.html:2
-#, fuzzy
-#| msgid "product image"
+#: templates/product_forms/Кольца.html:2
+#: templates/product_forms/Подвески.html:3
 msgid "Product material"
-msgstr "фотография продукта"
+msgstr "Материал изделия"
 
 #: templates/product_forms/Запонки.html:20
-#, fuzzy
-#| msgid "Quantity"
 msgid "Quantity (pairs)"
 msgstr "Колличество пар"
+
+#: templates/product_forms/Подвески.html:19
+msgid "Chain length"
+msgstr "Длина цепочки"
+
+#: templates/product_forms/Подвески.html:23
+#: templates/product_forms/Подвески.html:26
+#: templates/product_forms/Подвески.html:29
+#: templates/product_forms/Подвески.html:32
+msgid "length"
+msgstr "длина"
+
+#: templates/product_forms/Подвески.html:23
+#| msgid "standard male"
+msgctxt "chain length"
+msgid "standard male"
+msgstr "стандартная мужская"
+
+#: templates/product_forms/Подвески.html:26
+#| msgid "standard female"
+msgctxt "chain length"
+msgid "standard female"
+msgstr "стандартная женская"
+
+#: templates/product_forms/Подвески.html:29
+msgid "own length"
+msgstr "своя длина"
 
 #~ msgid "color"
 #~ msgstr "цвет"
