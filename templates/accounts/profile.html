@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row mx-0">
-  <div class="col-sm-8 offset-sm-2 mt-3">
+  <div class="col-md-8 offset-md-2 mt-3">
   
 <table class="table table-hover table-bordered text-center">
       <tr class="text-center">
@@ -18,9 +18,13 @@
           <td class="align-middle">{{ order.ref_code }}</td>
           <td class="align-middle text-left">
             {% for item in order.items.all %}
-            {{ item.product.name }} ({{ item.details }}) <span class="font-weight-bold">&times</span> {{ item.nmb }}
-            {% endfor %}
-          </td>
+            <a class="profile-product-link " href="{% url 'product:product_detail' product_id=item.product.id %}">
+              <span class="badge badge-secondary description-text">Product code:{{item.product.id}}</span>
+              {{ item.product.name }}  ({{ item.details }}) <span class="font-weight-bold">&times</span> {{ item.nmb }}
+              <br>
+            </a>
+              {% endfor %}
+            </td>
           <td class="align-middle">${{ order.get_cart_total }}</td>
         </tr>
       {% empty %}

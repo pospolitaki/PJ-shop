@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.utils.translation import gettext_lazy as _
+
 
 from accounts.models import Profile
 from product.models import Product
@@ -73,7 +75,7 @@ def add_to_cart(request, **kwargs):
                     # generate a reference code
                     user_order.ref_code = generate_order_id()
                     user_order.save()
-                    messages.info(request, "item added to cart")
+                    messages.info(request, _("item added to cart"))
         except IntegrityError:
             print('Please, say to your developer that he is loser')
             raise
@@ -105,7 +107,7 @@ def delete_from_cart(request, item_id):
     item_to_delete = OrderItem.objects.filter(pk=item_id)
     if item_to_delete.exists():
         item_to_delete[0].delete()
-        messages.info(request, "Item has been deleted")
+        messages.info(request, _("Item has been deleted"))
     return redirect(reverse('shopping_cart:order_summary'))
 
 
@@ -173,17 +175,17 @@ def update_transaction_records(request):
     # }
 
     datatuple = (
-    ('PJ | Order accepted!', 
-    f'''
+    (_('PJ | Order accepted!'), 
+    _('''
     Hi, there!
     Thank you for ordering:
-    {email_content}.
+    {email_content}
     We'll contact you again soon.
 
-    Now you can check out your order #{order_to_purchase.ref_code} details and follow status of your order fulfillment in your awesome PJ-shop profile :)
+    Now you can check out your order #{order_code} details and follow status of your order fulfillment in your awesome PJ-shop profile :)
 
     P.S. Have a questions? Contact us, you are always welcome!   
-    ''', 
+    ''').format(email_content = email_content, order_code=order_to_purchase.ref_code), 
     settings.EMAIL_HOST_USER, [order_to_purchase.owner.user.email, settings.DEV_SUPPORT_EMAIL]),
 
     (f'New order #{order_to_purchase.ref_code}', 

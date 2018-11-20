@@ -90,6 +90,14 @@ a.product-detail-link:hover {
     }
 
 
+ /* a.profile-product-link:link {
+    color: black !important ;
+    } */
+
+a.profile-product-link:hover {
+    text-decoration: none;
+    }
+
 h3.category-name{
     font-family: 'PT Sans', sans-serif;
     }

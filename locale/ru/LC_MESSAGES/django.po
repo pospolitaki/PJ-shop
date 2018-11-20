@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-19 23:41+0200\n"
+"POT-Creation-Date: 2018-11-20 15:24+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -426,6 +426,13 @@ msgstr "товар в заказе"
 msgid "order items"
 msgstr "товары в заказе"
 
+#: shopping_cart/forms.py:18
+msgid ""
+"We won't give your phone number to anyone we just need to contact you "
+"somehow.."
+msgstr ""
+"Мы никому не дадим Ваш номер телефона, нам просто нужно связаться с Вами"
+
 #: shopping_cart/models.py:21
 msgid "Status"
 msgstr "Статус"
@@ -463,8 +470,8 @@ msgid "customer email"
 msgstr "e-mail заказчика"
 
 #: shopping_cart/models.py:64
-msgid "customer phone number"
-msgstr "контактный телефон заказчика"
+msgid "contact phone number"
+msgstr "контактный телефон"
 
 #: shopping_cart/models.py:66
 msgid "status"
@@ -477,6 +484,110 @@ msgstr "заказ"
 #: shopping_cart/models.py:82
 msgid "orders"
 msgstr "заказы"
+
+#: shopping_cart/templates/shopping_cart/checkout.html:22
+msgid "Your order"
+msgstr "Ваш заказ"
+
+#: shopping_cart/templates/shopping_cart/checkout.html:27
+#: shopping_cart/templates/shopping_cart/order_summary.html:11
+msgid "no."
+msgstr " "
+
+#: shopping_cart/templates/shopping_cart/checkout.html:29
+#: shopping_cart/templates/shopping_cart/order_summary.html:13
+msgid "Item"
+msgstr "Товар"
+
+#: shopping_cart/templates/shopping_cart/checkout.html:30
+#: shopping_cart/templates/shopping_cart/order_summary.html:14
+msgid "Specifications"
+msgstr "Характеристики"
+
+#: shopping_cart/templates/shopping_cart/checkout.html:31
+#: shopping_cart/templates/shopping_cart/order_summary.html:15
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:43
+#: templates/product_forms/Браслеты_кожаные.html:50
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:43
+#: templates/product_forms/Кольца.html:30
+#: templates/product_forms/Подвески.html:43
+msgid "Quantity"
+msgstr "Колличество"
+
+#: shopping_cart/templates/shopping_cart/checkout.html:32
+#: shopping_cart/templates/shopping_cart/order_summary.html:16
+msgid "Price per item"
+msgstr "Цена за единицу"
+
+#: shopping_cart/templates/shopping_cart/checkout.html:57
+#: shopping_cart/templates/shopping_cart/order_summary.html:41
+msgid "You have not added any items yet."
+msgstr "Вы еще не добавили ни одного товара."
+
+#: shopping_cart/templates/shopping_cart/checkout.html:69
+#: shopping_cart/templates/shopping_cart/order_summary.html:53
+msgid "Order Total:"
+msgstr "Сумма заказа"
+
+#: shopping_cart/templates/shopping_cart/checkout.html:94
+msgid "Ready!"
+msgstr "Готово!"
+
+#: shopping_cart/templates/shopping_cart/checkout.html:97
+#, fuzzy
+#| msgid "Continue Shopping"
+msgid "Go shopping"
+msgstr "Вернуться к покупкам"
+
+#: shopping_cart/templates/shopping_cart/order_summary.html:78
+msgid "Continue Shopping"
+msgstr "Вернуться к покупкам"
+
+#: shopping_cart/templates/shopping_cart/order_summary.html:78
+msgid "Add Items to Cart"
+msgstr "Добавить товары в корзину"
+
+#: shopping_cart/templates/shopping_cart/order_summary.html:83
+msgid "Proceed To Checkout"
+msgstr "Оформить заказ"
+
+#: shopping_cart/views.py:78
+msgid "item added to cart"
+msgstr "товар добавлен в корзину"
+
+#: shopping_cart/views.py:110
+msgid "Item has been deleted"
+msgstr "товар удален из корзины"
+
+#: shopping_cart/views.py:178
+msgid "PJ | Order accepted!"
+msgstr "PJ | Заказ принят!"
+
+#: shopping_cart/views.py:179
+msgid ""
+"\n"
+"    Hi, there!\n"
+"    Thank you for ordering:\n"
+"    {email_content}\n"
+"    We'll contact you again soon.\n"
+"\n"
+"    Now you can check out your order #{order_code} details and follow status "
+"of your order fulfillment in your awesome PJ-shop profile :)\n"
+"\n"
+"    P.S. Have a questions? Contact us, you are always welcome!   \n"
+"    "
+msgstr ""
+"\n"
+"    Добрый день!\n"
+"    Благодарим, что заказали:\n"
+"    {email_content}\n"
+"    Мы свяжемся с Вами в скором времени.\n"
+"\n"
+"    Теперь Вы сможете найти подробности заказа #{order_code} и следить за "
+"статусом выполенияв Вашем PJ-shop профиле :)\n"
+"\n"
+"    P.S. Есть вопросы? Свяжитесь с нами, мы всегда Вам рады!   \n"
+"    "
 
 #: templates/allauth/account/account_inactive.html:5
 #: templates/allauth/account/account_inactive.html:8
@@ -1014,24 +1125,24 @@ msgstr "Описание"
 msgid "Product characteristics"
 msgstr "Характеристики"
 
-#: templates/product/product_detail.html:96
+#: templates/product/product_detail.html:97
 msgid "Go to Cart"
 msgstr "Перейти в корзину"
 
-#: templates/product/product_detail.html:104
-#: templates/product/product_detail.html:117
+#: templates/product/product_detail.html:105
+#: templates/product/product_detail.html:118
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
-#: templates/product/product_detail.html:125
+#: templates/product/product_detail.html:126
 msgid "Hello"
 msgstr "Привет"
 
-#: templates/product/product_detail.html:135
+#: templates/product/product_detail.html:136
 msgid "Close"
 msgstr "Закрыть"
 
-#: templates/product/product_detail.html:136
+#: templates/product/product_detail.html:137
 msgid "Yes, no problems!"
 msgstr "Да, конечно!"
 
@@ -1051,9 +1162,12 @@ msgstr "Материал детали"
 #: templates/product_forms/Кольца.html:7
 #: templates/product_forms/Кольца.html:10
 #: templates/product_forms/Кольца.html:13
-#: templates/product_forms/Подвески.html:8
-#: templates/product_forms/Подвески.html:11
-#: templates/product_forms/Подвески.html:14
+#: templates/product_forms/Подвески.html:7
+#: templates/product_forms/Подвески.html:10
+#: templates/product_forms/Подвески.html:13
+#: templates/product_forms/Серьги.html:7
+#: templates/product_forms/Серьги.html:10
+#: templates/product_forms/Серьги.html:13
 msgid "material"
 msgstr "материал"
 
@@ -1061,7 +1175,8 @@ msgstr "материал"
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:7
 #: templates/product_forms/Запонки.html:7
 #: templates/product_forms/Кольца.html:7
-#: templates/product_forms/Подвески.html:8
+#: templates/product_forms/Подвески.html:7
+#: templates/product_forms/Серьги.html:7
 msgid "silver 925°"
 msgstr "серебро 925°"
 
@@ -1069,7 +1184,8 @@ msgstr "серебро 925°"
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:10
 #: templates/product_forms/Запонки.html:10
 #: templates/product_forms/Кольца.html:10
-#: templates/product_forms/Подвески.html:11
+#: templates/product_forms/Подвески.html:10
+#: templates/product_forms/Серьги.html:10
 msgid "gilding 925°"
 msgstr "позолота 925°"
 
@@ -1077,7 +1193,8 @@ msgstr "позолота 925°"
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:13
 #: templates/product_forms/Запонки.html:13
 #: templates/product_forms/Кольца.html:13
-#: templates/product_forms/Подвески.html:14
+#: templates/product_forms/Подвески.html:13
+#: templates/product_forms/Серьги.html:13
 msgid "gold 925°"
 msgstr "золото 925°"
 
@@ -1125,24 +1242,17 @@ msgstr "свой размер"
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:33
 #: templates/product_forms/Браслеты_кожаные.html:40
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:33
-#: templates/product_forms/Подвески.html:34
+#: templates/product_forms/Подвески.html:33
 msgid "cm"
 msgstr "см"
-
-#: templates/product_forms/Браслеты_из_натуральных_камней.html:43
-#: templates/product_forms/Браслеты_кожаные.html:50
-#: templates/product_forms/Браслеты_серебряные_и_золотые.html:43
-#: templates/product_forms/Кольца.html:30
-#: templates/product_forms/Подвески.html:44
-msgid "Quantity"
-msgstr "Колличество"
 
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:60
 #: templates/product_forms/Браслеты_кожаные.html:67
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:60
 #: templates/product_forms/Запонки.html:37
 #: templates/product_forms/Кольца.html:47
-#: templates/product_forms/Подвески.html:61
+#: templates/product_forms/Подвески.html:60
+#: templates/product_forms/Серьги.html:37
 msgid "Price"
 msgstr "Цена"
 
@@ -1176,38 +1286,38 @@ msgstr "коричневый"
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:2
 #: templates/product_forms/Запонки.html:2
 #: templates/product_forms/Кольца.html:2
-#: templates/product_forms/Подвески.html:3
+#: templates/product_forms/Подвески.html:2
+#: templates/product_forms/Серьги.html:2
 msgid "Product material"
 msgstr "Материал изделия"
 
 #: templates/product_forms/Запонки.html:20
+#: templates/product_forms/Серьги.html:20
 msgid "Quantity (pairs)"
 msgstr "Колличество пар"
 
-#: templates/product_forms/Подвески.html:19
+#: templates/product_forms/Подвески.html:18
 msgid "Chain length"
 msgstr "Длина цепочки"
 
-#: templates/product_forms/Подвески.html:23
-#: templates/product_forms/Подвески.html:26
-#: templates/product_forms/Подвески.html:29
-#: templates/product_forms/Подвески.html:32
+#: templates/product_forms/Подвески.html:22
+#: templates/product_forms/Подвески.html:25
+#: templates/product_forms/Подвески.html:28
+#: templates/product_forms/Подвески.html:31
 msgid "length"
 msgstr "длина"
 
-#: templates/product_forms/Подвески.html:23
-#| msgid "standard male"
+#: templates/product_forms/Подвески.html:22
 msgctxt "chain length"
 msgid "standard male"
 msgstr "стандартная мужская"
 
-#: templates/product_forms/Подвески.html:26
-#| msgid "standard female"
+#: templates/product_forms/Подвески.html:25
 msgctxt "chain length"
 msgid "standard female"
 msgstr "стандартная женская"
 
-#: templates/product_forms/Подвески.html:29
+#: templates/product_forms/Подвески.html:28
 msgid "own length"
 msgstr "своя длина"
 
@@ -1276,6 +1386,3 @@ msgstr "своя длина"
 
 #~ msgid "Password Deleted"
 #~ msgstr "Пароль удалён"
-
-#~ msgid "Your password has been deleted."
-#~ msgstr "Ваш пароль был удален."

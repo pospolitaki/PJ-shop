@@ -61,7 +61,7 @@ class Order(models.Model):
     customer_email = models.EmailField(_('customer email'), blank=True, null=True, default=None)
     #phone number validation
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number should be entered in the format: '+38099.......'.")
-    customer_phone_number = models.CharField(_('customer phone number'), validators=[phone_regex], max_length=17, blank=True) 
+    customer_phone_number = models.CharField(_('contact phone number'), validators=[phone_regex], max_length=17, blank=True) 
 
     status = models.ForeignKey(Status, verbose_name=_('status'), on_delete=models.SET_NULL, null=True, blank=True, default=1)
 
