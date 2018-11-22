@@ -17,14 +17,16 @@ class Category(models.Model):
         verbose_name = _('category')
         verbose_name_plural = _('categories')
 
+
+
 class Product(models.Model):
-    name = models.CharField(_('name'), max_length=128, blank=True, null=True, default=None)
+    name = models.CharField(_('name'), max_length=128, blank=True, null=True, default=':)')
     is_active = models.BooleanField(_('is active'), default=True)
     for_children = models.BooleanField(_('for children'), default=False)
     discount = models.IntegerField(_('discount'), default=0)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='products', verbose_name=_('category'), related_query_name="product",blank=True, null=True, default=None)
     price = models.DecimalField(_('price'), max_digits=10, decimal_places=2, default=0)
-    description = models.TextField(_('description'), blank=True, null=True, default=None)
+    description = models.TextField(_('description'), blank=True, null=True, default=_('Nice to meet you :)'))
     created = models.DateTimeField(_('created'), auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(_('updated'), auto_now=True, auto_now_add=False)
 

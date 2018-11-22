@@ -16,13 +16,8 @@ def product_detail(request,product_id):
             user_order_items = user_order.items.all()
             current_order_products = [product.product for product in user_order_items]
 
-    session_key = request.session.session_key
-    if not session_key:
-        request.session.cycle_key()
-
     context = {
     'product': product,
-    'session_key': session_key
     }
     if current_order_products:
         context.update({'current_order_products': current_order_products})

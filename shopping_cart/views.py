@@ -68,6 +68,8 @@ def add_to_cart(request, **kwargs):
                 
                 # TODO: have changed to create from get_or_create to fix bug with order items deleting if both users have the same order_item in cart... but this spoil the server db, so optimizations recomended
                 order_item = OrderItem.objects.create(product=product, nmb=product_quantity, details=order_item_details_raw)
+                if order_item:
+                    messages.info(request, _("item added to cart"))
                 # create order associated with the user
                 user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
                 user_order.items.add(order_item)
@@ -75,9 +77,8 @@ def add_to_cart(request, **kwargs):
                     # generate a reference code
                     user_order.ref_code = generate_order_id()
                     user_order.save()
-                    messages.info(request, _("item added to cart"))
         except IntegrityError:
-            print('Please, say to your developer that he is loser')
+            print('IntegrityError')
             raise
         print(order_item)
         print(user_order.owner)
@@ -96,6 +97,8 @@ def add_to_cart(request, **kwargs):
             "message": message.message,
             "extra_tags": message.tags,
             })
+
+        print('SMS', django_messages)
 
         return_data.update({'amount':request.user.profile.orders.filter(is_ordered=False)[0].items.count() or 0, 'messages':django_messages, 'authenticated': True})
     else:
@@ -204,5 +207,5 @@ def update_transaction_records(request):
     except BadHeaderError:
         return HttpResponse('Invalid header found.')
 
-    messages.info(request, "Thank you! Your order accepted!")
+    messages.info(request, _("Thank you! Your order accepted!"))
     return redirect(reverse('accounts:my_profile'))

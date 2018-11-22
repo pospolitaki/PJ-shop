@@ -18,7 +18,7 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'is_active',
         'discount',
-        'for_children'
+        'for_children',
     )
     
     class Meta:
@@ -32,6 +32,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
     list_editable = (
         'name',
+        'name_ru',
+        'name_en',
     )
     
     class Meta:

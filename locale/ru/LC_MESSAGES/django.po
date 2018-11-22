@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-20 15:24+0200\n"
+"POT-Creation-Date: 2018-11-22 20:17+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -175,7 +175,7 @@ msgstr "email адрес"
 msgid "email addresses"
 msgstr "email адреса"
 
-#: allauth/account/models.py:83 product/models.py:28 product/models.py:48
+#: allauth/account/models.py:83 product/models.py:30 product/models.py:50
 #: shopping_cart/models.py:15
 msgid "created"
 msgstr "создано"
@@ -222,7 +222,7 @@ msgid "provider"
 msgstr "провайдер"
 
 #: allauth/socialaccount/models.py:46 landing/models.py:8 product/models.py:10
-#: product/models.py:21 shopping_cart/models.py:12
+#: product/models.py:23 shopping_cart/models.py:12
 msgid "name"
 msgstr "имя"
 
@@ -335,6 +335,14 @@ msgstr "Нет сохраненного ключа доступа для \"%s\".
 msgid "No access to private resources at \"%s\"."
 msgstr "Доступ к ресурсам закрыт \"%s\"."
 
+#: hand_made_ishop/settings.py:202
+msgid "Russian"
+msgstr ""
+
+#: hand_made_ishop/settings.py:203
+msgid "US"
+msgstr ""
+
 #: landing/models.py:14
 msgid "Shop Subscriber"
 msgstr "Подписчик"
@@ -343,12 +351,12 @@ msgstr "Подписчик"
 msgid "Shop Subscribers"
 msgstr "Подписчики"
 
-#: product/models.py:11 product/models.py:22 product/models.py:47
+#: product/models.py:11 product/models.py:24 product/models.py:49
 #: shopping_cart/models.py:13
 msgid "is active"
 msgstr "активен(а)"
 
-#: product/models.py:17 product/models.py:25
+#: product/models.py:17 product/models.py:27
 msgid "category"
 msgstr "категория"
 
@@ -356,49 +364,53 @@ msgstr "категория"
 msgid "categories"
 msgstr "категории"
 
-#: product/models.py:23
+#: product/models.py:25
 msgid "for children"
 msgstr "для деток"
 
-#: product/models.py:24
+#: product/models.py:26
 msgid "discount"
 msgstr "скидка"
 
-#: product/models.py:26
+#: product/models.py:28
 msgid "price"
 msgstr "цена"
 
-#: product/models.py:27
+#: product/models.py:29
 msgid "description"
 msgstr "описание"
 
-#: product/models.py:29 product/models.py:49 shopping_cart/models.py:14
+#: product/models.py:29
+msgid "Nice to meet you :)"
+msgstr "Рады Вас видеть :)"
+
+#: product/models.py:31 product/models.py:51 shopping_cart/models.py:14
 #: shopping_cart/models.py:34
 msgid "updated"
 msgstr "обновление"
 
-#: product/models.py:35 product/models.py:44 shopping_cart/admin.py:29
+#: product/models.py:37 product/models.py:46 shopping_cart/admin.py:29
 #: shopping_cart/models.py:25
 msgid "product"
 msgstr "продукт"
 
-#: product/models.py:36
+#: product/models.py:38
 msgid "products"
 msgstr "продукты"
 
-#: product/models.py:45
+#: product/models.py:47
 msgid "image"
 msgstr "фотография"
 
-#: product/models.py:46
+#: product/models.py:48
 msgid "is main"
 msgstr "основная"
 
-#: product/models.py:55
+#: product/models.py:57
 msgid "product image"
 msgstr "фотография продукта"
 
-#: product/models.py:56
+#: product/models.py:58
 msgid "product images"
 msgstr "фотографии продуктов"
 
@@ -506,6 +518,11 @@ msgstr "Характеристики"
 
 #: shopping_cart/templates/shopping_cart/checkout.html:31
 #: shopping_cart/templates/shopping_cart/order_summary.html:15
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:43
+#: templates/product_forms/Leather_bracelets.html:50
+#: templates/product_forms/Pendants.html:43
+#: templates/product_forms/Rings.html:30
+#: templates/product_forms/Silver_and_gold_bracelets.html:43
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:43
 #: templates/product_forms/Браслеты_кожаные.html:50
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:43
@@ -551,19 +568,20 @@ msgstr "Добавить товары в корзину"
 msgid "Proceed To Checkout"
 msgstr "Оформить заказ"
 
-#: shopping_cart/views.py:78
+#: shopping_cart/views.py:72
 msgid "item added to cart"
 msgstr "товар добавлен в корзину"
 
-#: shopping_cart/views.py:110
+#: shopping_cart/views.py:113
 msgid "Item has been deleted"
 msgstr "товар удален из корзины"
 
-#: shopping_cart/views.py:178
+#: shopping_cart/views.py:181
 msgid "PJ | Order accepted!"
 msgstr "PJ | Заказ принят!"
 
-#: shopping_cart/views.py:179
+#: shopping_cart/views.py:182
+#, python-brace-format
 msgid ""
 "\n"
 "    Hi, there!\n"
@@ -588,6 +606,10 @@ msgstr ""
 "\n"
 "    P.S. Есть вопросы? Свяжитесь с нами, мы всегда Вам рады!   \n"
 "    "
+
+#: shopping_cart/views.py:210
+msgid "Thank you! Your order accepted!"
+msgstr "Спасибо! Ваш заказ принят! "
 
 #: templates/allauth/account/account_inactive.html:5
 #: templates/allauth/account/account_inactive.html:8
@@ -1105,6 +1127,10 @@ msgstr ""
 "Вы используете %(provider_name)s для авторизации на \n"
 "%(site_name)s. Чтобы завершить, заполните следующую форму:"
 
+#: templates/landing/home_categories.html:104
+msgid "For children"
+msgstr "Для детей"
+
 #: templates/navbar_prod.html:13 templates/navbar_register.html:12
 msgid "Home"
 msgstr "На главную"
@@ -1125,31 +1151,71 @@ msgstr "Описание"
 msgid "Product characteristics"
 msgstr "Характеристики"
 
-#: templates/product/product_detail.html:97
+#: templates/product/product_detail.html:76
+#, fuzzy, python-format
+#| msgid "products"
+msgid "%(product_name)s"
+msgstr "продукты"
+
+#  msgid "Braided leather bracelet with stainless steel insert"
+#  msgstr "Плетеный кожаный браслет со вставкой из нержавеющей стали"
+#: templates/product/product_detail.html:78
+msgid "Product code"
+msgstr "Код товара"
+
+#: templates/product/product_detail.html:98
 msgid "Go to Cart"
 msgstr "Перейти в корзину"
 
-#: templates/product/product_detail.html:105
-#: templates/product/product_detail.html:118
+#: templates/product/product_detail.html:106
+#: templates/product/product_detail.html:119
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
-#: templates/product/product_detail.html:126
+#: templates/product/product_detail.html:127
 msgid "Hello"
 msgstr "Привет"
 
-#: templates/product/product_detail.html:136
+#: templates/product/product_detail.html:132
+msgid ""
+"You need to come through small registration to make an order. Only few "
+"seconds. After this you'll have your own super cool profile with all your "
+"orders"
+msgstr ""
+"Для покупки Вам необходимо пройти небольшую и простую регистрацию. Всего "
+"пару минут. Это позволит Вам следить за всеми Вашими заказами и ходом их "
+"выполнения"
+
+#: templates/product/product_detail.html:135
 msgid "Close"
 msgstr "Закрыть"
 
-#: templates/product/product_detail.html:137
+#: templates/product/product_detail.html:136
 msgid "Yes, no problems!"
 msgstr "Да, конечно!"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:2
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:2
 msgid "Detail material"
 msgstr "Материал детали"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:7
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:10
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:13
+#: templates/product_forms/Cufflinks.html:7
+#: templates/product_forms/Cufflinks.html:10
+#: templates/product_forms/Cufflinks.html:13
+#: templates/product_forms/Earrings.html:7
+#: templates/product_forms/Earrings.html:10
+#: templates/product_forms/Earrings.html:13
+#: templates/product_forms/Pendants.html:7
+#: templates/product_forms/Pendants.html:10
+#: templates/product_forms/Pendants.html:13
+#: templates/product_forms/Rings.html:7 templates/product_forms/Rings.html:10
+#: templates/product_forms/Rings.html:13
+#: templates/product_forms/Silver_and_gold_bracelets.html:7
+#: templates/product_forms/Silver_and_gold_bracelets.html:10
+#: templates/product_forms/Silver_and_gold_bracelets.html:13
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:7
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:10
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:13
@@ -1171,6 +1237,11 @@ msgstr "Материал детали"
 msgid "material"
 msgstr "материал"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:7
+#: templates/product_forms/Cufflinks.html:7
+#: templates/product_forms/Earrings.html:7
+#: templates/product_forms/Pendants.html:7 templates/product_forms/Rings.html:7
+#: templates/product_forms/Silver_and_gold_bracelets.html:7
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:7
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:7
 #: templates/product_forms/Запонки.html:7
@@ -1180,6 +1251,12 @@ msgstr "материал"
 msgid "silver 925°"
 msgstr "серебро 925°"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:10
+#: templates/product_forms/Cufflinks.html:10
+#: templates/product_forms/Earrings.html:10
+#: templates/product_forms/Pendants.html:10
+#: templates/product_forms/Rings.html:10
+#: templates/product_forms/Silver_and_gold_bracelets.html:10
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:10
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:10
 #: templates/product_forms/Запонки.html:10
@@ -1189,6 +1266,12 @@ msgstr "серебро 925°"
 msgid "gilding 925°"
 msgstr "позолота 925°"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:13
+#: templates/product_forms/Cufflinks.html:13
+#: templates/product_forms/Earrings.html:13
+#: templates/product_forms/Pendants.html:13
+#: templates/product_forms/Rings.html:13
+#: templates/product_forms/Silver_and_gold_bracelets.html:13
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:13
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:13
 #: templates/product_forms/Запонки.html:13
@@ -1198,6 +1281,10 @@ msgstr "позолота 925°"
 msgid "gold 925°"
 msgstr "золото 925°"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:18
+#: templates/product_forms/Leather_bracelets.html:24
+#: templates/product_forms/Rings.html:17
+#: templates/product_forms/Silver_and_gold_bracelets.html:18
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:18
 #: templates/product_forms/Браслеты_кожаные.html:24
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:18
@@ -1205,6 +1292,19 @@ msgstr "золото 925°"
 msgid "Size"
 msgstr "Размер"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:22
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:25
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:28
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:31
+#: templates/product_forms/Leather_bracelets.html:29
+#: templates/product_forms/Leather_bracelets.html:32
+#: templates/product_forms/Leather_bracelets.html:35
+#: templates/product_forms/Leather_bracelets.html:38
+#: templates/product_forms/Rings.html:21
+#: templates/product_forms/Silver_and_gold_bracelets.html:22
+#: templates/product_forms/Silver_and_gold_bracelets.html:25
+#: templates/product_forms/Silver_and_gold_bracelets.html:28
+#: templates/product_forms/Silver_and_gold_bracelets.html:31
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:22
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:25
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:28
@@ -1221,24 +1321,37 @@ msgstr "Размер"
 msgid "size"
 msgstr "размер"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:22
+#: templates/product_forms/Leather_bracelets.html:29
+#: templates/product_forms/Silver_and_gold_bracelets.html:22
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:22
 #: templates/product_forms/Браслеты_кожаные.html:29
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:22
 msgid "standard male"
 msgstr "стандартный мужской"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:25
+#: templates/product_forms/Leather_bracelets.html:32
+#: templates/product_forms/Silver_and_gold_bracelets.html:25
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:25
 #: templates/product_forms/Браслеты_кожаные.html:32
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:25
 msgid "standard female"
 msgstr "стандартный женский"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:28
+#: templates/product_forms/Leather_bracelets.html:35
+#: templates/product_forms/Silver_and_gold_bracelets.html:28
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:28
 #: templates/product_forms/Браслеты_кожаные.html:35
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:28
 msgid "own size"
 msgstr "свой размер"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:33
+#: templates/product_forms/Leather_bracelets.html:40
+#: templates/product_forms/Pendants.html:33
+#: templates/product_forms/Silver_and_gold_bracelets.html:33
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:33
 #: templates/product_forms/Браслеты_кожаные.html:40
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:33
@@ -1246,6 +1359,13 @@ msgstr "свой размер"
 msgid "cm"
 msgstr "см"
 
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:60
+#: templates/product_forms/Cufflinks.html:37
+#: templates/product_forms/Earrings.html:37
+#: templates/product_forms/Leather_bracelets.html:67
+#: templates/product_forms/Pendants.html:60
+#: templates/product_forms/Rings.html:47
+#: templates/product_forms/Silver_and_gold_bracelets.html:60
 #: templates/product_forms/Браслеты_из_натуральных_камней.html:60
 #: templates/product_forms/Браслеты_кожаные.html:67
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:60
@@ -1256,33 +1376,10 @@ msgstr "см"
 msgid "Price"
 msgstr "Цена"
 
-#: templates/product_forms/Браслеты_кожаные.html:3
-msgid "Leather color"
-msgstr "Цвет кожи"
-
-#: templates/product_forms/Браслеты_кожаные.html:7
-#: templates/product_forms/Браслеты_кожаные.html:11
-#: templates/product_forms/Браслеты_кожаные.html:15
-#: templates/product_forms/Браслеты_кожаные.html:19
-msgid "leather color"
-msgstr "цвет кожи"
-
-#: templates/product_forms/Браслеты_кожаные.html:7
-msgid "black"
-msgstr "черный"
-
-#: templates/product_forms/Браслеты_кожаные.html:11
-msgid "white"
-msgstr "белый"
-
-#: templates/product_forms/Браслеты_кожаные.html:15
-msgid "blue"
-msgstr "синий"
-
-#: templates/product_forms/Браслеты_кожаные.html:19
-msgid "brown"
-msgstr "коричневый"
-
+#: templates/product_forms/Cufflinks.html:2
+#: templates/product_forms/Earrings.html:2
+#: templates/product_forms/Pendants.html:2 templates/product_forms/Rings.html:2
+#: templates/product_forms/Silver_and_gold_bracelets.html:2
 #: templates/product_forms/Браслеты_серебряные_и_золотые.html:2
 #: templates/product_forms/Запонки.html:2
 #: templates/product_forms/Кольца.html:2
@@ -1291,15 +1388,58 @@ msgstr "коричневый"
 msgid "Product material"
 msgstr "Материал изделия"
 
+#: templates/product_forms/Cufflinks.html:20
+#: templates/product_forms/Earrings.html:20
 #: templates/product_forms/Запонки.html:20
 #: templates/product_forms/Серьги.html:20
 msgid "Quantity (pairs)"
 msgstr "Колличество пар"
 
+#: templates/product_forms/Leather_bracelets.html:3
+#: templates/product_forms/Браслеты_кожаные.html:3
+msgid "Leather color"
+msgstr "Цвет кожи"
+
+#: templates/product_forms/Leather_bracelets.html:7
+#: templates/product_forms/Leather_bracelets.html:11
+#: templates/product_forms/Leather_bracelets.html:15
+#: templates/product_forms/Leather_bracelets.html:19
+#: templates/product_forms/Браслеты_кожаные.html:7
+#: templates/product_forms/Браслеты_кожаные.html:11
+#: templates/product_forms/Браслеты_кожаные.html:15
+#: templates/product_forms/Браслеты_кожаные.html:19
+msgid "leather color"
+msgstr "цвет кожи"
+
+#: templates/product_forms/Leather_bracelets.html:7
+#: templates/product_forms/Браслеты_кожаные.html:7
+msgid "black"
+msgstr "черный"
+
+#: templates/product_forms/Leather_bracelets.html:11
+#: templates/product_forms/Браслеты_кожаные.html:11
+msgid "white"
+msgstr "белый"
+
+#: templates/product_forms/Leather_bracelets.html:15
+#: templates/product_forms/Браслеты_кожаные.html:15
+msgid "blue"
+msgstr "синий"
+
+#: templates/product_forms/Leather_bracelets.html:19
+#: templates/product_forms/Браслеты_кожаные.html:19
+msgid "brown"
+msgstr "коричневый"
+
+#: templates/product_forms/Pendants.html:18
 #: templates/product_forms/Подвески.html:18
 msgid "Chain length"
 msgstr "Длина цепочки"
 
+#: templates/product_forms/Pendants.html:22
+#: templates/product_forms/Pendants.html:25
+#: templates/product_forms/Pendants.html:28
+#: templates/product_forms/Pendants.html:31
 #: templates/product_forms/Подвески.html:22
 #: templates/product_forms/Подвески.html:25
 #: templates/product_forms/Подвески.html:28
@@ -1307,19 +1447,28 @@ msgstr "Длина цепочки"
 msgid "length"
 msgstr "длина"
 
+#: templates/product_forms/Pendants.html:22
 #: templates/product_forms/Подвески.html:22
 msgctxt "chain length"
 msgid "standard male"
 msgstr "стандартная мужская"
 
+#: templates/product_forms/Pendants.html:25
 #: templates/product_forms/Подвески.html:25
 msgctxt "chain length"
 msgid "standard female"
 msgstr "стандартная женская"
 
+#: templates/product_forms/Pendants.html:28
 #: templates/product_forms/Подвески.html:28
 msgid "own length"
 msgstr "своя длина"
+
+#~ msgid "Lava bracelet with silver cross"
+#~ msgstr "Браслет из лавы с серебряным крестом"
+
+#~ msgid "Braided leather bracelet with stainless steel insert"
+#~ msgstr "Плетеный кожаный браслет со вставкой из нержавеющей стали"
 
 #~ msgid "color"
 #~ msgstr "цвет"
