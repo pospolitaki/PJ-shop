@@ -5,7 +5,8 @@ from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.utils.translation import gettext_lazy as _
-
+from django.db.models import Prefetch
+from django.template.loader import render_to_string
 
 from accounts.models import Profile
 from product.models import Product
@@ -17,7 +18,7 @@ from shopping_cart.forms import OrderContactPhoneForm
 
 from django.http import JsonResponse
 from django.db import IntegrityError, transaction
-from django.core.mail import send_mail, send_mass_mail, BadHeaderError
+from django.core.mail import send_mail, send_mass_mail, BadHeaderError,EmailMultiAlternatives
 
 import datetime
 import json
@@ -26,7 +27,8 @@ import json
 def get_user_pending_order(request):
     # get order for the correct user
     user_profile = get_object_or_404(Profile, user=request.user)
-    order = Order.objects.filter(owner=user_profile, is_ordered=False)
+    # order = Order.objects.prefetch_related('items__product__product_imgs').filter(owner=user_profile, is_ordered=False)
+    order = Order.objects.prefetch_related(Prefetch('items', queryset=OrderItem.objects.select_related('product'))).filter(owner=user_profile, is_ordered=False)
     if order.exists():
         # get the only order in the list of filtered orders
         return order[0]
@@ -80,10 +82,10 @@ def add_to_cart(request, **kwargs):
         except IntegrityError:
             print('IntegrityError')
             raise
-        print(order_item)
-        print(user_order.owner)
-        print(request.POST)
-        print(request.user.is_authenticated)
+        # print(order_item)
+        # print(user_order.owner)
+        # print(request.POST)
+        # print(request.user.is_authenticated)
         # show confirmation message and redirect back to the same page
         # product_id = kwargs.get('item_id')
         # playing with ajax VVV
@@ -167,19 +169,34 @@ def update_transaction_records(request):
     user_profile.save()
     email_content = generate_success_order_email_content(order_items)
 
-    #!!! Python f-strings and JavaScript template strings are not yet supported by xgettext.
 
-    # def hello_world(request, count):
-    # page = ngettext(
-    #     'there is %(count)d object',
-    #     'there are %(count)d objects',
-    # count) % {
-    #     'count': count,
-    # }
+#     datatuple = (
+#     (_('PJ | Order accepted!'), 
+#     _('''
+#     Hi, there!
+#     Thank you for ordering:
+#     {email_content}
+#     We'll contact you again soon.
 
-    datatuple = (
-    (_('PJ | Order accepted!'), 
-    _('''
+#     Now you can check out your order #{order_code} details and follow status of your order fulfillment in your awesome PJ-shop profile :)
+
+#     P.S. Have a questions? Contact us, you are always welcome!   
+#     ''').format(email_content = email_content, order_code=order_to_purchase.ref_code), 
+#     settings.EMAIL_HOST_USER, [order_to_purchase.owner.user.email, settings.DEV_SUPPORT_EMAIL]),
+
+#     (f'New order #{order_to_purchase.ref_code}', 
+#     f'''
+#     Order #{order_to_purchase.ref_code}:
+#     {email_content}
+#     Customer contacts: email: {order_to_purchase.owner.user.email}, phone: {order_to_purchase.customer_phone_number}
+
+#     Have a nice day!
+#     Και αυτό θα περάσει..
+#     ''', 
+#     settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER,settings.DEV_SUPPORT_EMAIL]),
+# )
+    subject, from_email, to = _('PJ | Order accepted!'), settings.EMAIL_HOST_USER, settings.DEV_SUPPORT_EMAIL
+    text_content = _('''
     Hi, there!
     Thank you for ordering:
     {email_content}
@@ -188,24 +205,28 @@ def update_transaction_records(request):
     Now you can check out your order #{order_code} details and follow status of your order fulfillment in your awesome PJ-shop profile :)
 
     P.S. Have a questions? Contact us, you are always welcome!   
-    ''').format(email_content = email_content, order_code=order_to_purchase.ref_code), 
-    settings.EMAIL_HOST_USER, [order_to_purchase.owner.user.email, settings.DEV_SUPPORT_EMAIL]),
+    ''').format(email_content = email_content, order_code=order_to_purchase.ref_code)
+    # html_content = f'<html><body>{product_links}</body></html>'
+    html_content = render_to_string('order_accepted_email.html', {'order_items': order_items})
+    msg_to_castomer = EmailMultiAlternatives(subject, text_content, from_email, [to])
+    msg_to_castomer.attach_alternative(html_content, "text/html")
 
-    (f'New order #{order_to_purchase.ref_code}', 
-    f'''
-    Order #{order_to_purchase.ref_code}:
-    {email_content}
-    Customer contacts: email: {order_to_purchase.owner.user.email}, phone: {order_to_purchase.customer_phone_number}
-
-    Have a nice day!
-    Και αυτό θα περάσει..
-    ''', 
-    settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER,settings.DEV_SUPPORT_EMAIL]),
-)
+    subject, from_email, to = _('PJ | New order!'), settings.EMAIL_HOST_USER, settings.DEV_SUPPORT_EMAIL
+    text_content = 'New order, don\'t see order details? Please, inform your developer'
+    html_content = render_to_string('new_order.html', {'order_items': order_items, 'order_to_purchase':order_to_purchase})
+    msg_to_shop = EmailMultiAlternatives(subject, text_content, from_email, [to])
+    msg_to_shop.attach_alternative(html_content, "text/html")
+    
     try:
-        send_mass_mail(datatuple, fail_silently=False)
+        # send_mass_mail(datatuple, fail_silently=False)
+        msg_to_castomer.send(fail_silently=False)
+        msg_to_shop.send(fail_silently=False)
     except BadHeaderError:
         return HttpResponse('Invalid header found.')
+
+
+    
+    
 
     messages.info(request, _("Thank you! Your order accepted!"))
     return redirect(reverse('accounts:my_profile'))

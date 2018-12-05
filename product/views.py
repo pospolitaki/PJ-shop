@@ -9,7 +9,7 @@ def product_detail(request,product_id):
     product = Product.objects.get(id=product_id)
     current_order_products = []
     if request.user.is_authenticated:
-        filtered_orders = Order.objects.filter(owner=request.user.profile, is_ordered=False)
+        filtered_orders = Order.objects.prefetch_related('items').filter(owner=request.user.profile, is_ordered=False)
         
         if filtered_orders.exists():
             user_order = filtered_orders[0]

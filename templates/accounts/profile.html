@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,10 +8,10 @@
   
 <table class="table table-hover table-bordered text-center">
       <tr class="text-center">
-        <th class="align-middle">Date Ordered</th>
-        <th class="align-middle">Reference Code</th>
-        <th class="align-middle">Items</th>
-        <th class="align-middle">Price</th>
+        <th class="align-middle">{% trans "Date Ordered" %}</th>
+        <th class="align-middle">{% trans "Reference Code" %}</th>
+        <th class="align-middle">{% trans "Items" %}</th>
+        <th class="align-middle">{% trans "Price" %}</th>
       </tr>
       {% for order in my_orders|slice:"::-1" %}
         <tr>
@@ -37,7 +38,7 @@
       <div class="col-6 offset-3">
         
     <a href="{% url 'landing:home' %}" class="btn btn-block btn-info pull-left">
-            {% if not order %}Continue Shopping{% else %}Add Items to Cart {% endif %}
+            {% if not order %}{% trans "Continue Shopping" %}{% else %}{% trans "Add Items to Cart" %} {% endif %}
           </a>
       </div>
     </div>

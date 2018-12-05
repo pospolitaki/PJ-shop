@@ -1,0 +1,15 @@
+{% load i18n %}
+<html>
+    <body>
+        <h3>{% trans "Hi, there!" %}</h3>
+    <p>{% trans "Thank you for ordering:" %}</p>
+    {% for item in order_items %}
+        <a href="http://127.0.0.1:8000{% url 'product:product_detail' product_id=item.product.id %}">{{item.product.name}}</a> ({{item.details}}) <span>&times;</span> {{item.nmb}}<br>
+    {% endfor %}
+    <p>{% trans "We'll contact you again soon." %}</p>
+    <p>{% trans "Now you can check out your order details and follow status of your order fulfillment in your awesome" %} <a href="http://127.0.0.1:8000{% url 'accounts:my_profile' %}">{% trans "PJ-shop profile" %}</a> :)</p>
+
+    <p>{% trans "P.S. Have a questions?" %} <a href="http://127.0.0.1:8000{% url 'landing:home' %}">{% trans "Contact us" %}</a>, {% trans "you are always welcome!" %}</p>
+
+    </body>
+</html>

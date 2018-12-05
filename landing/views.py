@@ -23,7 +23,6 @@ def landing(request):
 def home(request):
     categories = Category.objects.prefetch_related('products__product_imgs').filter(is_active=True).order_by('-id')
     products_for_children = Product.objects.filter(for_children=True)
-    # products_images = ProductImage.objects.filter(is_active=True, is_main=True, product__is_active=True)
     return render(request, 'landing/home_categories.html', locals())
 
 def welcome(request):

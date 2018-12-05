@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from decimal import Decimal, getcontext
+from django.urls import reverse
+
 
 getcontext().prec = 2
 
@@ -17,6 +19,8 @@ class Category(models.Model):
         verbose_name = _('category')
         verbose_name_plural = _('categories')
 
+    def get_absolute_url(self):
+        return reverse('landing:categories', kwargs={'category': self.id})
 
 
 class Product(models.Model):

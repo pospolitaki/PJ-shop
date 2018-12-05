@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-22 20:17+0200\n"
+"POT-Creation-Date: 2018-11-23 13:51+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -551,16 +551,16 @@ msgid "Ready!"
 msgstr "Готово!"
 
 #: shopping_cart/templates/shopping_cart/checkout.html:97
-#, fuzzy
-#| msgid "Continue Shopping"
 msgid "Go shopping"
 msgstr "Вернуться к покупкам"
 
 #: shopping_cart/templates/shopping_cart/order_summary.html:78
+#: templates/accounts/profile.html:41
 msgid "Continue Shopping"
 msgstr "Вернуться к покупкам"
 
 #: shopping_cart/templates/shopping_cart/order_summary.html:78
+#: templates/accounts/profile.html:41
 msgid "Add Items to Cart"
 msgstr "Добавить товары в корзину"
 
@@ -568,19 +568,19 @@ msgstr "Добавить товары в корзину"
 msgid "Proceed To Checkout"
 msgstr "Оформить заказ"
 
-#: shopping_cart/views.py:72
+#: shopping_cart/views.py:75
 msgid "item added to cart"
 msgstr "товар добавлен в корзину"
 
-#: shopping_cart/views.py:113
+#: shopping_cart/views.py:116
 msgid "Item has been deleted"
 msgstr "товар удален из корзины"
 
-#: shopping_cart/views.py:181
+#: shopping_cart/views.py:199
 msgid "PJ | Order accepted!"
 msgstr "PJ | Заказ принят!"
 
-#: shopping_cart/views.py:182
+#: shopping_cart/views.py:200
 #, python-brace-format
 msgid ""
 "\n"
@@ -602,14 +602,48 @@ msgstr ""
 "    Мы свяжемся с Вами в скором времени.\n"
 "\n"
 "    Теперь Вы сможете найти подробности заказа #{order_code} и следить за "
-"статусом выполенияв Вашем PJ-shop профиле :)\n"
+"статусом выполения в Вашем PJ-shop профиле :)\n"
 "\n"
 "    P.S. Есть вопросы? Свяжитесь с нами, мы всегда Вам рады!   \n"
 "    "
 
-#: shopping_cart/views.py:210
+#: shopping_cart/views.py:215
+msgid "PJ | New order!"
+msgstr ""
+
+#: shopping_cart/views.py:232
 msgid "Thank you! Your order accepted!"
 msgstr "Спасибо! Ваш заказ принят! "
+
+#: templates/accounts/profile.html:11
+msgid "Date Ordered"
+msgstr "Δата заказа"
+
+#: templates/accounts/profile.html:12
+msgid "Reference Code"
+msgstr "Код заказа"
+
+#: templates/accounts/profile.html:13
+msgid "Items"
+msgstr "Товары"
+
+#: templates/accounts/profile.html:14
+#: templates/product_forms/Bracelets_made_of_natural_stones.html:60
+#: templates/product_forms/Cufflinks.html:37
+#: templates/product_forms/Earrings.html:37
+#: templates/product_forms/Leather_bracelets.html:67
+#: templates/product_forms/Pendants.html:60
+#: templates/product_forms/Rings.html:47
+#: templates/product_forms/Silver_and_gold_bracelets.html:60
+#: templates/product_forms/Браслеты_из_натуральных_камней.html:60
+#: templates/product_forms/Браслеты_кожаные.html:67
+#: templates/product_forms/Браслеты_серебряные_и_золотые.html:60
+#: templates/product_forms/Запонки.html:37
+#: templates/product_forms/Кольца.html:47
+#: templates/product_forms/Подвески.html:60
+#: templates/product_forms/Серьги.html:37
+msgid "Price"
+msgstr "Цена"
 
 #: templates/allauth/account/account_inactive.html:5
 #: templates/allauth/account/account_inactive.html:8
@@ -1143,6 +1177,42 @@ msgstr "Подписаться"
 msgid "Login"
 msgstr "Войти"
 
+#: templates/order_accepted_email.html:4
+msgid "Hi, there!"
+msgstr "Здравствуйте!"
+
+#: templates/order_accepted_email.html:5
+msgid "Thank you for ordering:"
+msgstr "Благодарим за Ваш заказ:"
+
+#: templates/order_accepted_email.html:9
+msgid "We'll contact you again soon."
+msgstr "В скором времени мы свяжемся с Вами"
+
+#: templates/order_accepted_email.html:10
+msgid ""
+"Now you can check out your order details and follow status of your order "
+"fulfillment in your awesome"
+msgstr ""
+"Теперь Вы сможете найти подробности заказа и следить за статусом выполнения "
+"в Вашем"
+
+#: templates/order_accepted_email.html:10
+msgid "PJ-shop profile"
+msgstr "PJ-shop профиле"
+
+#: templates/order_accepted_email.html:12
+msgid "P.S. Have a questions?"
+msgstr "P.S. Возникли вопросы?"
+
+#: templates/order_accepted_email.html:12
+msgid "Contact us"
+msgstr "Свяжитесь с нами"
+
+#: templates/order_accepted_email.html:12
+msgid "you are always welcome!"
+msgstr "мы всегда Вам рады!"
+
 #: templates/product/product_detail.html:62
 msgid "Description"
 msgstr "Описание"
@@ -1151,32 +1221,26 @@ msgstr "Описание"
 msgid "Product characteristics"
 msgstr "Характеристики"
 
-#: templates/product/product_detail.html:76
-#, fuzzy, python-format
-#| msgid "products"
-msgid "%(product_name)s"
-msgstr "продукты"
-
 #  msgid "Braided leather bracelet with stainless steel insert"
 #  msgstr "Плетеный кожаный браслет со вставкой из нержавеющей стали"
-#: templates/product/product_detail.html:78
+#: templates/product/product_detail.html:77
 msgid "Product code"
 msgstr "Код товара"
 
-#: templates/product/product_detail.html:98
+#: templates/product/product_detail.html:97
 msgid "Go to Cart"
 msgstr "Перейти в корзину"
 
-#: templates/product/product_detail.html:106
-#: templates/product/product_detail.html:119
+#: templates/product/product_detail.html:105
+#: templates/product/product_detail.html:118
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
-#: templates/product/product_detail.html:127
+#: templates/product/product_detail.html:126
 msgid "Hello"
 msgstr "Привет"
 
-#: templates/product/product_detail.html:132
+#: templates/product/product_detail.html:131
 msgid ""
 "You need to come through small registration to make an order. Only few "
 "seconds. After this you'll have your own super cool profile with all your "
@@ -1186,11 +1250,11 @@ msgstr ""
 "пару минут. Это позволит Вам следить за всеми Вашими заказами и ходом их "
 "выполнения"
 
-#: templates/product/product_detail.html:135
+#: templates/product/product_detail.html:134
 msgid "Close"
 msgstr "Закрыть"
 
-#: templates/product/product_detail.html:136
+#: templates/product/product_detail.html:135
 msgid "Yes, no problems!"
 msgstr "Да, конечно!"
 
@@ -1359,23 +1423,6 @@ msgstr "свой размер"
 msgid "cm"
 msgstr "см"
 
-#: templates/product_forms/Bracelets_made_of_natural_stones.html:60
-#: templates/product_forms/Cufflinks.html:37
-#: templates/product_forms/Earrings.html:37
-#: templates/product_forms/Leather_bracelets.html:67
-#: templates/product_forms/Pendants.html:60
-#: templates/product_forms/Rings.html:47
-#: templates/product_forms/Silver_and_gold_bracelets.html:60
-#: templates/product_forms/Браслеты_из_натуральных_камней.html:60
-#: templates/product_forms/Браслеты_кожаные.html:67
-#: templates/product_forms/Браслеты_серебряные_и_золотые.html:60
-#: templates/product_forms/Запонки.html:37
-#: templates/product_forms/Кольца.html:47
-#: templates/product_forms/Подвески.html:60
-#: templates/product_forms/Серьги.html:37
-msgid "Price"
-msgstr "Цена"
-
 #: templates/product_forms/Cufflinks.html:2
 #: templates/product_forms/Earrings.html:2
 #: templates/product_forms/Pendants.html:2 templates/product_forms/Rings.html:2
@@ -1463,6 +1510,11 @@ msgstr "стандартная женская"
 #: templates/product_forms/Подвески.html:28
 msgid "own length"
 msgstr "своя длина"
+
+#, fuzzy
+#~| msgid "products"
+#~ msgid "%(product_name)s"
+#~ msgstr "продукты"
 
 #~ msgid "Lava bracelet with silver cross"
 #~ msgstr "Браслет из лавы с серебряным крестом"

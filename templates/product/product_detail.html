@@ -73,8 +73,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="d-flex flex-column align-items-start">
-                        <h1 class="descriprion-text">{% blocktrans with product_name=product.name%}{{product_name}}{% endblocktrans %}</h1>
-                        
+                        <h1 class="descriprion-text"> {{product.name}} </h1>
                         <span class="badge badge-primary">{% trans "Product code" %}: {{product.id}}</span>
                     </div>
                 

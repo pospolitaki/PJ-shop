@@ -1,0 +1,11 @@
+{% load i18n %}
+<html>
+    <body>
+        <h3>New order:</h3>
+    {% for item in order_items %}
+        <a href="http://127.0.0.1:8000{% url 'product:product_detail' product_id=item.product.id %}">{{item.product.name}}</a> ({{item.details}}) <span>&times;</span> {{item.nmb}}<br>
+    {% endfor %}
+    <p> Customer contact email: {{order_to_purchase.owner.user.email}}, phone: {{order_to_purchase.customer_phone_number}} 
+    <p>Have a nice day!<p>
+    </body>
+</html>
