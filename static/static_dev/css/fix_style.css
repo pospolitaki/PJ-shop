@@ -118,7 +118,6 @@ div.discount-container{
     font-weight: 700;
     border-radius: 3px;
     z-index: 1;
-    
 }
 
 div.section-delivery{
@@ -313,10 +312,12 @@ ul.messages li { display: inline; }
 .breadcrumb>li+li:before {color: rgba(204, 204, 204, 1); content: "\276D\00a0";} */
 
 .back-btn:hover {
-    color: skyblue !important;
+    /* color: salmon !important; */
+    background-color: lightgrey !important;
 
 }
 
 .back-btn {
     white-space:normal;
 }
+

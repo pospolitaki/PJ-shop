@@ -13,27 +13,15 @@
 {% endblock breadcrumbs %} {% endcomment %}
 
 {% block breadcrumbs_container %}
-{% comment %} <div class='container px-0 mx-0'> {% endcomment %}
 <div class='row mx-1'>
-    <div class='col-md-3'>
+    <div class='col-sm-12 col-xl-4 '>
         {% if product.for_children %}
-        <a href={% url 'landing:categories' category=0 %} class="btn btn-secondary btn-lg active d-block back-btn" role="button" aria-pressed="true">
-        <div class='row'>
-            <div class='col-md-2 pr-0 '>
-                <span>&#8249;</span>
-            </div>
-            <div class='col-md-10 pl-0'>
-                {{ category.name }} 
-                {% comment %} <a href={% url 'landing:categories' category=0 %} class="btn btn-secondary btn-lg active d-block back-btn" role="button" aria-pressed="true"> <span>&#8249;</span> {{ category.name }}</a> {% endcomment %}
-            </div>
-        </div>
-        </a>
+        <a href={% url 'landing:categories' category=0 %} class="btn btn-light btn-lg active d-block back-btn descriprion-text" role="button" aria-pressed="true"> <i class="fas fa-sm fa-chevron-left"></i> {{ category.name }}</a>
         {% else %}
-        <a href={{product.category.get_absolute_url}} class="btn btn-secondary btn-lg active d-block back-btn" role="button" aria-pressed="true"> <span>&#8249;</span> {{ product.category.name }}</a>
+            <a href={{product.category.get_absolute_url}} class="btn btn-light btn-lg active d-block back-btn descriprion-text" role="button" aria-pressed="true"> <i class="fas fa-sm fa-chevron-left"></i> {{ product.category.name }}</a>
         {% endif %}
     </div>
 </div>
-{% comment %} </div> {% endcomment %}
 {% endblock breadcrumbs_container %}
 
 
