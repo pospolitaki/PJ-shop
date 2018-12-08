@@ -44,6 +44,9 @@ class Product(models.Model):
     @property
     def new_price(self):
         return float(self.price - self.price * Decimal(self.discount / 100))
+
+    def get_absolute_url(self):
+        return reverse('product:product_detail', kwargs={'product_id': self.id})
         
     
 class ProductImage(models.Model):

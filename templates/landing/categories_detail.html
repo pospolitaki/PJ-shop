@@ -1,8 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+
+<!-- breadcrumbs -->
+    {% comment %} {% block breadcrumbs_container %}
+    <nav class='navbar px-0' aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item "><a class='description-text' href="/">PJ</a></li>
+            <li class="breadcrumb-item"><a href="{{ category.get_absolute_url }}">{{category.name}}</a></li>
+            {% block breadcrumbs %}
+            {% endblock breadcrumbs %}
+        </ol>
+    </nav>
+    {% endblock breadcrumbs_container %} {% endcomment %}
+    {% block breadcrumbs_container %}
+<div class='container px-0 mx-0'>
+<div class='row mx-1'>
+    <div class='col-md-12'>
+        <a href="{% url 'landing:home' %}" class="btn btn-secondary btn-lg active back-btn" role="button" aria-pressed="true"> <span>&#8249;</span> Все изделия </a>
+    </div>
+</div>
+</div>
+{% endblock breadcrumbs_container %}
+
 {% block content %}
-   
     
 <div class="container-fluid img-h2-detail">
         <!-- <div class="text-center main-pic-con-home mb-5">

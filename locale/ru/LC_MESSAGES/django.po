@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-23 13:51+0200\n"
+"POT-Creation-Date: 2018-12-07 10:49+0200\n"
 "PO-Revision-Date: 2017-04-05 22:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -175,7 +175,7 @@ msgstr "email адрес"
 msgid "email addresses"
 msgstr "email адреса"
 
-#: allauth/account/models.py:83 product/models.py:30 product/models.py:50
+#: allauth/account/models.py:83 product/models.py:34 product/models.py:57
 #: shopping_cart/models.py:15
 msgid "created"
 msgstr "создано"
@@ -221,8 +221,8 @@ msgstr "Социальные аккаунты"
 msgid "provider"
 msgstr "провайдер"
 
-#: allauth/socialaccount/models.py:46 landing/models.py:8 product/models.py:10
-#: product/models.py:23 shopping_cart/models.py:12
+#: allauth/socialaccount/models.py:46 landing/models.py:8 product/models.py:12
+#: product/models.py:27 shopping_cart/models.py:12
 msgid "name"
 msgstr "имя"
 
@@ -335,11 +335,11 @@ msgstr "Нет сохраненного ключа доступа для \"%s\".
 msgid "No access to private resources at \"%s\"."
 msgstr "Доступ к ресурсам закрыт \"%s\"."
 
-#: hand_made_ishop/settings.py:202
+#: hand_made_ishop/settings.py:203
 msgid "Russian"
 msgstr ""
 
-#: hand_made_ishop/settings.py:203
+#: hand_made_ishop/settings.py:204
 msgid "US"
 msgstr ""
 
@@ -351,66 +351,70 @@ msgstr "Подписчик"
 msgid "Shop Subscribers"
 msgstr "Подписчики"
 
-#: product/models.py:11 product/models.py:24 product/models.py:49
+#: landing/views.py:36 templates/landing/home_categories.html:104
+msgid "For children"
+msgstr "Для детей"
+
+#: product/models.py:13 product/models.py:28 product/models.py:56
 #: shopping_cart/models.py:13
 msgid "is active"
 msgstr "активен(а)"
 
-#: product/models.py:17 product/models.py:27
+#: product/models.py:19 product/models.py:31
 msgid "category"
 msgstr "категория"
 
-#: product/models.py:18
+#: product/models.py:20
 msgid "categories"
 msgstr "категории"
 
-#: product/models.py:25
+#: product/models.py:29
 msgid "for children"
 msgstr "для деток"
 
-#: product/models.py:26
+#: product/models.py:30
 msgid "discount"
 msgstr "скидка"
 
-#: product/models.py:28
+#: product/models.py:32
 msgid "price"
 msgstr "цена"
 
-#: product/models.py:29
+#: product/models.py:33
 msgid "description"
 msgstr "описание"
 
-#: product/models.py:29
+#: product/models.py:33
 msgid "Nice to meet you :)"
 msgstr "Рады Вас видеть :)"
 
-#: product/models.py:31 product/models.py:51 shopping_cart/models.py:14
+#: product/models.py:35 product/models.py:58 shopping_cart/models.py:14
 #: shopping_cart/models.py:34
 msgid "updated"
 msgstr "обновление"
 
-#: product/models.py:37 product/models.py:46 shopping_cart/admin.py:29
+#: product/models.py:41 product/models.py:53 shopping_cart/admin.py:29
 #: shopping_cart/models.py:25
 msgid "product"
 msgstr "продукт"
 
-#: product/models.py:38
+#: product/models.py:42
 msgid "products"
 msgstr "продукты"
 
-#: product/models.py:47
+#: product/models.py:54
 msgid "image"
 msgstr "фотография"
 
-#: product/models.py:48
+#: product/models.py:55
 msgid "is main"
 msgstr "основная"
 
-#: product/models.py:57
+#: product/models.py:64
 msgid "product image"
 msgstr "фотография продукта"
 
-#: product/models.py:58
+#: product/models.py:65
 msgid "product images"
 msgstr "фотографии продуктов"
 
@@ -542,7 +546,7 @@ msgid "You have not added any items yet."
 msgstr "Вы еще не добавили ни одного товара."
 
 #: shopping_cart/templates/shopping_cart/checkout.html:69
-#: shopping_cart/templates/shopping_cart/order_summary.html:53
+#: shopping_cart/templates/shopping_cart/order_summary.html:51
 msgid "Order Total:"
 msgstr "Сумма заказа"
 
@@ -554,33 +558,33 @@ msgstr "Готово!"
 msgid "Go shopping"
 msgstr "Вернуться к покупкам"
 
-#: shopping_cart/templates/shopping_cart/order_summary.html:78
+#: shopping_cart/templates/shopping_cart/order_summary.html:76
 #: templates/accounts/profile.html:41
 msgid "Continue Shopping"
 msgstr "Вернуться к покупкам"
 
-#: shopping_cart/templates/shopping_cart/order_summary.html:78
+#: shopping_cart/templates/shopping_cart/order_summary.html:76
 #: templates/accounts/profile.html:41
 msgid "Add Items to Cart"
 msgstr "Добавить товары в корзину"
 
-#: shopping_cart/templates/shopping_cart/order_summary.html:83
+#: shopping_cart/templates/shopping_cart/order_summary.html:81
 msgid "Proceed To Checkout"
 msgstr "Оформить заказ"
 
-#: shopping_cart/views.py:75
+#: shopping_cart/views.py:74
 msgid "item added to cart"
 msgstr "товар добавлен в корзину"
 
-#: shopping_cart/views.py:116
+#: shopping_cart/views.py:115
 msgid "Item has been deleted"
 msgstr "товар удален из корзины"
 
-#: shopping_cart/views.py:199
+#: shopping_cart/views.py:198
 msgid "PJ | Order accepted!"
 msgstr "PJ | Заказ принят!"
 
-#: shopping_cart/views.py:200
+#: shopping_cart/views.py:199
 #, python-brace-format
 msgid ""
 "\n"
@@ -607,11 +611,11 @@ msgstr ""
 "    P.S. Есть вопросы? Свяжитесь с нами, мы всегда Вам рады!   \n"
 "    "
 
-#: shopping_cart/views.py:215
+#: shopping_cart/views.py:214
 msgid "PJ | New order!"
 msgstr ""
 
-#: shopping_cart/views.py:232
+#: shopping_cart/views.py:231
 msgid "Thank you! Your order accepted!"
 msgstr "Спасибо! Ваш заказ принят! "
 
@@ -1161,10 +1165,6 @@ msgstr ""
 "Вы используете %(provider_name)s для авторизации на \n"
 "%(site_name)s. Чтобы завершить, заполните следующую форму:"
 
-#: templates/landing/home_categories.html:104
-msgid "For children"
-msgstr "Для детей"
-
 #: templates/navbar_prod.html:13 templates/navbar_register.html:12
 msgid "Home"
 msgstr "На главную"
@@ -1213,34 +1213,34 @@ msgstr "Свяжитесь с нами"
 msgid "you are always welcome!"
 msgstr "мы всегда Вам рады!"
 
-#: templates/product/product_detail.html:62
+#: templates/product/product_detail.html:88
 msgid "Description"
 msgstr "Описание"
 
-#: templates/product/product_detail.html:67
+#: templates/product/product_detail.html:93
 msgid "Product characteristics"
 msgstr "Характеристики"
 
 #  msgid "Braided leather bracelet with stainless steel insert"
 #  msgstr "Плетеный кожаный браслет со вставкой из нержавеющей стали"
-#: templates/product/product_detail.html:77
+#: templates/product/product_detail.html:103
 msgid "Product code"
 msgstr "Код товара"
 
-#: templates/product/product_detail.html:97
+#: templates/product/product_detail.html:123
 msgid "Go to Cart"
 msgstr "Перейти в корзину"
 
-#: templates/product/product_detail.html:105
-#: templates/product/product_detail.html:118
+#: templates/product/product_detail.html:131
+#: templates/product/product_detail.html:144
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
-#: templates/product/product_detail.html:126
+#: templates/product/product_detail.html:152
 msgid "Hello"
 msgstr "Привет"
 
-#: templates/product/product_detail.html:131
+#: templates/product/product_detail.html:157
 msgid ""
 "You need to come through small registration to make an order. Only few "
 "seconds. After this you'll have your own super cool profile with all your "
@@ -1250,11 +1250,11 @@ msgstr ""
 "пару минут. Это позволит Вам следить за всеми Вашими заказами и ходом их "
 "выполнения"
 
-#: templates/product/product_detail.html:134
+#: templates/product/product_detail.html:160
 msgid "Close"
 msgstr "Закрыть"
 
-#: templates/product/product_detail.html:135
+#: templates/product/product_detail.html:161
 msgid "Yes, no problems!"
 msgstr "Да, конечно!"
 

@@ -33,7 +33,7 @@ def categories_detail(request, category):
         category = Category.objects.filter(id=category).first()
         products_images = ProductImage.objects.select_related('product').filter(is_active=True, is_main=True, product__category=category,product__for_children=False, product__is_active=True)
     else:
-        category = {'name':'Для детей'}
+        category = {'name':_('For children')}
         products_images = ProductImage.objects.select_related('product').filter(is_active=True, is_main=True, product__for_children=True, product__is_active=True)
     return render(request, 'landing/categories_detail.html', locals())
 

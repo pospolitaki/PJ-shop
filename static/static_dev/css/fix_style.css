@@ -308,3 +308,15 @@ ul.messages li { display: inline; }
 #fix-height{
     min-height: 80%;
 }
+
+/* .breadcrumb {background: rgba(245, 245, 245, 0); border: 0px solid rgba(245, 245, 245, 1); border-radius: 4px;}
+.breadcrumb>li+li:before {color: rgba(204, 204, 204, 1); content: "\276D\00a0";} */
+
+.back-btn:hover {
+    color: skyblue !important;
+
+}
+
+.back-btn {
+    white-space:normal;
+}

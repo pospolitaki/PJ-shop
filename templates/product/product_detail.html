@@ -1,5 +1,41 @@
-{% extends "base.html" %}
-{% load static extra_tags i18n%}
+{% extends "landing/categories_detail.html" %}
+{% comment %} {% extends "base.html" %} {% endcomment %}
+
+{% load static extra_tags i18n %}
+
+{% comment %} {% block breadcrumbs_container %}
+{% with category=product.category %}
+    {{ block.super }}
+{% endwith%}
+{% endblock breadcrumbs_container %}
+{% block breadcrumbs %}
+    <li class="breadcrumb-item"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></li>
+{% endblock breadcrumbs %} {% endcomment %}
+
+{% block breadcrumbs_container %}
+{% comment %} <div class='container px-0 mx-0'> {% endcomment %}
+<div class='row mx-1'>
+    <div class='col-md-3'>
+        {% if product.for_children %}
+        <a href={% url 'landing:categories' category=0 %} class="btn btn-secondary btn-lg active d-block back-btn" role="button" aria-pressed="true">
+        <div class='row'>
+            <div class='col-md-2 pr-0 '>
+                <span>&#8249;</span>
+            </div>
+            <div class='col-md-10 pl-0'>
+                {{ category.name }} 
+                {% comment %} <a href={% url 'landing:categories' category=0 %} class="btn btn-secondary btn-lg active d-block back-btn" role="button" aria-pressed="true"> <span>&#8249;</span> {{ category.name }}</a> {% endcomment %}
+            </div>
+        </div>
+        </a>
+        {% else %}
+        <a href={{product.category.get_absolute_url}} class="btn btn-secondary btn-lg active d-block back-btn" role="button" aria-pressed="true"> <span>&#8249;</span> {{ product.category.name }}</a>
+        {% endif %}
+    </div>
+</div>
+{% comment %} </div> {% endcomment %}
+{% endblock breadcrumbs_container %}
+
 
 {% block content %}
 <div class="container-fluid img-h2-detail mb-3">

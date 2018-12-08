@@ -2,6 +2,8 @@ from django.shortcuts import render
 from product.models import *
 from shopping_cart.models import Order
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext as _
+
 
 
 # @login_required
@@ -18,6 +20,7 @@ def product_detail(request,product_id):
 
     context = {
     'product': product,
+    'category' : {'name':_('For children')}
     }
     if current_order_products:
         context.update({'current_order_products': current_order_products})
