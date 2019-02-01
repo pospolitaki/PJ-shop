@@ -17,8 +17,16 @@ from django.conf.urls import url
 from django.contrib import admin
 from product import views
 
+#django-rest
+from rest_framework.urlpatterns import format_suffix_patterns
+
+
 app_name = 'product'
 
 urlpatterns = [
     url(r'^product/(?P<product_id>[\d]+)$', views.product_detail, name='product_detail'),
+    url(r'^product/rest$', views.ProductList.as_view(), name='product_rest'),
+
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

@@ -4,7 +4,26 @@ from shopping_cart.models import Order
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 
+#django-rest VVV
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import ProductSerializer
 
+
+class ProductList(APIView):
+
+    def get(self, request):
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
+        
+        
+    def post(self):
+        pass
+
+ 
+#django-rest^^^
 
 # @login_required
 def product_detail(request,product_id):
