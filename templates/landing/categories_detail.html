@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load currencies %}
 
 
 
@@ -25,6 +26,12 @@
 {% endblock breadcrumbs_container %}
 
 {% block content %}
+ <div>
+        {% currencies_combo %}
+    </div>
+    <div>
+        {% local_currency 10 'USD' %}
+    </div>
     
 <div class="container-fluid img-h2-detail">
         <!-- <div class="text-center main-pic-con-home mb-5">

@@ -39,6 +39,7 @@ urlpatterns += i18n_patterns(
     url(r'^/', include('allauth.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^cart/', include('shopping_cart.urls', namespace='shopping_cart')),
+    url(r'^currency/', include('django_easy_currencies.urls')),#djeasycurrencies
 ) \
 + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -7,7 +7,7 @@ from django.utils.translation import ugettext as _
 #django-rest VVV
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
 from .serializers import ProductSerializer
 
 
@@ -21,6 +21,11 @@ class ProductList(APIView):
         
     def post(self):
         pass
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
 
  
 #django-rest^^^
