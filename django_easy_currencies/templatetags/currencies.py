@@ -7,6 +7,7 @@ from django.utils.functional import cached_property
 
 from babel.numbers import format_currency
 from djmoney.money import Money
+from moneyed.localization import format_money
 
 
 register = template.Library()
@@ -50,7 +51,7 @@ class CurrencyConversionNode(template.Node):
             converted_price = price / self.currency_rates[source_currency]
             if self.formatted:
                 # return format_currency(converted_price, self.active_currency)
-                return Money(converted_price, self.active_currency)
+                return format_money(Money(converted_price, self.active_currency), locale='en_US')
         except KeyError:
             if self.formatted:
                 return format_currency(price, source_currency)

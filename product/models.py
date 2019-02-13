@@ -4,7 +4,7 @@ from decimal import Decimal, getcontext
 from django.urls import reverse
 
 
-getcontext().prec = 2
+# getcontext().prec = 2
 
 # Create your models here.
 
