@@ -2,7 +2,12 @@ gi python,linux
 
 # Created by https://www.gitignore.io/api/python,linux
 
+base.py
 settings.py
+development.py 
+testing.py 
+production.py 
+staging.py
 ### Linux ###
 *~
 
