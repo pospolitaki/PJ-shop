@@ -12,7 +12,6 @@ staging.py
 *~
 *.sqlite3
 *.sql
-datadump.json
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
